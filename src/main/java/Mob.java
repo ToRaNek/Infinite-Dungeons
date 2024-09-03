@@ -5,14 +5,22 @@ package src.main.java;
 public class Mob {
     private String name;
     private int hp;
+    private int hpMax;
     private int dmg;
     private int def;
+    private int speed;
+    private int ad;
+    private int ap;
     
-    public Mob(String name, int hp, int dmg, int def) {
+    public Mob(String name, int hp, int dmg, int def, int speed, int ad, int ap) {
         this.name = name;
         this.hp = hp;
+        this.hpMax = hp;
         this.dmg = dmg;
         this.def = def;
+        this.speed = speed;
+        this.ad = ad;
+        this.ap = ap;
     }
 
     public String getName() {
@@ -27,16 +35,15 @@ public class Mob {
     public int getDef() {
         return def;
     }
-    public void setName(String name) {
-        this.name = name;
+    public int getSpeed(){
+        return speed;
     }
-    public void setHp(int hp) {
-        this.hp = hp;
+
+    public void healTaken(int nbrHp){
+        this.hp += nbrHp;
+        if(hp>hpMax){hp=hpMax;}
     }
-    public void setDmg(int dmg) {
-        this.dmg = dmg;
-    }
-    public void setDef(int def) {
-        this.def = def;
+    public void damageTaken(int dmgTaken){
+        hp -= (dmgTaken-def);
     }
 }
