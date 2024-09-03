@@ -1,4 +1,4 @@
-package src.main.java;
+package main.java;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -66,7 +66,7 @@ public class Main {
     }
 
     public static void gameLoop(Player player) throws IOException{
-        Mob mob = new Mob("Slime", MobType.SLIME, 10, 5, 5, 3, 3);
+        Mob mob = Mob.randomNewMob(1);
         Combat combatTest = new Combat(mob, player);
         combatTest.launchCombat();
     }
