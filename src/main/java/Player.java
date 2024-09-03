@@ -17,16 +17,16 @@ public class Player extends Entity{
     private Armors armureactuelle;
     
     public int getDmgA() {
-        return getDmgA() + armeactuelle.getAD();
+        return super.getDmgA() + armeactuelle.getAD();
     }
     public int getDefA() {
-        return getDefA() + armureactuelle.getResPhy();
+        return super.getDefA() + armureactuelle.getResPhy();
     }
     public int getDmgP() {
-        return getDmgP() + armeactuelle.getAP();
+        return super.getDmgP() + armeactuelle.getAP();
     }
     public int getDefP() {
-        return getDefP() + armureactuelle.getResMag();
+        return super.getDefP() + armureactuelle.getResMag();
     }
     public Armors getArmure() {
         return armureactuelle;

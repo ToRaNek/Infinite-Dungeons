@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import java.io.Serializable;
 
-public class Entity implements Serializableimplements Serializable {
+public class Entity implements Serializable {
     private String name;
     private int hp;
     private int hpMax;
