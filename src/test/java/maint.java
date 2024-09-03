@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class maint {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/img/Slime.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/img/Skeleton.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
