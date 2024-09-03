@@ -1,4 +1,7 @@
-package src.main.java;
+package main.java;
+
+import java.util.Random;
+
 /**
  * Mob
  */
@@ -6,18 +9,19 @@ public class Mob {
     private String name;
     private int hp;
     private int hpMax;
-    private int def;
+    private int defA;
+    private int defP;
     private int speed;
     private int dmgA;
     private int dmgP;
     private MobType type;
     
-    public Mob(String name, MobType type, int hpMax, int def, int speed, int dmgA, int dmgP) {
+    public Mob(String name, MobType type, int hpMax, int defA,int defP, int dmgA, int dmgP, int speed) {
         this.name = name;
         this.type = type;
         this.hp = hpMax;
         this.hpMax = hpMax;
-        this.def = def;
+        this.defA = defA;
         this.speed = speed;
         this.dmgA = dmgA;
         this.dmgP = dmgP;
@@ -33,8 +37,11 @@ public class Mob {
     public int getHp() {
         return hp;
     }
-    public int getDef() {
-        return def;
+    public int getDefA() {
+        return defA;
+    }
+    public int getDefP() {
+        return defP;
     }
     public int getSpeed(){
         return speed;
@@ -57,7 +64,7 @@ public class Mob {
         if(hp>hpMax){hp=hpMax;}
     }
     public void damageTaken(int dmgTaken){
-        hp -= (dmgTaken-def);
+        hp -= (dmgTaken-(defA + defP));
     }
     
     public void setHp(int hp) {
@@ -68,8 +75,11 @@ public class Mob {
         this.hpMax = hpMax;
     }
 
-    public void setDef(int def) {
-        this.def = def;
+    public void setDefA(int defA) {
+        this.defA = defA;
+    }
+    public void setDefP(int defP) {
+        this.defP = defP;
     }
 
     public void setSpeed(int speed) {
@@ -82,6 +92,21 @@ public class Mob {
 
     public void setDmgP(int ap) {
         this.dmgP = ap;
+    }
+
+    public static Mob randomNewMob(int difficulty){
+        Random rdm = new Random();
+        MobType[] listMob = MobType.values();
+        int longueur = listMob.length;
+        int num = rdm.nextInt(longueur);
+        int hp =  (int)((80*rdm.nextInt(101) + 20) *0.25*difficulty);
+        int defA =  (int)((20*rdm.nextInt(101) + 10) *0.25*difficulty);
+        int defP =  (int)((20*rdm.nextInt(101) + 10) *0.25*difficulty);
+        int dmgA =  (int)((5*rdm.nextInt(101) + 5) *0.25*difficulty);
+        int dmgP =  (int)((5*rdm.nextInt(101) + 5) *0.25*difficulty);
+        Mob newMob = new Mob(listMob[num].toString(), listMob[num] , hp, defA, defP, dmgA, dmgP, 5);
+
+        return newMob;
     }
 
 
