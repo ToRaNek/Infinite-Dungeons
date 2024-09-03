@@ -1,15 +1,13 @@
 package main.java;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.Buffer;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 
  */
-public class Combat {
+public class Combat implements Serializable {
     /**
      * 
      */

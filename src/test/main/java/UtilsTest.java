@@ -1,11 +1,8 @@
 package test.main.java;
 
-import org.junit.jupiter.api.Test;
-import main.java.Utils;
-import org.junit.jupiter.api.BeforeEach;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
+import main.java.Utils;
 
 
 public class UtilsTest {

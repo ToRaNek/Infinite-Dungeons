@@ -1,6 +1,8 @@
 package main.java;
 
-public enum Armors implements Equipement {
+import java.io.Serializable;
+
+public enum Armors implements Equipement, Serializable {
     MAILLE("Cotte de maille", 5, 0),
     TOGE("Toge", 0, 5),
     BRIGANDINE("Brigandine", 3, 0),

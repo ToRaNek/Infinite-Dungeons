@@ -1,6 +1,8 @@
 package main.java;
 
-public class Entity {
+import java.io.Serializable;
+
+public class Entity implements Serializable {
     private String name;
     private int hp;
     private int hpMax;
