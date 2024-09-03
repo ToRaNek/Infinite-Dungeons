@@ -15,6 +15,18 @@ public class Player extends Entity{
     private Weapons armeactuelle;
     private Armors armureactuelle;
     
+    public int getDmgA() {
+        return getDmgA() + armeactuelle.getAD();
+    }
+    public int getDefA() {
+        return getDefA() + armureactuelle.getResPhy();
+    }
+    public int getDmgP() {
+        return getDmgP() + armeactuelle.getAP();
+    }
+    public int getDefP() {
+        return getDefP() + armureactuelle.getResMag();
+    }
     public Armors getArmure() {
         return armureactuelle;
     }
