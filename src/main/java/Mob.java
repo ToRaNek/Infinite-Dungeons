@@ -6,14 +6,15 @@ public class Mob {
     private String name;
     private int hp;
     private int hpMax;
-    private int dmg;
     private int def;
     private int speed;
-    private int ad;
-    private int ap;
+    private int dmgA;
+    private int dmgP;
+    private MobType type;
     
-    public Mob(String name, int hpMax, int def, int speed, int dmgA, int dmgP) {
+    public Mob(String name, MobType type, int hpMax, int def, int speed, int dmgA, int dmgP) {
         this.name = name;
+        this.type = type;
         this.hp = hpMax;
         this.hpMax = hpMax;
         this.def = def;
@@ -22,14 +23,15 @@ public class Mob {
         this.dmgP = dmgP;
     }
 
+    public MobType getType() {
+        return type;
+    }
+
     public String getName() {
         return name;
     }
     public int getHp() {
         return hp;
-    }
-    public int getDmg() {
-        return dmg;
     }
     public int getDef() {
         return def;
@@ -42,12 +44,12 @@ public class Mob {
         return hpMax;
     }
 
-    public int getAd() {
-        return ad;
+    public int getDmgA() {
+        return dmgA;
     }
 
-    public int getAp() {
-        return ap;
+    public int getDmgP() {
+        return dmgP;
     }
 
     public void healTaken(int nbrHp){
@@ -74,12 +76,12 @@ public class Mob {
         this.speed = speed;
     }
 
-    public void setAd(int ad) {
-        this.ad = ad;
+    public void setDmgA(int ad) {
+        this.dmgA = ad;
     }
 
-    public void setAp(int ap) {
-        this.ap = ap;
+    public void setDmgP(int ap) {
+        this.dmgP = ap;
     }
 
 
