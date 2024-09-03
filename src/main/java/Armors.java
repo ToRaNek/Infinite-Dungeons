@@ -13,13 +13,13 @@ public enum Armors implements Equipement {
 
     
     private String name;
-    private int ResPhy;
-    private int ResMag; 
+    private int ResAD;
+    private int ResAP; 
 
     Armors(String name, int ResPhy, int ResMag) {
         this.name = name;
-        this.ResPhy = ResPhy;
-        this.ResMag = ResMag;
+        this.ResAD = ResPhy;
+        this.ResAP = ResMag;
     }
 
     public String getName() {
@@ -27,11 +27,11 @@ public enum Armors implements Equipement {
     }
 
     public int getResPhy() {
-        return ResPhy;
+        return ResAD;
     }
 
     public int getResMag() {
-        return ResMag;
+        return ResAP;
     }
 
     public void setName(String name) {
@@ -39,10 +39,10 @@ public enum Armors implements Equipement {
     }
 
     public void setResPhy(int ResPhy) {
-        this.ResPhy = ResPhy;
+        this.ResAD = ResPhy;
     }
 
     public void setResMag(int ResMag) {
-        this.ResMag = ResMag;
+        this.ResAP = ResMag;
     } 
 }

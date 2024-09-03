@@ -13,13 +13,13 @@ package main.java;
         LANCE("Lance", 9, 0);
 
         private String name;
-        private int degatPhy;
-        private int degatMag; 
+        private int AD;
+        private int AP; 
 
         Weapons(String name, int degatPhy, int degatMag) {
             this.name = name;
-            this.degatPhy = degatPhy;
-            this.degatMag = degatMag;
+            this.AD = degatPhy;
+            this.AP = degatMag;
         }
 
         public String getName() {
@@ -27,10 +27,10 @@ package main.java;
         }
 
         public int getDegatPhy() {
-            return degatPhy;
+            return AD;
         }
 
         public int getDegatMag() {
-            return degatMag;
+            return AP;
         }
 }
