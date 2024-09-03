@@ -76,7 +76,7 @@ public class Combat {
                 endCombat = true;
                 System.out.println("Perdu");
             }else{
-                System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il vous reste " + this.player.getHp() + "hp");
+                System.out.println("Vous avez reçu " + playerDamage + " dégats du monstre. Il vous reste " + this.player.getHp() + "hp");
             }
             
         }
@@ -104,7 +104,7 @@ public class Combat {
                 return true;
             }else if (rep.equals("3")) {
                 System.out.println("Quelle équipement voulez vous changer?" + "\n" + "1 - Armure        2 - Arme");
-                int choice = Utils.readint();
+                String choice = Utils.readString();
                
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");
