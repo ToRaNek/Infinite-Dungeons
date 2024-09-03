@@ -12,16 +12,22 @@ public class Player {
     private int defP;
     private float speed;
     private ArrayList<Equipement> inventory;
+    private Weapons armeactuelle;
+    private Armors armureactuelle;
     
     public Player(String name, int hp, int dmgA, int defA, int dmgP, int defP, float speed) {
+        this.inventory = new ArrayList<Equipement>();
+        this.inventory.add(Weapons.DAGUE);
+        this.armeactuelle = Weapons.DAGUE;
+        this.armureactuelle = Armors.BRIGANDINE;  
         this.name = name;
         this.hp = hp;
-        this.dmgA = dmgA;
+        this.dmgA = dmgA; /*inventory.stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList().get(0).getAD();*/
         this.defA = defA;
         this.dmgP = dmgP;
         this.defP = defP;
         this.speed = speed;
-        this.inventory = new ArrayList<>();
+        
     }
 
     public String getName() {
@@ -31,19 +37,25 @@ public class Player {
         return hp;
     }
     public int getDmgA() {
-        return dmgA;
+        return dmgA + armeactuelle.getAD();
     }
     public int getDefA() {
-        return defA;
+        return defA + armureactuelle.getResPhy();
     }
     public int getDmgP() {
-        return dmgP;
+        return dmgP + armeactuelle.getAP();
     }
     public int getDefP() {
-        return defP;
+        return defP + armureactuelle.getResMag();
     }
     public float getSpeed() {
         return speed;
+    }
+    public Armors getArmure() {
+        return armureactuelle;
+    }
+    public Weapons getArme() {
+        return armeactuelle;
     }
     public ArrayList<Equipement> getInventory() {
         if (inventory == null) {
@@ -72,6 +84,12 @@ public class Player {
     }
     public void setSpeed(float speed) {
         this.speed = speed;
+    }
+    public void setArmeActuelle(Weapons NewArme) {
+        this.armeactuelle = NewArme;
+    }
+    public void setArmeActuelle(Armors NewArmure) {
+        this.armureactuelle = NewArmure;
     }
 
     public void setInventory(ArrayList<Equipement> inventory) {
