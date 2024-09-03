@@ -11,9 +11,9 @@ public class Player {
     private int defA;
     private int defP;
     private float speed;
-    private ArrayList<Object> inventory;
+    private ArrayList<Equipement> inventory;
     
-    public Player(String name, int hp, int dmgA, int defA, int dmgP, int defP, float speed, ArrayList<Object> inventory) {
+    public Player(String name, int hp, int dmgA, int defA, int dmgP, int defP, float speed) {
         this.name = name;
         this.hp = hp;
         this.dmgA = dmgA;
@@ -21,7 +21,7 @@ public class Player {
         this.dmgP = dmgP;
         this.defP = defP;
         this.speed = speed;
-        inventory = new ArrayList<>();
+        this.inventory = new ArrayList<>();
     }
 
     public String getName() {
@@ -45,7 +45,7 @@ public class Player {
     public float getSpeed() {
         return speed;
     }
-    public ArrayList<Object> getInventory() {
+    public ArrayList<Equipement> getInventory() {
         if (inventory == null) {
             throw new NullPointerException("inventory must not be null");
         }else{
@@ -74,7 +74,7 @@ public class Player {
         this.speed = speed;
     }
 
-    public void setStringList(ArrayList<Object> inventory) {
+    public void setInventory(ArrayList<Equipement> inventory) {
         if (inventory == null) {
             throw new NullPointerException("inventory must not be null");
         }
@@ -92,4 +92,10 @@ public class Player {
             setHp(getHp()+heal); 
         }
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
 }

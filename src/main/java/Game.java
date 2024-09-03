@@ -38,8 +38,11 @@ public class Game {
     }
 
 
-    private void printMenu() {
-       
+    public void showHelpMenu() {
+        System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
+        System.out.println("Infinite Dungeons consiste en un jeu de donjon au tour par tour");
+        System.out.println("Chaque tour vous affrontez des ennemis différent");
+        System.out.println("Récuperer des objets pour devenir de plus en plus puissant");
     }
 
     
