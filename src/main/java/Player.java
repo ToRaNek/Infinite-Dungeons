@@ -7,8 +7,10 @@ public class Player extends Entity{
         super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
         this.inventory = new ArrayList<Equipement>();
         this.inventory.add(Weapons.DAGUE);
+        this.inventory.add(Weapons.ARC);
         this.armeactuelle = Weapons.DAGUE;
         this.inventory.add(Armors.BRIGANDINE);
+        this.inventory.add(Armors.ECU);
         this.armureactuelle = Armors.BRIGANDINE;  
     }
 
