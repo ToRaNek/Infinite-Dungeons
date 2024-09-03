@@ -14,7 +14,7 @@ public class Main {
         Combat combatTest = new Combat(mob, player);
         
 
-        //game.showStartMenu();
+        Main.showStartMenu(player);
 
         boolean optionEntered = false;
         do{
@@ -22,15 +22,15 @@ public class Main {
                     switch (result) {
                         case "1":
                             optionEntered = true;
+                            combatTest.launchCombat();
                         
                             break;
                         case "2":
                             optionEntered = true;
-                            combatTest.launchCombat();
                         case "3":
-                            //game.showHelpMenu();
+                            Main.showHelpMenu(player);
                             TimeUnit.SECONDS.sleep(4);
-                            //game.showStartMenu();
+                            Main.showStartMenu(player);
                             break;
                         case "4":
                             optionEntered = true;
@@ -49,5 +49,27 @@ public class Main {
 
 
     }
+
+
+    public static void showStartMenu(Player player) {
+        System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
+        System.out.println("Entrer les valeurs correspondantes a chaque option: ");
+        System.out.println(" 1. Lancer la partie ");
+        System.out.println(" 2. Charger une partie (Indisponible)");
+        System.out.println(" 3. Infos regles (Indisponible)");
+        System.out.println(" 4. Quitter");
+
+
+       
+    }
+
+    public static void showHelpMenu(Player player) {
+        System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
+        System.out.println("Infinite Dungeons consiste en un jeu de donjon au tour par tour");
+        System.out.println("Chaque tour vous affrontez des ennemis différent");
+        System.out.println("Récuperer des objets pour devenir de plus en plus puissant");
+    }
+
+
 
 }
