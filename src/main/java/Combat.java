@@ -51,7 +51,7 @@ public class Combat {
         return playerTurn;
     }
 
-    public void launchCombat() throws IOException{
+    public boolean launchCombat() throws IOException{
         boolean playerTurn = this.faster();
         boolean block = false;
         while(!endCombat){
@@ -66,6 +66,8 @@ public class Combat {
                 playerTurn = true;
             }
         }
+        this.player.addGold(this.monster.getGold());
+        return !(this.player.getHp() > 0);
     }
 
     private void monsterPlay(boolean block){
