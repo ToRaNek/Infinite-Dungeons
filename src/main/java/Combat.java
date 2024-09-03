@@ -55,14 +55,18 @@ public class Combat {
         boolean block = false;
         while(!endCombat){
             if (playerTurn) {
+                System.out.println(ENDLINE + "Tour du joueur :");
                 block = this.playerPlay();
                 playerTurn = false;
             } else {
+                System.out.println(ENDLINE + "Tour de l'ennemie");
                 this.monsterPlay(block);
                 block = false;
                 playerTurn = true;
             }
+            
             if(this.player.getHp() <= 0){
+                this.player.setHp(0);
                 endCombat = true;
                 System.out.println("Perdu");
             }else if(this.monster.getHp() <= 0){
@@ -76,7 +80,7 @@ public class Combat {
         if(!block){
             int playerDamage = this.monster.getAd() + this.monster.getAp();
             this.player.damageTaken(playerDamage);
-            System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il a " + this.player.getHp() + "hp");
+            System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il vous reste " + this.player.getHp() + "hp");
         }
     }
 
@@ -90,7 +94,9 @@ public class Combat {
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
                 this.monster.damageTaken(monsterDamage);
                 System.out.println("Vous avez fait " + monsterDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
+                resp = true;
             }else if (rep.equals("2")) {
+                resp = true;
                 return true;
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");

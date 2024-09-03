@@ -12,15 +12,14 @@ public class Mob {
     private int ad;
     private int ap;
     
-    public Mob(String name, int hp, int dmg, int def, int speed, int ad, int ap) {
+    public Mob(String name, int hpMax, int def, int speed, int dmgA, int dmgP) {
         this.name = name;
-        this.hp = hp;
-        this.hpMax = hp;
-        this.dmg = dmg;
+        this.hp = hpMax;
+        this.hpMax = hpMax;
         this.def = def;
         this.speed = speed;
-        this.ad = ad;
-        this.ap = ap;
+        this.dmgA = dmgA;
+        this.dmgP = dmgP;
     }
 
     public String getName() {
@@ -57,6 +56,30 @@ public class Mob {
     }
     public void damageTaken(int dmgTaken){
         hp -= (dmgTaken-def);
+    }
+    
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setHpMax(int hpMax) {
+        this.hpMax = hpMax;
+    }
+
+    public void setDef(int def) {
+        this.def = def;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public void setAd(int ad) {
+        this.ad = ad;
+    }
+
+    public void setAp(int ap) {
+        this.ap = ap;
     }
 
 

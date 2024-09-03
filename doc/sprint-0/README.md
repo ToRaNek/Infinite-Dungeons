@@ -9,3 +9,5 @@ on a proposé plusieurs solutions
 - utiliser une messagerie
 
 ### SPRINT 1
+## PROBLEME
+On a eu quelque soucis avec git pendant le sprint qu'on a reglé très vite
