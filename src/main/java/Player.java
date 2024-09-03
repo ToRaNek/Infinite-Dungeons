@@ -1,4 +1,4 @@
-package src.main.java;
+package main.java;
 
 import java.util.ArrayList;
 
@@ -23,8 +23,6 @@ public class Player {
         this.name = name;
         this.hp = MAXHP;
         this.dmgA = dmgA;
-        this.hp = MAXHP;
-        this.dmgA = dmgA; /*inventory.stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList().get(0).getAD();*/
         this.defA = defA;
         this.dmgP = dmgP;
         this.defP = defP;
