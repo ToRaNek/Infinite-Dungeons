@@ -114,15 +114,16 @@ public class Combat {
                         System.out.println("Choisissez l'arme que vous souhaitez utiliser");
                         List<Weapons> tmp = this.player.getInventory().stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList();
                         for (int i = 0; i < tmp.size(); i++){
-                            System.out.println("" + i + tmp.get(i));
+                            System.out.println("" + (i+1) + " " + tmp.get(i));
                         }
                         boolean resp3 = false;
                         while(!resp3){
-                            String choicearme = Utils.readString();
-                            if (Integer.valueOf(choicearme)-1 <  0 || Integer.valueOf(choicearme)-1 >  player.getInventory().size() ){
+                            int choicearme = Utils.readInt();
+                            if (choicearme-1 <  0 || choicearme-1 >  player.getInventory().size() ){
                                 System.out.println("Choississez une option valide en notant le numéro correspondant."); 
                             }else{
-                                this.player.setArmeActuelle(tmp.get(Integer.valueOf(choicearme)-1));
+                                this.player.setArmeActuelle(tmp.get(choicearme-1));
+                                System.out.println("Vous avez selectionnez l'arme : " + this.player.getArme().name()); 
                                 resp3= true;
                             }
                         }
@@ -131,17 +132,18 @@ public class Combat {
                     }else if (choice.equals("2")){
                         resp2 = true;
                         System.out.println("Choisissez l'armure que vous souhaitez utiliser");
-                        List<Armors> tmp = this.player.getInventory().stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Armors) equipement).toList();
+                        List<Armors> tmp = this.player.getInventory().stream().filter(equipement -> equipement instanceof Armors).map(equipement -> (Armors) equipement).toList();
                         for (int i = 0; i < tmp.size(); i++){
-                            System.out.println("" + i + tmp.get(i));
+                            System.out.println("" + (i+1) + " " +  tmp.get(i));
                         }
                         boolean resp4 = false;
                         while(!resp4){
-                            String choicearme = Utils.readString();
-                            if (Integer.valueOf(choicearme)-1 <  0 || Integer.valueOf(choicearme)-1 >  player.getInventory().size() ){
+                            int choicearme = Utils.readInt();
+                            if (choicearme-1 <  0 || choicearme-1 >  player.getInventory().size() ){
                                 System.out.println("Choississez une option valide en notant le numéro correspondant."); 
                             }else{
-                                this.player.setArmeActuelle(tmp.get(Integer.valueOf(choicearme)-1));
+                                this.player.setArmureActuelle(tmp.get(choicearme-1));
+                                System.out.println("Vous avez selectionnez l'armure : " + this.player.getArmure().name()); 
                                 resp4= true;
                             }
                         }
