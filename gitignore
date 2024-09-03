@@ -3,3 +3,4 @@ bin/
 **/*.class
 .vscode/*
 Dev/*.txt
+.vscode/settings.json
