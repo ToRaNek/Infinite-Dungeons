@@ -42,11 +42,11 @@ public class Player extends Entity{
         }
     }
 
-    public void setArmeActuelle(Weapons NewArme) {
-        this.armeactuelle = NewArme;
+    public void setArmeActuelle(Weapons newArme) {
+        this.armeactuelle = newArme;
     }
-    public void setArmureActuelle(Armors NewArmure) {
-        this.armureactuelle = NewArmure;
+    public void setArmureActuelle(Armors newArmure) {
+        this.armureactuelle = newArmure;
     }
 
     public void setInventory(ArrayList<Equipement> inventory) {
