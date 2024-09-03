@@ -86,7 +86,7 @@ public class Combat {
         boolean resp = false;
         String rep;
         while(!resp){
-            System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer");
+            System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3- Changer Equipement");
             rep = Utils.readString();
             if(rep.equals("1")){
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
@@ -102,6 +102,10 @@ public class Combat {
             }else if (rep.equals("2")) {
                 resp = true;
                 return true;
+            }else if (rep.equals("3")) {
+                System.out.println("Quelle équipement voulez vous changer?" + "\n" + "1 - Armure        2 - Arme");
+                int choice = Utils.readint();
+               
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");
             }

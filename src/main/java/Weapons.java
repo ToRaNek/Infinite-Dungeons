@@ -2,7 +2,7 @@ package src.main.java;
     
     public enum Weapons implements Equipement {
         EPEE("Epée", 10, 0),
-        DAGUE("Dague", 5, 5),
+        DAGUE("Dague", 5, 0),
         BAGUETTE("Baguette", 0, 5),
         GRIMOIRE("Grimoire", 0, 10),
         MASSUE("Massue", 7, 0),
@@ -26,11 +26,11 @@ package src.main.java;
             return name;
         }
 
-        public int getDegatPhy() {
+        public int getAD() {
             return AD;
         }
 
-        public int getDegatMag() {
+        public int getAP() {
             return AP;
         }
 }

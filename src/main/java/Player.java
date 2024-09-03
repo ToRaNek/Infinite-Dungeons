@@ -21,7 +21,7 @@ public class Player {
         this.armeactuelle = Weapons.DAGUE;
         this.armureactuelle = Armors.BRIGANDINE;  
         this.name = name;
-        this.hp = hp;
+        this.hp = MAXHP;
         this.dmgA = dmgA; /*inventory.stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList().get(0).getAD();*/
         this.defA = defA;
         this.dmgP = dmgP;
