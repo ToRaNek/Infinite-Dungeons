@@ -1,4 +1,4 @@
-package src.main.java;
+package main.java;
 
 public enum Potions implements Equipement {
     SOINPV("Potions de soin",15/*,0*/);
