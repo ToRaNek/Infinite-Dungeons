@@ -27,4 +27,19 @@ public class Utils {
         } 
 
     }
+
+    public static boolean readInt(){
+        try {
+            String string = readString();
+            Integer.parseInt(string);
+        } catch (IOException e) {
+            System.err.println("IOexception");
+            e.printStackTrace();
+        } catch (NumberFormatException e){
+            System.err.println("Conversion impossible ! Lettre ou autres caractère présents !");
+            return false;
+        }
+        return true;
+        
+    }
 }
