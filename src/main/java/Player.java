@@ -15,7 +15,7 @@ public class Player {
     
     public Player(String name, int hp, int dmgA, int defA, int dmgP, int defP, float speed) {
         this.name = name;
-        this.hp = hp;
+        this.hp = MAXHP;
         this.dmgA = dmgA;
         this.defA = defA;
         this.dmgP = dmgP;
