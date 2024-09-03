@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     
     public static void main(String[] args) throws IOException, InterruptedException {
-        Player player = new Player("Joueur1", 100, 10, 1, 10, 1, 1, 0);
+        Player player = new Player("Joueur 1", 100, 10, 1, 10, 1, 1, 0);
         
 
         Main.showStartMenu(player);
@@ -50,7 +50,7 @@ public class Main {
         System.out.println("Entrer les valeurs correspondantes a chaque option: ");
         System.out.println(" 1. Lancer la partie ");
         System.out.println(" 2. Charger une partie (Indisponible)");
-        System.out.println(" 3. Infos regles (Indisponible)");
+        System.out.println(" 3. Infos regles");
         System.out.println(" 4. Quitter");
 
 
@@ -58,7 +58,7 @@ public class Main {
     }
 
     public static void showHelpMenu(Player player) {
-        System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
+        System.out.println("\n");
         System.out.println("Infinite Dungeons consiste en un jeu de donjon au tour par tour");
         System.out.println("Chaque tour vous affrontez des ennemis différent");
         System.out.println("Récuperer des objets pour devenir de plus en plus puissant");
