@@ -8,7 +8,7 @@ public class EventsRandom {
     private static final Random EventRNG = new Random();
     private String Events;
 
-    EventsRandom() {
+    public EventsRandom() {
         this.Events = this.randomEvent();
     }
 
@@ -21,11 +21,6 @@ public class EventsRandom {
     }
 
     public String toString() {
-        return this.Events +"\n";
-    }
-
-    public static void main(String[] args){
-        EventsRandom test = new EventsRandom();
-        System.out.println(test.toString());
+        return this.Events;
     }
 }
