@@ -64,15 +64,6 @@ public class Combat {
                 block = false;
                 playerTurn = true;
             }
-            
-            if(this.player.getHp() <= 0){
-                this.player.setHp(0);
-                endCombat = true;
-                System.out.println("Perdu");
-            }else if(this.monster.getHp() <= 0){
-                endCombat = true;
-                System.out.println("Gagné");
-            }
         }
     }
 
@@ -80,7 +71,14 @@ public class Combat {
         if(!block){
             int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
             this.player.damageTaken(playerDamage);
-            System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il vous reste " + this.player.getHp() + "hp");
+            if(this.player.getHp() <= 0){
+                this.player.setHp(0);
+                endCombat = true;
+                System.out.println("Perdu");
+            }else{
+                System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il vous reste " + this.player.getHp() + "hp");
+            }
+            
         }
     }
 
@@ -93,8 +91,14 @@ public class Combat {
             if(rep.equals("1")){
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
                 this.monster.damageTaken(monsterDamage);
-                System.out.println("Vous avez fait " + monsterDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
-                resp = true;
+                if(this.monster.getHp() <= 0){
+                    endCombat = true;
+                    System.out.println("Gagné");
+                }else{
+                    System.out.println("Vous avez fait " + monsterDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
+                    resp = true;
+                }
+                
             }else if (rep.equals("2")) {
                 resp = true;
                 return true;
