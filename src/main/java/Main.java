@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         
         Player player = new Player("Joueur1", 100, 10, 1, 10, 1, 1);
-        Mob mob = new Slime(100, 10, 5, 5, 3, 3);
+        Mob mob = new Mob("Slime", MobType.SLIME, 10, 5, 5, 3, 3);
         Combat combatTest = new Combat(mob, player);
         
 

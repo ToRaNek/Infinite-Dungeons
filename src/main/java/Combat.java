@@ -78,7 +78,7 @@ public class Combat {
 
     private void monsterPlay(boolean block){
         if(!block){
-            int playerDamage = this.monster.getAd() + this.monster.getAp();
+            int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
             this.player.damageTaken(playerDamage);
             System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il vous reste " + this.player.getHp() + "hp");
         }
