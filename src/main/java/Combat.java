@@ -69,21 +69,23 @@ public class Combat implements Serializable {
     }
 
     private void monsterPlay(boolean block){
+        int totalDamage = 0;
         if(!block){
             int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
-            this.player.damageTaken(playerDamage);
+            totalDamage = this.player.damageTaken(playerDamage);
             if(this.player.getHp() <= 0){
                 this.player.setHp(0);
                 endCombat = true;
                 System.out.println("Perdu");
             }else{
-                System.out.println("Vous avez reçu " + playerDamage + " dégats du monstre. Il vous reste " + this.player.getHp() + "hp");
+                System.out.println("Vous avez reçu " + totalDamage + " dégats du monstre. Il vous reste " + this.player.getHp() + "hp");
             }
             
         }
     }
 
     private boolean playerPlay() throws IOException{
+        int totalDamage = 0;
         boolean resp = false;
         String rep;
         while(!resp){
@@ -91,12 +93,12 @@ public class Combat implements Serializable {
             rep = Utils.readString();
             if(rep.equals("1")){
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
-                this.monster.damageTaken(monsterDamage);
+                totalDamage = this.monster.damageTaken(monsterDamage);
                 if(this.monster.getHp() <= 0){
                     endCombat = true;
                     System.out.println("Gagné");
                 }else{
-                    System.out.println("Vous avez fait " + monsterDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
+                    System.out.println("Vous avez fait " + totalDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
                     resp = true;
                 }
                 
