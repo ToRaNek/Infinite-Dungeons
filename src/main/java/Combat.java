@@ -77,7 +77,7 @@ public class Combat {
                 endCombat = true;
                 System.out.println("Perdu");
             }else{
-                System.out.println("Vous avez reçu " + playerDamage + " dégats au monstre. Il vous reste " + this.player.getHp() + "hp");
+                System.out.println("Vous avez reçu " + playerDamage + " dégats du monstre. Il vous reste " + this.player.getHp() + "hp");
             }
             
         }

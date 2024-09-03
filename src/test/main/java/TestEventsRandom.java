@@ -1,4 +1,4 @@
-package test.java;
+package test.main.java;
 import main.java.EventsRandom;
 public class TestEventsRandom {
     public static void main(String[] args){

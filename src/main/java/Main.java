@@ -7,7 +7,7 @@ public class Main {
     
     public static void main(String[] args) throws IOException, InterruptedException {
         
-        Player player = new Player("Joueur1", 100, 10, 1, 10, 1, 1);
+        Player player = new Player("Joueur1", 100, 10, 1, 10, 1, 1, 0);
         
 
         Main.showStartMenu(player);
@@ -66,7 +66,7 @@ public class Main {
     }
 
     public static void gameLoop(Player player) throws IOException{
-        Mob mob = new Mob("Slime", MobType.SLIME, 10, 5, 5, 3, 3);
+        Mob mob = Mob.randomNewMob(1);
         Combat combatTest = new Combat(mob, player);
         combatTest.launchCombat();
     }
