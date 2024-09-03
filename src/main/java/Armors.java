@@ -1,4 +1,4 @@
-package src.main.java;
+package main.java;
 
 public enum Armors implements Equipement {
     MAILLE("Cotte de maille", 5, 0),
