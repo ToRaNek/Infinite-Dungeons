@@ -37,7 +37,7 @@ public class Utils {
             System.err.println("IOexception");
             e.printStackTrace();
         } catch (NumberFormatException e){
-            System.err.println("Conversion impossible ! Lettre ou autres caractère présents !");
+            System.out.println("Conversion impossible ! Lettre ou autres caractère présents !");
             return readInt();
         }
         return res;
