@@ -68,7 +68,7 @@ public class Entity {
     public float getSpeed() {
         return speed;
     }
-    public int getGold() {
+    protected int getGold() {
         return gold;
     }
     
@@ -80,6 +80,10 @@ public class Entity {
     public void damageTaken(int dmgTaken){
         this.hp -= (dmgTaken-(this.defA + this.defP));
         if(this.hp<0){this.hp=0;}
+    }
+
+    public void addGold(int gold){
+        this.gold += gold;
     }
 
     

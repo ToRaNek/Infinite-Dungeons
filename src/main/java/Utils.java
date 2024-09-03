@@ -28,18 +28,19 @@ public class Utils {
 
     }
 
-    public static boolean readInt(){
+    public static int readInt(){
+        int res = -1;
         try {
             String string = readString();
-            Integer.parseInt(string);
+            res = Integer.parseInt(string);
         } catch (IOException e) {
             System.err.println("IOexception");
             e.printStackTrace();
         } catch (NumberFormatException e){
             System.err.println("Conversion impossible ! Lettre ou autres caractère présents !");
-            return false;
+            return readInt();
         }
-        return true;
+        return res;
         
     }
 }

@@ -1,10 +1,9 @@
 package main.java;
-package main.java;
 
 import java.util.ArrayList;
 
 public class Player extends Entity{
-    public Player(String name, int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold) {
+    public Player(String name, int hpMax, int dmgA, int dmgP, int defA, int defP, int speed, int gold) {
         super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
         this.inventory = new ArrayList<Equipement>();
         this.inventory.add(Weapons.DAGUE);
@@ -16,6 +15,18 @@ public class Player extends Entity{
     private Weapons armeactuelle;
     private Armors armureactuelle;
     
+    public int getDmgA() {
+        return getDmgA() + armeactuelle.getAD();
+    }
+    public int getDefA() {
+        return getDefA() + armureactuelle.getResPhy();
+    }
+    public int getDmgP() {
+        return getDmgP() + armeactuelle.getAP();
+    }
+    public int getDefP() {
+        return getDefP() + armureactuelle.getResMag();
+    }
     public Armors getArmure() {
         return armureactuelle;
     }
@@ -33,7 +44,7 @@ public class Player extends Entity{
     public void setArmeActuelle(Weapons NewArme) {
         this.armeactuelle = NewArme;
     }
-    public void setArmeActuelle(Armors NewArmure) {
+    public void setArmureActuelle(Armors NewArmure) {
         this.armureactuelle = NewArmure;
     }
 

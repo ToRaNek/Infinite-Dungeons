@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     
     public static void main(String[] args) throws IOException, InterruptedException {
-        
         Player player = new Player("Joueur1", 100, 10, 1, 10, 1, 1, 0);
         
 
@@ -66,9 +65,15 @@ public class Main {
     }
 
     public static void gameLoop(Player player) throws IOException{
-        Mob mob = Mob.randomNewMob(1);
+        int generalDifficulty = 1;
+        boolean deadPlayer = false;
+        Mob mob = Mob.randomNewMob(generalDifficulty);
         Combat combatTest = new Combat(mob, player);
-        combatTest.launchCombat();
+        while(!deadPlayer){
+            mob = Mob.randomNewMob(generalDifficulty);
+            deadPlayer = combatTest.launchCombat();
+            generalDifficulty ++;        
+        }
     }
 
 }
