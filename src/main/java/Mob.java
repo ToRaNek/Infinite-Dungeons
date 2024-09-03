@@ -38,6 +38,18 @@ public class Mob {
     public int getSpeed(){
         return speed;
     }
+    
+    public int getHpMax() {
+        return hpMax;
+    }
+
+    public int getAd() {
+        return ad;
+    }
+
+    public int getAp() {
+        return ap;
+    }
 
     public void healTaken(int nbrHp){
         this.hp += nbrHp;
@@ -46,4 +58,6 @@ public class Mob {
     public void damageTaken(int dmgTaken){
         hp -= (dmgTaken-def);
     }
+
+
 }
