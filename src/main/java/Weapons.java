@@ -1,4 +1,4 @@
-package main.java;
+package src.main.java;
     
     public enum Weapons implements Equipement {
         EPEE("Epée", 10, 0),
