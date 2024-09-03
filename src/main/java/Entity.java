@@ -2,7 +2,9 @@ package main.java;
 
 import java.io.Serializable;
 
-public class Entity implements Serializable {
+import java.io.Serializable;
+
+public class Entity implements Serializableimplements Serializable {
     private String name;
     private int hp;
     private int hpMax;
@@ -80,7 +82,10 @@ public class Entity implements Serializable {
     }
 
     public void damageTaken(int dmgTaken){
-        this.hp -= (dmgTaken-(this.defA + this.defP));
+        int totalDamage = 0;
+        totalDamage = (dmgTaken-(this.defA + this.defP));
+        if(totalDamage <= 0 ){totalDamage = 1;}
+        this.hp -= totalDamage;
         if(this.hp<0){this.hp=0;}
     }
 
