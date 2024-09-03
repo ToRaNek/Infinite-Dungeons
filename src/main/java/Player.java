@@ -3,7 +3,7 @@ package main.java;
 import java.util.ArrayList;
 
 public class Player extends Entity{
-    public Player(String name, int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold) {
+    public Player(String name, int hpMax, int dmgA, int dmgP, int defA, int defP, int speed, int gold) {
         super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
         this.inventory = new ArrayList<Equipement>();
         this.inventory.add(Weapons.DAGUE);
@@ -32,7 +32,7 @@ public class Player extends Entity{
     public void setArmeActuelle(Weapons NewArme) {
         this.armeactuelle = NewArme;
     }
-    public void setArmeActuelle(Armors NewArmure) {
+    public void setArmureActuelle(Armors NewArmure) {
         this.armureactuelle = NewArmure;
     }
 
