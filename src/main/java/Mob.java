@@ -99,11 +99,11 @@ public class Mob {
         MobType[] listMob = MobType.values();
         int longueur = listMob.length;
         int num = rdm.nextInt(longueur);
-        int hp =  (int)((80*rdm.nextInt(101) + 20) *0.25*difficulty);
-        int defA =  (int)((20*rdm.nextInt(101) + 10) *0.25*difficulty);
-        int defP =  (int)((20*rdm.nextInt(101) + 10) *0.25*difficulty);
-        int dmgA =  (int)((5*rdm.nextInt(101) + 5) *0.25*difficulty);
-        int dmgP =  (int)((5*rdm.nextInt(101) + 5) *0.25*difficulty);
+        int hp =  (int)((80*rdm.nextInt(101)/100 + 20) *difficulty);
+        int defA =  (int)((5*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
+        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
+        int dmgA =  (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+        int dmgP =  (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
         Mob newMob = new Mob(listMob[num].toString(), listMob[num] , hp, defA, defP, dmgA, dmgP, 5);
 
         return newMob;
