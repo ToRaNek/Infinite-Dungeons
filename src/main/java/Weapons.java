@@ -1,6 +1,8 @@
 package main.java;
     
-    public enum Weapons implements Equipement {
+import java.io.Serializable;
+
+    public enum Weapons implements Equipement, Serializable {
         EPEE("Epée", 10, 0),
         DAGUE("Dague", 5, 0),
         BAGUETTE("Baguette", 0, 5),

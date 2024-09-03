@@ -2,7 +2,9 @@ package main.java;
 
 import java.io.Serializable;
 
-public class Entity implements Serializable{
+import java.io.Serializable;
+
+public class Entity implements Serializableimplements Serializable {
     private String name;
     private int hp;
     private int hpMax;
