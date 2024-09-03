@@ -8,6 +8,7 @@ public class Player extends Entity{
         this.inventory = new ArrayList<Equipement>();
         this.inventory.add(Weapons.DAGUE);
         this.armeactuelle = Weapons.DAGUE;
+        this.inventory.add(Armors.BRIGANDINE);
         this.armureactuelle = Armors.BRIGANDINE;  
     }
 
