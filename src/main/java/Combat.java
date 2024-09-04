@@ -89,7 +89,9 @@ public class Combat implements Serializable {
             System.out.println(this.monster.getName());
         }
 
-        System.out.println(this.monster.getName() + " HP: " + this.monster.getHp());
+        System.out.println("\n Statistiques du monstre\n Vite : "+ this.monster.getSpeed()+ "   Pv : "+ this.monster.getHp() 
+            +"\n AttP : " + this.monster.getDmgA()+ "  AttM : " + this.monster.getDmgP()
+            +"\n ResP : " + this.monster.getDefA()+ "  ResM : " + this.monster.getDefP());
         if(!block){
             int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
             totalDamage = this.player.damageTaken(playerDamage);
@@ -98,7 +100,7 @@ public class Combat implements Serializable {
                 endCombat = true;
                 System.out.println("Perdu");
             }else{
-                System.out.println("Vous avez reçu " + totalDamage + " dégats du monstre. Il vous reste " + this.player.getHp() + "hp");
+                System.out.println("\n Vous avez reçu " + totalDamage + " dégats du monstre.");
             }
             
         }
@@ -109,10 +111,10 @@ public class Combat implements Serializable {
         boolean resp = false;
         String rep;
         while(!resp){
-            System.out.println("Vos Statistiques \n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() 
+            System.out.println("\nVos Statistiques \n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() 
             +"\n AttP : " + this.player.getDmgA()+ "  AttM : " + this.player.getDmgP()
             +"\n ResP : " + this.player.getDefA()+ "  ResM : " + this.player.getDefP());
-            System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
+            System.out.println("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
