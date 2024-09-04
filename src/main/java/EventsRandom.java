@@ -33,20 +33,20 @@ public class EventsRandom {
         + " Je vous laisse regarder ma cargaison."
         + " Ici vous pouvoir voir mes différents objets :"
         + " 1 - " + shopList[0].toString() + "(150 golds) 2 - " + shopList[1].toString() + "(150 golds) 3 - " + shopList[2].toString() + "(100 golds)"+ ENDLINE
-        + "Choississez l'item que vous voulez (Tapez 4 pour sortir du marché et continuer votre route): ");
+        + "Choississez l'item que vous voulez (Tapez 4 pour sortir du marché et continuer votre route): [Vous avez " + player.getGold() + " d'or]");
         while(!resp){
             int ans = Utils.readInt();
             if(ans == 1){
                 if(player.getGold() < 150){
-                    System.out.println("Vous n'avez pas assez d'argent ;)");
+                    System.out.println("Vous n'avez pas assez d'argent ;)[Vous avez " + player.getGold() + " d'or]");
                 }
             }else if(ans == 2){
                 if(player.getGold() < 150){
-                    System.out.println("Vous n'avez pas assez d'argent ;)");
+                    System.out.println("Vous n'avez pas assez d'argent ;)[Vous avez " + player.getGold() + " d'or]");
                 }
             }else if(ans == 3){
                 if(player.getGold() < 100){
-                    System.out.println("Vous n'avez pas assez d'argent ;)");
+                    System.out.println("Vous n'avez pas assez d'argent ;)[Vous avez " + player.getGold() + " d'or]");
                 }
             }else if(ans == 4){
                 resp = true;
@@ -65,7 +65,7 @@ public class EventsRandom {
         System.out.println("Inconnu :Bonjour et bienvenue dans mon camp étranger vous pouvez vous y restaurer la nuit si vous voulez." + ENDLINE
          + "Ou bien je vous propose de mettre à profit mes dons de soigneur si cela est necéssaire." +  ENDLINE 
          + " Biensur ce sera seulement si vous avez de quoi me payer." 
-         + " 1 - Pour se soigner 20% des hp (gratuit)  2 - Pour payer un soin complet (100 golds)");
+         + " 1 - Pour se soigner 20% des hp (gratuit)  2 - Pour payer un soin complet (100 golds). [Vous avez " + player.getGold() + " d'or]");
         while(!resp){
             int rep = Utils.readInt();
             if(rep == 1){
@@ -76,12 +76,13 @@ public class EventsRandom {
                 resp = true;
             }if(rep == 2){
                 if(player.getGold() < 100){
-                    System.out.println("Vous n'avez pas assez d'argent ;) Si vous me recroiser plutard peut-être que vous pourrez.");
+                    System.out.println("Vous n'avez pas assez d'argent ;) Si vous me recroiser plutard peut-être que vous pourrez.[Vous avez " + player.getGold() + " d'or]");
                 }else{
                     player.setHp(player.getHpMax());
                     System.out.println("Vous avez été soigné complêtement : " + player.getHp() + "/" + player.getHpMax());
+                    resp = true;
                 }
-                resp = true;
+                
             }else{
                 System.out.println("Veuillez choisir une option valide.");
             }
