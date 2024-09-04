@@ -33,6 +33,9 @@ public class Entity implements Serializable {
     public void setHp(int hp) {
         this.hp = hp;
     }
+    public void sethpMax(int hpMax){
+        this.hpMax = hpMax;
+    }
     public void setDmgA(int dmgA) {
         this.dmgA = dmgA;
     }
@@ -56,6 +59,9 @@ public class Entity implements Serializable {
     }
     public int getHp() {
         return hp;
+    }
+    public int getHpMax() {
+        return hpMax;
     }
     public int getDmgA() {
         return dmgA;

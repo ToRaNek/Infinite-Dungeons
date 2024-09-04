@@ -17,7 +17,7 @@ public class UtilsTest {
     String path =  System.getProperty("user.dir") + File.separator + "res" + File.separator + "test" +  File.separator + "test.utf.ans"  + File.separator;
 
     public static void main(String[] args) throws IOException{
-        File f = new  File(System.getProperty("user.dir") + File.separator + "res" + File.separator + "test" +  File.separator + "test.utf.ans"  + File.separator);
+        File f = new  File(System.getProperty("user.dir") + File.separator + "res" + File.separator + "mobs" + File.separator + "ansi" +  File.separator + "LICH-art.utf.ans"  + File.separator);
         Utils.printAnsi(f);
     }
 

@@ -1,5 +1,7 @@
 package main.java;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -31,6 +33,11 @@ public class Mob extends Entity{
         Mob newMob = new Mob(listMob[num].toString(), listMob[num] , hp, dmgA, dmgP, defA, defP, 5, gold);
 
         return newMob;
+    }
+
+    public void mobToImage() throws IOException{
+        String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "mobs" + File.separator + "ansi" +  File.separator;
+        Utils.printAnsi(new File(path + this.type.getPath()));
     }
 
 
