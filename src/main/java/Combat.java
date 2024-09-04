@@ -53,7 +53,7 @@ public class Combat implements Serializable {
     public boolean launchCombat() throws IOException{
         boolean playerTurn = this.faster();
         boolean block = false;
-        while(!endCombat){
+        while(!this.endCombat){
             if (playerTurn) {
                 System.out.println(ENDLINE + "Tour du joueur :");
                 block = this.playerPlay();
@@ -95,7 +95,7 @@ public class Combat implements Serializable {
             totalDamage = this.player.damageTaken(playerDamage);
             if(this.player.getHp() <= 0){
                 this.player.setHp(0);
-                endCombat = true;
+                this.endCombat = true;
                 System.out.println("Perdu");
             }else{
                 System.out.println("\n Vous avez reçu " + totalDamage + " dégats du monstre.");
@@ -118,8 +118,9 @@ public class Combat implements Serializable {
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
                 totalDamage = this.monster.damageTaken(monsterDamage);
                 if(this.monster.getHp() <= 0){
-                    endCombat = true;
+                    this.endCombat = true;
                     System.out.println("Gagné");
+                    resp= true;
                 }else{
                     System.out.println("Vous avez fait " + totalDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
                     resp = true;

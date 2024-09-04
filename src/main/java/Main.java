@@ -68,10 +68,11 @@ public class Main {
         int generalDifficulty = 1;
         boolean deadPlayer = false;
         Mob mob = Mob.randomNewMob(generalDifficulty);
-        Combat combatTest = new Combat(mob, player);
+        //Combat combatTest = new Combat(mob, player);
         while(!deadPlayer){
             mob = Mob.randomNewMob(generalDifficulty);
-            deadPlayer = combatTest.launchCombat();
+            deadPlayer = new Combat(mob, player).launchCombat();
+            System.out.println("Turn finished");
             generalDifficulty ++;
             EventsRandom.rdmEventChoice(generalDifficulty, player);        
         }
