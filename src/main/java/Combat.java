@@ -108,10 +108,10 @@ public class Combat implements Serializable {
         boolean resp = false;
         String rep;
         while(!resp){
-            System.out.println("\nVos Statistiques\t Statistiques du monstre\n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() +"\t Vite : "+ this.monster.getSpeed()+ "   Pv : "+ this.monster.getHp()
-            +"\n AttP : " + this.player.getDmgA()+ "  AttM : " + this.player.getDmgP()+"\t AttP : " + this.monster.getDmgA()+ "  AttM : " + this.monster.getDmgP()
-            +"\n ResP : " + this.player.getDefA()+ "  ResM : " + this.player.getDefP()+"\t ResP : " + this.monster.getDefA()+ "  ResM : " + this.monster.getDefP()
-            +"\n Or : " + this.player.getGold());
+            System.out.println("\nVos Statistiques\t Statistiques du monstre\n Vite : "+ this.player.getSpeed()+ "🪶   Pv : "+ this.player.getHp() +"❤️\t Vite : "+ this.monster.getSpeed()+ "🪶   Pv : "+ this.monster.getHp()
+            +"❤️\n AttP : " + this.player.getDmgA()+ "⚔️  AttM : " + this.player.getDmgP()+"🪄\t AttP : " + this.monster.getDmgA()+ "⚔️  AttM : " + this.monster.getDmgP()
+            +"🪄\n ResP : " + this.player.getDefA()+ "🛡️  ResM : " + this.player.getDefP()+"⭐\t ResP : " + this.monster.getDefA()+ "🛡️  ResM : " + this.monster.getDefP()
+            +"⭐\n Or : " + this.player.getGold() + "🪙");
             System.out.println("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
