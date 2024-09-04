@@ -34,9 +34,12 @@ public class Main {
                             Classes classe = Classes.VOLEUR;
                             while (!classes) {
                                  Utils.printAnsi(new File(System.getProperty("user.dir") + File.separator + "res" + File.separator + "classe" + File.separator + "ansi" + File.separator+"Voleur_et_berserker-art.utf.ans"));
-                                Utils.printAnsi(new File(System.getProperty("user.dir") + File.separator + "res" + File.separator + "classe" + File.separator + "ansi" + File.separator+"Mage_et_paladin-art.utf.ans"));
-                                System.out.println("Quelle classe voulez vous jouer ? \n 1 - Voleur \t 2 - Berserker \t 3 - Mage \t 4 - Paladin\n");
-                                String nbrClasse = Utils.readString(); 
+                                 System.out.println("1 - Voleur \t\t\t\t\t\t\t\t\t 2 - Berserker ");
+                                 Utils.printAnsi(new File(System.getProperty("user.dir") + File.separator + "res" + File.separator + "classe" + File.separator + "ansi" + File.separator+"Mage_et_paladin-art.utf.ans"));
+                                 System.out.println("3 - Mage \t\t\t\t\t\t\t\t\t 4 - Paladin");
+                                 System.out.println("Quelle classe voulez vous jouer ?");
+                              
+                                 String nbrClasse = Utils.readString(); 
                                 if(nbrClasse.equals("1")){
                                     classe = Classes.VOLEUR;
                                     classes = true;
