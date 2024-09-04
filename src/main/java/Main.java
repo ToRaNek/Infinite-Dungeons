@@ -31,6 +31,7 @@ public class Main {
                             printSaveChoices();
                             choiceSave();
                             optionEntered = true;
+                            break;
                         case "3":
                             Main.showHelpMenu(player);
                             TimeUnit.SECONDS.sleep(4);
