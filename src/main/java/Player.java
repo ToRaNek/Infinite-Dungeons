@@ -50,6 +50,16 @@ public class Player extends Entity{
     public Potions getPotion() {
         return potionslastuse;
     }
+    @Override
+    public int getPenA() {
+        return super.getPenA() + armeactuelle.getPenA();
+    }
+    @Override
+    public int getPenP() {
+        return super.getPenP() + armeactuelle.getPenP();
+    }
+
+    
     public ArrayList<Equipement> getInventory() {
         if (inventory == null) {
             throw new NullPointerException("inventory must not be null");
@@ -108,5 +118,6 @@ public class Player extends Entity{
             this.inventory.remove(this.potionslastuse);
         }
     }
+    
 
 }

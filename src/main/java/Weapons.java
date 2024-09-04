@@ -17,7 +17,7 @@ import java.io.Serializable;
         private String name;
         private int AD;
         private int AP;
-        private int penD;
+        private int penA;
         private int penP;
         public static final int nbrOfWeapons = 9; //Changez ce nombre 
 
@@ -25,8 +25,16 @@ import java.io.Serializable;
             this.name = name;
             this.AD = degatPhy;
             this.AP = degatMag;
+            this.penA = penA;
+            this.penP = penP;
         }
 
+        public int getPenA() {
+            return penA;
+        }
+        public int getPenP() {
+            return penP;
+        }
         public String toString(){
             return name;
         }
