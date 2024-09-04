@@ -17,7 +17,13 @@ public class Main {
                     switch (result) {
                         case "1":
                             optionEntered = true;
-                            gameLoop(player);                        
+                            String name = "Robertineux";
+                            while(name.length() > 10 || name.length() < 3){
+                                name = "Robert";
+                                System.out.println("Bonjour aventurier.ère, comment vous appellez vous ? (Max : 10 caractères)");
+                                name = Utils.readString();
+                            }
+                            gameLoop(player, name);                           
                             break;
                         case "2":
                             optionEntered = true;
@@ -65,7 +71,7 @@ public class Main {
         System.out.println("Récuperer des objets pour devenir de plus en plus puissant");
     }
 
-    public static void gameLoop(Player player) throws IOException{
+    public static void gameLoop(Player player, String name) throws IOException{
         int generalDifficulty = 1;
         boolean deadPlayer = false;
         Mob mob = Mob.randomNewMob(generalDifficulty);
