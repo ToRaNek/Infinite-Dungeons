@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.concurrent.TimeUnit;
+
 public enum Statut {
     POISON("Poison", 3, true, false, "Empoisonne la cible lui faisant des dégâts (10% de l'AttM du lanceur) pendant 3 tours et réduit ses résistance (5% de l'AttM du lanceur)"),
     BURN("Brulure",5,true, false, "Brule la cible en lui infligeant des dégâts pendant 5 tours (25% de l'AttM du lanceur)"),

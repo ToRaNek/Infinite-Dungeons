@@ -1,5 +1,6 @@
 package main.java;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -107,7 +108,9 @@ public class Main {
    }
 
 
-    public static void showStartMenu() {
+    public static void showStartMenu() throws IOException{
+        Utils.printAnsi(new File(System.getProperty("user.dir") + File.separator + "res" + File.separator + "logo-art.utf.ans"));
+
         System.out.println("Bienvenue Joueur 1 sur Infinite Dungeons");
         System.out.println("Entrer les valeurs correspondantes a chaque option: ");
         System.out.println(" 1. Lancer la partie ");
