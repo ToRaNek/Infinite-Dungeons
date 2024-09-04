@@ -89,7 +89,7 @@ public class Combat implements Serializable {
         boolean resp = false;
         String rep;
         while(!resp){
-            System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3- Changer Equipement");
+            System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
@@ -113,16 +113,23 @@ public class Combat implements Serializable {
                     resp2 = this.choiceEquipement(choice);  
                 }
                 
-
-                
+            }else if (rep.equals("4")) {    
+                resp = true;
+                boolean resp2 = false;
+                while(!resp2){
+                    System.out.println("Quelle potions voulez vous boire?");
+                    List<Potions> playerInventoryPotions = this.player.getInventory().stream().filter(equipement -> equipement instanceof Potions).map(equipement -> (Potions) equipement).toList();
+                    for (int i = 0; i < playerInventoryPotions.size(); i++){
+                        System.out.println("" + (i+1) + " " +  playerInventoryPotions.get(i));
+                    }
+                    resp2 = this.choicePotions(playerInventoryPotions);  
+                }
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");
             }
         }
         return false;
     }
-    
-
 
     public boolean choiceEquipement(String choice) {
         boolean resp2 = false;
@@ -189,6 +196,21 @@ public class Combat implements Serializable {
         }else{
             this.player.setArmureActuelle(playerInventoryArmors.get(chocieArmor-1));
             System.out.println("Vous avez selectionnez l'armure : " + this.player.getArmure().name()); 
+            resp4= true;
+        }
+
+        return resp4;
+    }
+
+    public boolean choicePotions(List<Potions> playerInventoryPotions) {
+        boolean resp4 = false;
+        int chociePotions = Utils.readInt();
+        if (chociePotions-1 <  0 || chociePotions-1 >  player.getInventory().size() ){
+            System.out.println("Choississez une option valide en notant le numéro correspondant."); 
+        }else{
+            this.player.setPotionsLastUse(playerInventoryPotions.get(chociePotions-1));
+            System.out.println("Vous avez selectionnez la potions : " + this.player.getPotion().name());;
+            this.player.usePotion(); 
             resp4= true;
         }
 
