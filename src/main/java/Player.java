@@ -3,8 +3,8 @@ package main.java;
 import java.util.ArrayList;
 
 public class Player extends Entity{
-    public Player(String name, int hpMax, int dmgA, int dmgP, int defA, int defP, int speed, int gold) {
-        super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
+    public Player(String name, int hpMax, int dmgA, int dmgP,int penA, int penP, int defA, int defP, int speed, int gold) {
+        super(name, hpMax, dmgA, dmgP, defA, defP,penA, penP, speed, gold);
         this.inventory = new ArrayList<Equipement>();
         this.inventory.add(Weapons.DAGUE);
         this.inventory.add(Weapons.ARC);
