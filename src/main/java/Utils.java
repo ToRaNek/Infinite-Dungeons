@@ -13,7 +13,7 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 import java.util.List;
 
 public class Utils {
@@ -73,10 +73,6 @@ public class Utils {
         }
 
     }   
-
-
-
-
 
     public static List<Combat> loadGames() {
 
