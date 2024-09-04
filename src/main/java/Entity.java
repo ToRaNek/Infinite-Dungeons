@@ -107,7 +107,7 @@ public class Entity implements Serializable {
 
     public int damageTaken(int dmgA, int dmgP){
         int totalDamage = 0;
-        totalDamage = (dmgA-this.defA) + (dmgP - this.defP);
+        totalDamage = (int)(dmgA-(this.defA*(1-(this.penA/100)))) + (int)(dmgP - this.defP*(1-(this.penP/100)));
         if(totalDamage < 0 ){totalDamage = 0;}
         this.hp -= totalDamage;
         if(this.hp<0){this.hp=0;}
