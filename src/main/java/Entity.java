@@ -113,6 +113,7 @@ public class Entity implements Serializable {
         if(damA < 0){damA = 0;}
         damP = (int)(dmgP - this.defP*(1-(this.penP/100)));
         if(damP < 0){damP = 0;}
+        totalDamage = damA + damP;
         if(totalDamage < 0 ){totalDamage = 0;}
         this.hp -= totalDamage;
         if(this.hp<0){this.hp=0;}
