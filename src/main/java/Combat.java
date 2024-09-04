@@ -109,6 +109,9 @@ public class Combat implements Serializable {
         boolean resp = false;
         String rep;
         while(!resp){
+            System.out.println("Vos Statistiques \n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() 
+            +"\n AttP : " + this.player.getDmgA()+ "  AttM : " + this.player.getDmgP()
+            +"\n ResP : " + this.player.getDefA()+ "  ResM : " + this.player.getDefP());
             System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
