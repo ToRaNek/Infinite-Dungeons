@@ -1,15 +1,19 @@
 package main.java;
 
 public enum Potions implements Equipement {
-    SOINPV("Potions de soin",15/*,0*/);
+    SOINPV("Potions de soin",15/*heal*/),
+    FORCEPHYSIQUE("Potions de Force",10/*degatsAD*/),
+    FORCEMAGIQUE("Potions de Sagesse",10/*degatsAP*/),
+    RESMAGIQUE("Potions de Résistance Magique",5/*ResAP*/),
+    RESPHYSIQUE("Potions de Résistance Physique",5/*ResAD*/);
 
     private String name;
-    private int pv;
+    private int statsboost;
     //private int pm;
 
-    Potions(String name, int pv/*, int pm*/) {
+    Potions(String name, int statsboost/*, int pm*/) {
         this.name = name;
-        this.pv = pv;
+        this.statsboost = statsboost;
         //this.pm = pm;
     }
 
@@ -17,8 +21,8 @@ public enum Potions implements Equipement {
         return name;
     }
 
-    public int getPv() {
-        return pv;
+    public int getStatsboost() {
+        return statsboost;
     }
     
     /*public int getPm() {
@@ -29,8 +33,8 @@ public enum Potions implements Equipement {
         this.name = name;
     }
 
-    public void setPv(int pv) {
-        this.pv = pv;
+    public void setPv(int statsboost) {
+        this.statsboost = statsboost;
     }
 
     /*public void setPm(int pm) {
