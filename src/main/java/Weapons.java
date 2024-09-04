@@ -25,6 +25,10 @@ import java.io.Serializable;
             this.AP = degatMag;
         }
 
+        public String toString(){
+            return name;
+        }
+
         public String getName() {
             return name;
         }

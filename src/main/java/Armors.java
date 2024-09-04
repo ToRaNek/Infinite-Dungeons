@@ -24,6 +24,10 @@ public enum Armors implements Equipement, Serializable {
         this.ResAD = ResPhy;
         this.ResAP = ResMag;
     }
+    
+    public String toString(){
+        return name;
+    }
 
     public String getName() {
         return name;
