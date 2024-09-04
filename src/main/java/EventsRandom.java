@@ -24,9 +24,9 @@ public class EventsRandom {
             for(int i = 0; i <2; i++){
                 rdmNumber = RDM.nextInt(101);
                 if(rdmNumber >= 0 && rdmNumber <= 33){
-                    eventsChosen.add("Boss");
+                    eventsChosen.add("Shop");
                 }else if(rdmNumber >=34 && rdmNumber <= 66){
-                    eventsChosen.add("Boss");
+                    eventsChosen.add("Camp");
                 }else if(rdmNumber >=67){
                     eventsChosen.add("Boss");
                 }
