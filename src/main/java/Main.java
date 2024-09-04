@@ -30,20 +30,20 @@ public class Main {
                                 System.exit(0);
                             }
                             boolean classes = false;
-                            Classes classe = Classes.BERSERKER;
+                            Classes classe = Classes.VOLEUR;
                             while (!classes) {
                                 System.out.println("Quelle classe voulez vous jouer ? \n 1 - Voleur \t 2 - Berserker \t 3 - Mage \t 4 - Paladin\n");
                                 String nbrClasse = Utils.readString(); 
-                                if(nbrClasse.equals("0")){
+                                if(nbrClasse.equals("1")){
                                     classe = Classes.VOLEUR;
                                     classes = true;
-                                }else if(nbrClasse.equals("1")){
+                                }else if(nbrClasse.equals("2")){
                                     classe = Classes.BERSERKER;
                                     classes = true;
-                                }else if(nbrClasse.equals("2")){
+                                }else if(nbrClasse.equals("3")){
                                     classe = Classes.MAGE;
                                     classes = true;
-                                }else if(nbrClasse.equals("3")){
+                                }else if(nbrClasse.equals("4")){
                                     classe = Classes.PALADIN;
                                     classes = true;
                                 }else {
@@ -123,7 +123,7 @@ public class Main {
         System.out.println("\n");
         System.out.println("Infinite Dungeons consiste en un jeu de donjon au tour par tour");
         System.out.println("Chaque tour vous affrontez des ennemis différent");
-        System.out.println("Récuperer des objets pour devenir de plus en plus puissant");
+        System.out.println("Récuperer des objets pour devenir de plus en plus puissant\n");
     }
 
     public static void gameLoop(Player player, Combat loadCombat) throws IOException{
