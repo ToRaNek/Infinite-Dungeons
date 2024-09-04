@@ -8,11 +8,12 @@ import java.util.Random;
  * Mob
  */
 public class Mob extends Entity{
-    
+   
     private MobType type;
-
-    public Mob(String name, MobType listMob,int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold) {
+ 
+    public Mob(String name, MobType type,int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold) {
         super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
+        this.type = type;
     }
 
     public MobType getType() {

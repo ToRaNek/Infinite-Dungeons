@@ -16,6 +16,10 @@ public enum Potions implements Equipement {
         this.statsboost = statsboost;
         //this.pm = pm;
     }
+    
+    public String toString(){
+        return name;
+    }
 
     public String getName() {
         return name;

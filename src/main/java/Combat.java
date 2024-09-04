@@ -53,7 +53,7 @@ public class Combat implements Serializable {
     public boolean launchCombat() throws IOException{
         boolean playerTurn = this.faster();
         boolean block = false;
-        while(!endCombat){
+        while(!this.endCombat){
             if (playerTurn) {
                 System.out.println(ENDLINE + "Tour du joueur :");
                 block = this.playerPlay();
@@ -81,17 +81,24 @@ public class Combat implements Serializable {
         return !(this.player.getHp() > 0);
     }
 
-    private void monsterPlay(boolean block){
+    private void monsterPlay(boolean block) {
         int totalDamage = 0;
+        try{
+            this.monster.mobToImage();
+        }catch(IOException e ) {
+            System.out.println(this.monster.getName());
+        } 
+            
+            
         if(!block){
             int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
             totalDamage = this.player.damageTaken(playerDamage);
             if(this.player.getHp() <= 0){
                 this.player.setHp(0);
-                endCombat = true;
+                this.endCombat = true;
                 System.out.println("Perdu");
             }else{
-                System.out.println("Vous avez reçu " + totalDamage + " dégats du monstre. Il vous reste " + this.player.getHp() + "hp");
+                System.out.println("\n Vous avez reçu " + totalDamage + " dégats du monstre.");
             }
             
         }
@@ -102,14 +109,18 @@ public class Combat implements Serializable {
         boolean resp = false;
         String rep;
         while(!resp){
-            System.out.println("Que voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
+            System.out.println("\nVos Statistiques\t Statistiques du monstre\n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() +"\t Vite : "+ this.monster.getSpeed()+ "   Pv : "+ this.monster.getHp()
+            +"\n AttP : " + this.player.getDmgA()+ "  AttM : " + this.player.getDmgP()+"\t AttP : " + this.monster.getDmgA()+ "  AttM : " + this.monster.getDmgP()
+            +"\n ResP : " + this.player.getDefA()+ "  ResM : " + this.player.getDefP()+"\t ResP : " + this.monster.getDefA()+ "  ResM : " + this.monster.getDefP());
+            System.out.println("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
                 int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
                 totalDamage = this.monster.damageTaken(monsterDamage);
                 if(this.monster.getHp() <= 0){
-                    endCombat = true;
+                    this.endCombat = true;
                     System.out.println("Gagné");
+                    resp= true;
                 }else{
                     System.out.println("Vous avez fait " + totalDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
                     resp = true;
@@ -129,13 +140,17 @@ public class Combat implements Serializable {
             }else if (rep.equals("4")) {    
                 resp = true;
                 boolean resp2 = false;
-                while(!resp2){
-                    System.out.println("Quelle potions voulez vous boire?");
-                    List<Potions> playerInventoryPotions = this.player.getInventory().stream().filter(equipement -> equipement instanceof Potions).map(equipement -> (Potions) equipement).toList();
-                    for (int i = 0; i < playerInventoryPotions.size(); i++){
-                        System.out.println("" + (i+1) + " " +  playerInventoryPotions.get(i));
+                List<Potions> playerInventoryPotions = this.player.getInventory().stream().filter(equipement -> equipement instanceof Potions).map(equipement -> (Potions) equipement).toList();
+                if(playerInventoryPotions.size() > 0) {
+                    while(!resp2){
+                        System.out.println("Quelle potions voulez vous boire?");
+                        for (int i = 0; i < playerInventoryPotions.size(); i++){
+                            System.out.println("" + (i+1) + " " +  playerInventoryPotions.get(i));
+                        }
+                        resp2 = this.choicePotions(playerInventoryPotions);  
                     }
-                    resp2 = this.choicePotions(playerInventoryPotions);  
+                }else{
+                    System.out.println("Inventaire de potions VIDE");
                 }
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");

@@ -45,6 +45,7 @@ public class Main {
     }
 
 
+
     public static void showStartMenu(Player player) {
         System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
         System.out.println("Entrer les valeurs correspondantes a chaque option: ");
@@ -68,12 +69,40 @@ public class Main {
         int generalDifficulty = 1;
         boolean deadPlayer = false;
         Mob mob = Mob.randomNewMob(generalDifficulty);
-        Combat combatTest = new Combat(mob, player);
+        //Combat combatTest = new Combat(mob, player);
         while(!deadPlayer){
             mob = Mob.randomNewMob(generalDifficulty);
-            deadPlayer = combatTest.launchCombat();
-            generalDifficulty ++;        
+            Combat c = new Combat(mob, player);
+            deadPlayer = c.launchCombat();
+            System.out.println("Turn finished");
+            generalDifficulty ++;
+            EventsRandom.rdmEventChoice(generalDifficulty, player);     
+            if(!Main.continueGame()) {
+                deadPlayer = true;
+                Utils.saveGame(c);
+                System.out.println("Votre partie a été sauvegardé ! A bientôt");
+            }   
         }
     }
+
+    public static boolean continueGame() throws IOException{
+       
+
+
+        System.out.println("Souhaitez vous continuer ou sauvegarder votre partie ?");
+        System.out.println("1. Continuer");
+        System.out.println("2. Sauvegarder et quitter");
+
+        String choice = Utils.readString();
+        while(!choice.equals("1") && !choice.equals("2")) {
+            choice = Utils.readString();
+        }
+        
+        if(choice.equals("1")) return true;
+
+        return false;
+    }
+
+    
 
 }
