@@ -27,7 +27,7 @@ public class Mob extends Entity{
         int num = rdm.nextInt(longueur);
         int hp =  (int)((80*rdm.nextInt(101)/100 + 20) *difficulty);
         int defA =  (int)((5*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
-        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
+        int defP =  (int)((5*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
         int dmgA;
         int dmgP;
         if(rdm.nextInt(2)==0){
