@@ -119,7 +119,7 @@ public class Main {
         System.out.println("Bienvenue Joueur 1 sur Infinite Dungeons");
         System.out.println("Entrer les valeurs correspondantes a chaque option: ");
         System.out.println(" 1. Lancer la partie ");
-        System.out.println(" 2. Charger une partie (Indisponible)");
+        System.out.println(" 2. Charger une partie");
         System.out.println(" 3. Infos regles");
         System.out.println(" 4. Quitter");
 
@@ -152,7 +152,11 @@ public class Main {
                 combat = null;
             }
             generalDifficulty ++;
-            EventsRandom.rdmEventChoice(generalDifficulty, player);     
+            int boss = EventsRandom.rdmEventChoice(generalDifficulty, player);
+            if(boss == 1){
+                c = new Combat(Boss.randomNewBoss(generalDifficulty), player);
+                deadPlayer = c.launchCombat(); 
+            }    
             if(!Main.continueGame()) {
                 deadPlayer = true;
                 Utils.saveGame(c);

@@ -1,30 +1,64 @@
 package main.java;
 
 import java.util.Random;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class EventsRandom {
     
     private static final String[] EVENTS = new String[]{"COMBAT","SHOP","BOSS","CAMP"};
     private static final Random RDM = new Random();
     private final static String ENDLINE = System.lineSeparator();
+    private static int luck =5;
 
     public String randomEvent()  {
         return EVENTS[RDM.nextInt(EVENTS.length)];
     }
 
-    public static int rdmEventChoice(int difficulty, Player player){
+    public static int rdmEventChoice(int difficulty, Player player) throws IOException{
         int rdmNumber = RDM.nextInt(101);
-        if(rdmNumber > 50 && rdmNumber <= 74){
-            shop(difficulty,player);
-        }else if(rdmNumber > 75 && rdmNumber <= 89){
-            return boss(difficulty);
-        }else if(rdmNumber > 90){
-            camp(player);
-        }
+        if(rdmNumber<luck){
+            luck = 0;
+            System.out.println("\nVous vous retrouvez face à une intersection, quel chemin voulez-vous prendre?");
+            ArrayList<String> eventsChosen = new ArrayList<String>();
+            for(int i = 0; i <2; i++){
+                rdmNumber = RDM.nextInt(101);
+                if(rdmNumber >= 0 && rdmNumber <= 33){
+                    eventsChosen.add("Shop");
+                }else if(rdmNumber >=34 && rdmNumber <= 66){
+                    eventsChosen.add("Camp");
+                }else if(rdmNumber >=67){
+                    eventsChosen.add("Boss");
+                }
+            }
+            String rep = "";
+            do{
+                System.out.println("1 - "+ eventsChosen.get(0)+ "\t 2 - "+eventsChosen.get(1));
+                rep = Utils.readString();
+            }while(!rep.equals("1")&&!rep.equals("2"));
+            if(rep.equals("1")){
+                if(eventsChosen.get(0).equals("Shop")){
+                    shop(player);
+                } else if(eventsChosen.get(0).equals("Camp")){
+                    camp(player);
+                } else if(eventsChosen.get(0).equals("Boss")){
+                    return boss();
+                }
+            }else{
+                if(eventsChosen.get(1).equals("Shop")){
+                    shop(player);
+                } else if(eventsChosen.get(1).equals("Camp")){
+                    camp(player);
+                } else if(eventsChosen.get(1).equals("Boss")){
+                    return boss();
+                }
+            }
+            
+        }else{luck+=5;}
         return 0;
     }
 
-    public static void shop(int difficulty, Player player){
+    public static void shop(Player player){
         // Choix de 1 objets aléatoire parmis les armes et 1 parmis les équipement et 1 potion de soin
         Equipement[] shopList = choiceObject();
         boolean resp = false;
@@ -68,8 +102,8 @@ public class EventsRandom {
         }
     }
 
-    public static int boss(int difficulty){
-        return 5;
+    public static int boss(){
+        return 1;
     }
 
     public static void camp(Player player){

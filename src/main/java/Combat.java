@@ -15,17 +15,19 @@ public class Combat implements Serializable {
      * 
      */
     private final static String ENDLINE = System.lineSeparator();
-    private Mob monster;
+    private Entity monster;
     private Player player;
     private boolean endCombat;
     int damageMonster;
     int damagePlayer;
     int healPlayer;
     int healMonster;
+    PotionEffect<Player> effectPlayer;
+    PotionEffect<Entity> effectEntity;
     StatutEffect<Player> effectPlayer;
     StatutEffect<Mob> effectMob;
     
-    public Combat(Mob monster, Player player) {
+    public Combat(Entity monster, Player player) {
         this.monster = monster;
         this.player = player;
         this.endCombat = false;
@@ -35,10 +37,10 @@ public class Combat implements Serializable {
         effectMob = new StatutEffect<Mob>(monster);
     }
 
-    public Mob getMonstre() {
+    public Entity getMonstre() {
         return monster;
     }
-    public void setMonstre(Mob monster) {
+    public void setMonstre(Entity monster) {
         this.monster = monster;
     }
     public Player getPlayer() {
@@ -60,7 +62,7 @@ public class Combat implements Serializable {
         while(!this.endCombat){
             if (switche == 0){
                 try{
-                    this.monster.mobToImage();
+                    this.monster.monsterToImage();
                 }catch(IOException e ) {
                     System.out.println(this.monster.getName());
                 } 

@@ -13,10 +13,11 @@ public class Boss extends Entity{
     private float resistanceA;
     private float resistanceP;
 
-    public Boss(String name, BossType listBoss,int hpMax, int dmgA, int dmgP,int penA, int penP, int defA, int defP, float speed, int gold, float resistanceA, float resistanceP) {
+    public Boss(String name, BossType type,int hpMax, int dmgA, int dmgP,int penA, int penP, int defA, int defP, float speed, int gold, float resistanceA, float resistanceP) {
         super(name, hpMax, dmgA, dmgP, defA, defP,penA, penP, speed, gold);
         this.resistanceA = resistanceA;
         this.resistanceP = resistanceP;
+        this.type = type;
     }
 
     public BossType getType() {
@@ -53,7 +54,8 @@ public class Boss extends Entity{
         int gold = (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
         int penA = 5; //à changer
         int penP = 5; //à changer
-        Boss newBoss = new Boss("Harpie", listBoss[0], hp, dmgA, dmgP,penA, penP, defA, defP, (float) 15.0, gold, (float) 0.8, (float) 1.0);
+        BossType type = BossType.HARPY;
+        Boss newBoss = new Boss("Harpie", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 15.0, gold, (float) 0.8, (float) 1.0);
         return newBoss;
     }
     private static Boss createWerewolf(int difficulty){
@@ -67,7 +69,8 @@ public class Boss extends Entity{
         int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
         int penA = 5; //à changer
         int penP = 5; //à changer
-        Boss newBoss = new Boss("Loup-Garou", listBoss[0], hp, dmgA, dmgP,penA, penP, defA, defP, (float) 20.0, gold, (float) 0.95, (float) 1.0);
+        BossType type = BossType.WEREWOLF;
+        Boss newBoss = new Boss("Loup-Garou", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 20.0, gold, (float) 0.95, (float) 1.0);
         return newBoss;
     }
     private static Boss createVampire(int difficulty){
@@ -81,7 +84,8 @@ public class Boss extends Entity{
         int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
         int penA = 5; //à changer
         int penP = 5; //à changer
-        Boss newBoss = new Boss("Vampire", listBoss[0], hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 1.0, (float) 0.9);
+        BossType type = BossType.VAMPIRE;
+        Boss newBoss = new Boss("Vampire", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 1.0, (float) 0.9);
         return newBoss;
     }
     private static Boss createDragon(int difficulty){
@@ -95,7 +99,8 @@ public class Boss extends Entity{
         int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
         int penA = 5; //à changer
         int penP = 5; //à changer
-        Boss newBoss = new Boss("Dragon", listBoss[0], hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.75, (float) 1.0);
+        BossType type = BossType.DRAGON;
+        Boss newBoss = new Boss("Dragon", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.75, (float) 1.0);
         return newBoss;
     }
     private static Boss createMinotaur(int difficulty){
@@ -109,12 +114,13 @@ public class Boss extends Entity{
         int gold =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
         int penA = 5; //à changer
         int penP = 5; //à changer
-        Boss newBoss = new Boss("Minotaure", listBoss[0], hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.8, (float) 1.2);
+        BossType type = BossType.MINOTAUR;
+        Boss newBoss = new Boss("Minotaure", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.8, (float) 1.2);
         return newBoss;
     }
 
-    public void bossToImage() throws IOException{
-        String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "boss" + File.separator + "ansi" +  File.separator;
+    public void monsterToImage() throws IOException{
+        String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "mobs" + File.separator + "ansi" +  File.separator;
         Utils.printAnsi(new File(path + this.type.getPath()));
     }
 

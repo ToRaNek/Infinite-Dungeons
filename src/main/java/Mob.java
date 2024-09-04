@@ -50,7 +50,7 @@ public class Mob extends Entity{
         return newMob;
     }
 
-    public void mobToImage() throws IOException{
+    public void monsterToImage() throws IOException{
         String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "mobs" + File.separator + "ansi" +  File.separator;
         Utils.printAnsi(new File(path + this.type.getPath()));
     }

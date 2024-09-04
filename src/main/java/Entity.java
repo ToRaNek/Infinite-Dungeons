@@ -1,6 +1,8 @@
 package main.java;
 
 import java.io.Serializable;
+import java.io.File;
+import java.io.IOException;
 
 public class Entity implements Serializable {
     private String name;
@@ -124,7 +126,8 @@ public class Entity implements Serializable {
         this.gold += gold;
     }
 
-
+    public void monsterToImage() throws IOException{
+    }
 
     
 }
