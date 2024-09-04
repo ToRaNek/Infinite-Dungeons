@@ -1,6 +1,7 @@
 package main.java;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -23,9 +24,12 @@ public class Main {
                                 System.out.println("Bonjour aventurier.ère, comment vous appellez vous ? (Max : 10 caractères)");
                                 name = Utils.readString();
                             }
-                            gameLoop(player, name);                           
+                            player.setName(name);
+                            gameLoop(player);                           
                             break;
                         case "2":
+                            printSaveChoices();
+                            choiceSave();
                             optionEntered = true;
                         case "3":
                             Main.showHelpMenu(player);
@@ -51,6 +55,29 @@ public class Main {
     }
 
 
+    public static void printSaveChoices() {
+        List<Combat> combats = Utils.loadGames();
+        System.out.println("Partie sauvegardé: ");
+       
+        for(int i = 0; i<combats.size(); i++) {
+            System.out.println(" " + (i+1) + ". Combat de " + combats.get(i).getPlayer().getName());
+        }
+    }
+
+   public static void choiceSave() throws IOException, InterruptedException {
+        List<Combat> combats = Utils.loadGames();
+        boolean correctChoice = false;
+        int choice = -1;
+        while(!correctChoice) {
+            choice = Utils.readInt();
+            if(choice > 0 && choice <= combats.size()) correctChoice = true;
+        }
+
+        System.out.println("Chargement de la partie sélectionnée... ");
+        TimeUnit.SECONDS.sleep(4);
+        Main.gameLoop(combats.get(choice-1).getPlayer(), combats.get(choice-1));
+   }
+
 
     public static void showStartMenu(Player player) {
         System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
@@ -71,16 +98,23 @@ public class Main {
         System.out.println("Récuperer des objets pour devenir de plus en plus puissant");
     }
 
-    public static void gameLoop(Player player, String name) throws IOException{
+    public static void gameLoop(Player player, Combat loadCombat) throws IOException{
         int generalDifficulty = 1;
         boolean deadPlayer = false;
         Mob mob = Mob.randomNewMob(generalDifficulty);
+        Combat combat = loadCombat;
         //Combat combatTest = new Combat(mob, player);
         while(!deadPlayer){
-            mob = Mob.randomNewMob(generalDifficulty);
-            Combat c = new Combat(mob, player);
-            deadPlayer = c.launchCombat();
-            System.out.println("Turn finished");
+            Combat c;
+            if(combat == null) {
+                mob = Mob.randomNewMob(generalDifficulty);
+                c = new Combat(mob, player);
+                deadPlayer = c.launchCombat();
+            }else {
+                deadPlayer = combat.launchCombat();
+                c= combat;
+                combat = null;
+            }
             generalDifficulty ++;
             EventsRandom.rdmEventChoice(generalDifficulty, player);     
             if(!Main.continueGame()) {
@@ -89,6 +123,10 @@ public class Main {
                 System.out.println("Votre partie a été sauvegardé ! A bientôt");
             }   
         }
+    }
+
+    public static void gameLoop(Player player) throws IOException {
+        Main.gameLoop(player, null);
     }
 
     public static boolean continueGame() throws IOException{
