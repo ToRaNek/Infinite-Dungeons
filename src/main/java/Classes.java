@@ -1,11 +1,12 @@
 package main.java;
 
 public enum Classes {
-    VOLEUR(11,4,0,0,0,0,10,25),
-    BERSERKER(15,0,10,0,0,0,1,15),
-    MAGE(0,15,0,10,0,0,5,15),
-    PALADIN(7,8,5,5,0,0,2,15);
+    VOLEUR("Voleur",11,4,0,0,0,0,10,25),
+    BERSERKER("Berserker",15,0,10,0,0,0,1,15),
+    MAGE("Mage",0,15,0,10,0,0,5,15),
+    PALADIN("Paladin",7,8,5,5,0,0,2,15);
 
+    private String name; 
     private int degatPhy;
     private int degatMag;
     private int resPhy;
@@ -15,7 +16,8 @@ public enum Classes {
     private int speed;
     private int gold;
 
-    Classes(int degatPhy, int degatMag, int resPhy, int resMag, int penPhy, int penMag, int speed, int gold) {
+    Classes(String name,int degatPhy, int degatMag, int resPhy, int resMag, int penPhy, int penMag, int speed, int gold) {
+        this.name = name;
         this.degatPhy = degatPhy;
         this.degatMag = degatMag;
         this.resPhy = resPhy;
@@ -24,6 +26,13 @@ public enum Classes {
         this.penMag = penMag;
         this.speed = speed;
         this.gold = gold;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name=name;
     }
 
     public int getDegatPhy() {
@@ -89,6 +98,4 @@ public enum Classes {
     public void setGold(int gold) {
         this.gold = gold;
     }
-
-    
 }
