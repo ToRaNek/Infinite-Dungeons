@@ -141,13 +141,17 @@ public class Combat implements Serializable {
             }else if (rep.equals("4")) {    
                 resp = true;
                 boolean resp2 = false;
-                while(!resp2){
-                    System.out.println("Quelle potions voulez vous boire?");
-                    List<Potions> playerInventoryPotions = this.player.getInventory().stream().filter(equipement -> equipement instanceof Potions).map(equipement -> (Potions) equipement).toList();
-                    for (int i = 0; i < playerInventoryPotions.size(); i++){
-                        System.out.println("" + (i+1) + " " +  playerInventoryPotions.get(i));
+                List<Potions> playerInventoryPotions = this.player.getInventory().stream().filter(equipement -> equipement instanceof Potions).map(equipement -> (Potions) equipement).toList();
+                if(playerInventoryPotions.size() > 0) {
+                    while(!resp2){
+                        System.out.println("Quelle potions voulez vous boire?");
+                        for (int i = 0; i < playerInventoryPotions.size(); i++){
+                            System.out.println("" + (i+1) + " " +  playerInventoryPotions.get(i));
+                        }
+                        resp2 = this.choicePotions(playerInventoryPotions);  
                     }
-                    resp2 = this.choicePotions(playerInventoryPotions);  
+                }else{
+                    System.out.println("Inventaire de potions VIDE");
                 }
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");
