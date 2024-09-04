@@ -209,7 +209,7 @@ public class Combat implements Serializable {
             System.out.println("Choississez une option valide en notant le numéro correspondant."); 
         }else{
             this.player.setPotionsLastUse(playerInventoryPotions.get(chociePotions-1));
-            System.out.println("Vous avez selectionnez la potions : " + this.player.getArmure().name());
+            System.out.println("Vous avez selectionnez la potions : " + this.player.getPotion().name());;
             this.player.usePotion(); 
             resp4= true;
         }
