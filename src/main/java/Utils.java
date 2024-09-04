@@ -45,8 +45,7 @@ public class Utils {
             String string = readString();
             res = Integer.parseInt(string);
         } catch (IOException e) {
-            System.err.println("IOexception");
-            e.printStackTrace();
+            System.err.println("Une erreur est survenue lors de la lecture de votre entrée int !");
         } catch (NumberFormatException e){
             System.out.println("Conversion impossible ! Lettre ou autres caractère présents !");
             return readInt();
@@ -70,8 +69,8 @@ public class Utils {
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(path+historyLocation)))) {
             oos.writeObject(trajets);
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (IOException e) {
+            System.err.println("Erreur lors de la sauvegarde de la game !");
         }
 
     }   
@@ -111,9 +110,9 @@ public class Utils {
                 e1.printStackTrace();
             }
         }catch(EOFException e) {
-            
+            System.err.println("Erreur lors du chargement de la sauvegarde de la game !");
         }catch(Exception e) {
-            e.printStackTrace();
+            System.err.println("Erreur lors du chargement de la sauvegarde de la game !");
         }
 
         return combats;
