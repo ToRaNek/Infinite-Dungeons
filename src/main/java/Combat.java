@@ -87,11 +87,9 @@ public class Combat implements Serializable {
             this.monster.mobToImage();
         }catch(IOException e ) {
             System.out.println(this.monster.getName());
-        }
-
-        System.out.println("\n Statistiques du monstre\n Vite : "+ this.monster.getSpeed()+ "   Pv : "+ this.monster.getHp() 
-            +"\n AttP : " + this.monster.getDmgA()+ "  AttM : " + this.monster.getDmgP()
-            +"\n ResP : " + this.monster.getDefA()+ "  ResM : " + this.monster.getDefP());
+        } 
+            
+            
         if(!block){
             int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
             totalDamage = this.player.damageTaken(playerDamage);
@@ -111,9 +109,9 @@ public class Combat implements Serializable {
         boolean resp = false;
         String rep;
         while(!resp){
-            System.out.println("\nVos Statistiques \n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() 
-            +"\n AttP : " + this.player.getDmgA()+ "  AttM : " + this.player.getDmgP()
-            +"\n ResP : " + this.player.getDefA()+ "  ResM : " + this.player.getDefP());
+            System.out.println("\nVos Statistiques\t Statistiques du monstre\n Vite : "+ this.player.getSpeed()+ "   Pv : "+ this.player.getHp() +"\t Vite : "+ this.monster.getSpeed()+ "   Pv : "+ this.monster.getHp()
+            +"\n AttP : " + this.player.getDmgA()+ "  AttM : " + this.player.getDmgP()+"\t AttP : " + this.monster.getDmgA()+ "  AttM : " + this.monster.getDmgP()
+            +"\n ResP : " + this.player.getDefA()+ "  ResM : " + this.player.getDefP()+"\t ResP : " + this.monster.getDefA()+ "  ResM : " + this.monster.getDefP());
             System.out.println("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
