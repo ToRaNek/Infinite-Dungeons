@@ -39,14 +39,26 @@ public class EventsRandom {
             if(ans == 1){
                 if(player.getGold() < 150){
                     System.out.println("Vous n'avez pas assez d'argent ;)[Vous avez " + player.getGold() + " d'or]");
+                }else{
+                    player.setGold(player.getGold() - 150);
+                    player.getInventory().add(shopList[0]);
+                    System.out.println("Vous avez acheté l'équipement : " + shopList[0].toString());
                 }
             }else if(ans == 2){
                 if(player.getGold() < 150){
                     System.out.println("Vous n'avez pas assez d'argent ;)[Vous avez " + player.getGold() + " d'or]");
+                }else{
+                    player.setGold(player.getGold() - 150);
+                    player.getInventory().add(shopList[1]);
+                    System.out.println("Vous avez acheté l'équipement : " + shopList[1].toString());
                 }
             }else if(ans == 3){
                 if(player.getGold() < 100){
                     System.out.println("Vous n'avez pas assez d'argent ;)[Vous avez " + player.getGold() + " d'or]");
+                }else{
+                    player.setGold(player.getGold() - 100);
+                    player.getInventory().add(shopList[2]);
+                    System.out.println("Vous avez acheté l'équipement : " + shopList[2].toString());
                 }
             }else if(ans == 4){
                 resp = true;
