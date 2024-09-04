@@ -17,6 +17,7 @@ public enum Armors implements Equipement, Serializable {
     private String name;
     private int ResAD;
     private int ResAP; 
+    public static final int nbrOfArmors = 9;
 
     Armors(String name, int ResPhy, int ResMag) {
         this.name = name;
