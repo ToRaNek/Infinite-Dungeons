@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     
     public static void main(String[] args) throws IOException, InterruptedException {
-        Player player = new Player("Joueur 1", 100, 10, 1, 10, 1, 1, 0,1 ,1);
         
         Set<String> playerNames = Utils.loadPlayerNames();
 
@@ -29,9 +28,30 @@ public class Main {
                             if(playerNames.contains(name)){
                                 System.out.println("Erreur, nom d'utilisateur deja utilisé !");
                                 System.exit(0);
-                            }else {
-                                player.setName(name);
                             }
+                            boolean classes = false;
+                            Classes classe = Classes.BERSERKER;
+                            while (!classes) {
+                                System.out.println("Quelle classe voulez vous jouer ? \n 1 - Voleur \t 2 - Berserker \t 3 - Mage \t 4 - Paladin\n");
+                                String nbrClasse = Utils.readString(); 
+                                if(nbrClasse.equals("0")){
+                                    classe = Classes.VOLEUR;
+                                    classes = true;
+                                }else if(nbrClasse.equals("1")){
+                                    classe = Classes.BERSERKER;
+                                    classes = true;
+                                }else if(nbrClasse.equals("2")){
+                                    classe = Classes.MAGE;
+                                    classes = true;
+                                }else if(nbrClasse.equals("3")){
+                                    classe = Classes.PALADIN;
+                                    classes = true;
+                                }else {
+                                    System.out.println("Veuillez entrer un chiffre valable !\n");
+                                }
+                            }
+                            System.out.println("Vous avez sélectioné la classe "+classe.getName());
+                            Player player = new Player(name, 100, classe);
                             gameLoop(player);                           
                             break;
                         case "2":
