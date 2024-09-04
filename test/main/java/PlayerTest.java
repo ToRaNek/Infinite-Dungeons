@@ -2,9 +2,9 @@ package main.java;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Test;
-import org.junit.internal.Classes;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
     
@@ -21,10 +21,25 @@ public class PlayerTest {
     public void testGold() {
 
 
-        assertEquals(0, p1.getGold());
+        assertEquals(15, p1.getGold());
         p1.addGold(10);
-        assertEquals(10, p1.getGold());
+        assertEquals(25, p1.getGold());
+        p1.addGold(0);
+        assertEquals(25, p1.getGold());
 
+
+    }
+
+    @Test
+    public void testClass()  {
+
+        assertEquals(Classes.PALADIN.getPenMag(), p1.getPenP());
+        assertEquals(Classes.PALADIN.getPenPhy(), p1.getPenA());
+
+        assertEquals(Classes.PALADIN.getSpeed(), p1.getSpeed());
+
+        
+    
     }
 
 

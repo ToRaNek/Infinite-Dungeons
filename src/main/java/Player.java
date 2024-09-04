@@ -29,9 +29,7 @@ public class Player extends Entity{
     public int getDmgA() {
         return super.getDmgA() + armeactuelle.getAD();
     }
-    public void setClasse(Classes classe) {
-        this.classe = classe;
-    }
+    
     public int getDefA() {
         return super.getDefA() + armureactuelle.getResPhy();
     }
