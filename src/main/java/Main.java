@@ -11,7 +11,7 @@ public class Main {
         
         Set<String> playerNames = Utils.loadPlayerNames();
 
-        Main.showStartMenu(player);
+        Main.showStartMenu();
 
         boolean optionEntered = false;
         do{
@@ -60,9 +60,9 @@ public class Main {
                             optionEntered = true;
                             break;
                         case "3":
-                            Main.showHelpMenu(player);
+                            Main.showHelpMenu();
                             TimeUnit.SECONDS.sleep(4);
-                            Main.showStartMenu(player);
+                            Main.showStartMenu();
                             break;
                         case "4":
                             optionEntered = true;
@@ -107,8 +107,8 @@ public class Main {
    }
 
 
-    public static void showStartMenu(Player player) {
-        System.out.println("Bienvenue " + player + " sur Infinite Dungeons");
+    public static void showStartMenu() {
+        System.out.println("Bienvenue Joueur 1 sur Infinite Dungeons");
         System.out.println("Entrer les valeurs correspondantes a chaque option: ");
         System.out.println(" 1. Lancer la partie ");
         System.out.println(" 2. Charger une partie (Indisponible)");
@@ -119,7 +119,7 @@ public class Main {
        
     }
 
-    public static void showHelpMenu(Player player) {
+    public static void showHelpMenu() {
         System.out.println("\n");
         System.out.println("Infinite Dungeons consiste en un jeu de donjon au tour par tour");
         System.out.println("Chaque tour vous affrontez des ennemis différent");
