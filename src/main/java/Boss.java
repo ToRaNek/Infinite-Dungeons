@@ -10,10 +10,10 @@ import java.util.Random;
 public class Boss extends Entity{
     
     private BossType type;
-    private int resistanceA;
-    private int resistanceP;
+    private float resistanceA;
+    private float resistanceP;
 
-    public Boss(String name, BossType listBoss,int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold, int resistanceA, int resistanceP) {
+    public Boss(String name, BossType listBoss,int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold, float resistanceA, float resistanceP) {
         super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
         this.resistanceA = resistanceA;
         this.resistanceP = resistanceP;
@@ -29,28 +29,80 @@ public class Boss extends Entity{
         String bossChosen = listBoss[rdm.nextInt(listBoss.length)].toString();
         Boss newBoss;
         if (bossChosen.equals("HARPY")){
-            newBoss = createHarrpy(difficulty);
+            newBoss = createHarpy(difficulty);
         }else if (bossChosen.equals("WEREWOLF")){
             newBoss = createWerewolf(difficulty);
         }else if (bossChosen.equals("VAMPIRE")){
             newBoss = createVampire(difficulty);
-        }else if (bossChosen.equals("Dragon")){
+        }else if (bossChosen.equals("DRAGON")){
             newBoss = createDragon(difficulty);
+        }else{
+            newBoss = createMinotaur(difficulty);
         }
-
         return newBoss;
     }
 
-    private static Boss createHarrpy(int difficulty){
+    private static Boss createHarpy(int difficulty){
+        Random rdm = new Random();
+        BossType[] listBoss = BossType.values();
+        int hp =  (int)((100*rdm.nextInt(101)/100 + 20) *difficulty);
+        int defA =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int dmgA =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int dmgP =  (int)((20*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        Boss newBoss = new Boss("Harpie", listBoss[0], hp, dmgA, dmgP, defA, defP, (float) 15.0, gold, (float) 0.8, (float) 1.0);
+        return newBoss;
+    }
+    private static Boss createWerewolf(int difficulty){
+        Random rdm = new Random();
+        BossType[] listBoss = BossType.values();
         int hp =  (int)((110*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA =  (int)((10*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int defP =  (int)((30*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int dmgA =  (int)((10*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int dmgP =  (int)((10*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int gold =  (int)((50*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        Boss newBoss = new Boss(listBoss[num].toString(), listBoss[num] , hp, dmgA, dmgP, defA, defP, 30, gold, 10);
+        int defA =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int dmgA =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int dmgP =  (int)((20*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        Boss newBoss = new Boss("Loup-Garou", listBoss[0], hp, dmgA, dmgP, defA, defP, (float) 20.0, gold, (float) 0.95, (float) 1.0);
         return newBoss;
     }
+    private static Boss createVampire(int difficulty){
+        Random rdm = new Random();
+        BossType[] listBoss = BossType.values();
+        int hp =  (int)((90*rdm.nextInt(101)/100 + 20) *difficulty);
+        int defA =  (int)((10*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int dmgA =  (int)((20*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int dmgP =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        Boss newBoss = new Boss("Vampire", listBoss[0], hp, dmgA, dmgP, defA, defP, (float) 30.0, gold, (float) 1.0, (float) 0.9);
+        return newBoss;
+    }
+    private static Boss createDragon(int difficulty){
+        Random rdm = new Random();
+        BossType[] listBoss = BossType.values();
+        int hp =  (int)((100*rdm.nextInt(101)/100 + 20) *difficulty);
+        int defA =  (int)((30*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int dmgA =  (int)((15*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int dmgP =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        Boss newBoss = new Boss("Dragon", listBoss[0], hp, dmgA, dmgP, defA, defP, (float) 30.0, gold, (float) 0.75, (float) 1.0);
+        return newBoss;
+    }
+    private static Boss createMinotaur(int difficulty){
+        Random rdm = new Random();
+        BossType[] listBoss = BossType.values();
+        int hp =  (int)((130*rdm.nextInt(101)/100 + 20) *difficulty);
+        int defA =  (int)((5*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
+        int dmgA =  (int)((35*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int dmgP =  (int)((0*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        int gold =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
+        Boss newBoss = new Boss("Minotaure", listBoss[0], hp, dmgA, dmgP, defA, defP, (float) 30.0, gold, (float) 0.8, (float) 1.2);
+        return newBoss;
+    }
+
     public void bossToImage() throws IOException{
         String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "boss" + File.separator + "ansi" +  File.separator;
         Utils.printAnsi(new File(path + this.type.getPath()));
@@ -58,7 +110,7 @@ public class Boss extends Entity{
 
     public int damageTaken(int dmgA, int dmgP){
         int totalDamage = 0;
-        totalDamage = (dmgA-getDefA())*resistanceA + (dmgP - getDefP())*resistanceP;
+        totalDamage = (int)((dmgA-getDefA())*resistanceA + (dmgP - getDefP())*resistanceP);
         if(totalDamage <= 0 ){totalDamage = 1;}
         setHp(getHp()-totalDamage);
         if(getHp()<0){setHp(0);}

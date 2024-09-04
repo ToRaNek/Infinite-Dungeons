@@ -25,9 +25,9 @@ public class Mob extends Entity{
         MobType[] listMob = MobType.values();
         int longueur = listMob.length;
         int num = rdm.nextInt(longueur);
-        int hp =  (int)((80*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA =  (int)((5*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
-        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
+        int hp =  (int)((80*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
+        int defA =  (int)((0*rdm.nextInt(101)/100 + 10) *0.03*difficulty);
+        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *0.03*difficulty);
         int dmgA;
         int dmgP;
         int penA;
