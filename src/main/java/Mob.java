@@ -33,15 +33,15 @@ public class Mob extends Entity{
         int penA;
         int penP;
         if(rdm.nextInt(2)==0){
-            dmgA = (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+            dmgA = (int)((5*rdm.nextInt(101)/100 + 5) *0.08*difficulty);
             dmgP = 0;
-            penA = (int)((3*rdm.nextInt(101)/100 + 1) *0.25*difficulty);
+            penA = (int)((3*rdm.nextInt(101)/100 + 1) *0.08*difficulty);
             penP = 0;
         }else{
             dmgA = 0;
-            dmgP = (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+            dmgP = (int)((5*rdm.nextInt(101)/100 + 5) *0.08*difficulty);
             penA = 0;
-            penP = (int)((3*rdm.nextInt(101)/100 + 1) *0.25*difficulty);
+            penP = (int)((3*rdm.nextInt(101)/100 + 1) *0.08*difficulty);
 
         }
         int gold =  (int)((10*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
