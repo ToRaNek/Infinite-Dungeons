@@ -11,12 +11,16 @@ public class Player extends Entity{
         this.armeactuelle = Weapons.DAGUE;
         this.inventory.add(Armors.BRIGANDINE);
         this.inventory.add(Armors.ECU);
-        this.armureactuelle = Armors.BRIGANDINE;  
+        this.armureactuelle = Armors.BRIGANDINE;
+        this.inventory.add(Potions.SOINPV);
+        this.inventory.add(Potions.FORCEPHYSIQUE);
+          
     }
 
     private ArrayList<Equipement> inventory;
     private Weapons armeactuelle;
     private Armors armureactuelle;
+    private Potions potionslastuse;
     
     public int getDmgA() {
         return super.getDmgA() + armeactuelle.getAD();
@@ -36,6 +40,9 @@ public class Player extends Entity{
     public Weapons getArme() {
         return armeactuelle;
     }
+    public Potions getPotion() {
+        return potionslastuse;
+    }
     public ArrayList<Equipement> getInventory() {
         if (inventory == null) {
             throw new NullPointerException("inventory must not be null");
@@ -51,6 +58,10 @@ public class Player extends Entity{
         this.armureactuelle = newArmure;
     }
 
+    public void setPotionsLastUse(Potions lastPotions) {
+        this.potionslastuse = lastPotions;
+    }
+
     public void setInventory(ArrayList<Equipement> inventory) {
         if (inventory == null) {
             throw new NullPointerException("inventory must not be null");
@@ -61,6 +72,30 @@ public class Player extends Entity{
     @Override
     public String toString() {
         return this.getName();
+    }
+
+    public void usePotion(){
+        if(this.potionslastuse!= null){
+            switch (this.potionslastuse) {
+                case SOINPV:
+                    this.healTaken(this.potionslastuse.getStatsboost());
+                    break;
+                case FORCEPHYSIQUE:
+                    this.setDmgA(this.getDmgA() + this.potionslastuse.getStatsboost());
+                    break;
+                case FORCEMAGIQUE:
+                    this.setDmgP(this.getDmgP() + this.potionslastuse.getStatsboost());
+                    break;
+                case RESMAGIQUE:
+                    this.setDefP(this.getDefP() + this.potionslastuse.getStatsboost());
+                    break;
+                case RESPHYSIQUE:
+                    this.setDefA(this.getDefA() + this.potionslastuse.getStatsboost());
+                    break;
+                default:
+                    System.out.println("Aucune potions n'a été bu");
+            }
+        }
     }
 
 }
