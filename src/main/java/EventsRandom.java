@@ -15,9 +15,9 @@ public class EventsRandom {
 
     public static int rdmEventChoice(int difficulty, Player player){
         int rdmNumber = RDM.nextInt(101);
-        if(rdmNumber > 50 && rdmNumber < 74){
+        if(rdmNumber > 50 && rdmNumber <= 74){
             shop(difficulty);
-        }else if(rdmNumber > 75 && rdmNumber < 89){
+        }else if(rdmNumber > 75 && rdmNumber <= 89){
             return boss(difficulty);
         }else if(rdmNumber > 90){
             camp(player);
