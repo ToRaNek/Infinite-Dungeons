@@ -27,7 +27,7 @@ public class UtilsTest {
     
     @BeforeEach
     public void initialize() {
-        player = new Player("TetPlayer", 100, 10, 10, 10, 10, 1, 0);
+        player = new Player("Player1", 100, Classes.BERSERKER);
         combat = new Combat(Mob.randomNewMob(5), player);
     }
 

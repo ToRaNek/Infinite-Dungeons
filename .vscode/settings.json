@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "src"
+        "src",
+        "test"
     ],
     "java.project.referencedLibraries": [
         "/home/infoetu/matias.mennecart.etu/S3/S3.01/groupe-13/lib/junit-platform-console-standalone-1.10.2(1).jar"
