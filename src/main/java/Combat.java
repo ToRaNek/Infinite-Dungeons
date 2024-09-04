@@ -55,16 +55,27 @@ public class Combat implements Serializable {
     public boolean launchCombat() throws IOException{
         boolean playerTurn = this.faster();
         boolean block = false;
+        int switche =0;
         while(!this.endCombat){
+            if (switche == 0){
+                try{
+                    this.monster.mobToImage();
+                }catch(IOException e ) {
+                    System.out.println(this.monster.getName());
+                } 
+            }
+            
             if (playerTurn) {
                 System.out.println(ENDLINE + "Tour du joueur :");
                 block = this.playerPlay();
                 playerTurn = false;
+                switche = 1;
             } else {
                 System.out.println(ENDLINE + "Tour de l'ennemie");
                 this.monsterPlay(block);
                 block = false;
                 playerTurn = true;
+                switche = 0;
             }
         }
         this.player.addGold(this.monster.getGold());
@@ -84,14 +95,7 @@ public class Combat implements Serializable {
     }
 
     private void monsterPlay(boolean block) {
-        int totalDamage = 0;
-        try{
-            this.monster.mobToImage();
-        }catch(IOException e ) {
-            System.out.println(this.monster.getName());
-        } 
-            
-            
+        int totalDamage = 0;  
         if(!block){
             totalDamage = this.player.damageTaken(monster.getDmgA(), monster.getDmgP());
             if(this.player.getHp() <= 0){
