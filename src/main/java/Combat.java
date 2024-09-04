@@ -91,8 +91,7 @@ public class Combat implements Serializable {
             
             
         if(!block){
-            int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
-            totalDamage = this.player.damageTaken(playerDamage);
+            totalDamage = this.player.damageTaken(monster.getDmgA(), monster.getDmgP());
             if(this.player.getHp() <= 0){
                 this.player.setHp(0);
                 this.endCombat = true;
@@ -115,8 +114,7 @@ public class Combat implements Serializable {
             System.out.println("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             rep = Utils.readString();
             if(rep.equals("1")){
-                int monsterDamage = this.player.getDmgA() + this.player.getDmgP();
-                totalDamage = this.monster.damageTaken(monsterDamage);
+                totalDamage = this.monster.damageTaken(this.player.getDmgA(), this.player.getDmgP());
                 if(this.monster.getHp() <= 0){
                     this.endCombat = true;
                     System.out.println("Gagné");
