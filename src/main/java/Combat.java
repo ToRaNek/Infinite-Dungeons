@@ -22,10 +22,8 @@ public class Combat implements Serializable {
     int damagePlayer;
     int healPlayer;
     int healMonster;
-    PotionEffect<Player> effectPlayer;
-    PotionEffect<Entity> effectEntity;
     StatutEffect<Player> effectPlayer;
-    StatutEffect<Mob> effectMob;
+    StatutEffect<Entity> effectMob;
     
     public Combat(Entity monster, Player player) {
         this.monster = monster;
@@ -34,7 +32,7 @@ public class Combat implements Serializable {
         this.healMonster = 0;
         this.healPlayer = 0;
         effectPlayer = new StatutEffect<Player>(player);
-        effectMob = new StatutEffect<Mob>(monster);
+        effectMob = new StatutEffect<Entity>(monster);
     }
 
     public Entity getMonstre() {
