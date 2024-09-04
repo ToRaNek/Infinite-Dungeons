@@ -95,6 +95,7 @@ public class Player extends Entity{
                 default:
                     System.out.println("Aucune potions n'a été bu");
             }
+            this.inventory.remove(this.potionslastuse);
         }
     }
 
