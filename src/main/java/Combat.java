@@ -81,8 +81,15 @@ public class Combat implements Serializable {
         return !(this.player.getHp() > 0);
     }
 
-    private void monsterPlay(boolean block){
+    private void monsterPlay(boolean block) {
         int totalDamage = 0;
+        try{
+            this.monster.mobToImage();
+        }catch(IOException e ) {
+            System.out.println(this.monster.getName());
+        }
+
+        System.out.println(this.monster.getName() + " HP: " + this.monster.getHp());
         if(!block){
             int playerDamage = this.monster.getDmgA() + this.monster.getDmgP();
             totalDamage = this.player.damageTaken(playerDamage);
