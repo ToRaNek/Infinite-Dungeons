@@ -41,5 +41,14 @@ public class StatutEffect<T extends Entity> {
     }
 
 
+    public void runEffect(Statut statut){
+        // fonction qui servira à activer les effets
+    }
+
+    private void poison(){
+        
+    }
+
+
 
 }
