@@ -5,7 +5,8 @@ public enum Potions implements Equipement {
     FORCEPHYSIQUE("Potions de Force",10/*degatsAD*/),
     FORCEMAGIQUE("Potions de Sagesse",10/*degatsAP*/),
     RESMAGIQUE("Potions de Résistance Magique",5/*ResAP*/),
-    RESPHYSIQUE("Potions de Résistance Physique",5/*ResAD*/);
+    RESPHYSIQUE("Potions de Résistance Physique",5/*ResAD*/),
+    VITESSE("Potions de Vitesse",5);
 
     private String name;
     private int statsboost;

@@ -92,6 +92,9 @@ public class Player extends Entity{
                 case RESPHYSIQUE:
                     this.setDefA(this.getDefA() + this.potionslastuse.getStatsboost());
                     break;
+                case VITESSE:
+                    this.setSpeed(this.getSpeed() + this.potionslastuse.getStatsboost());
+                    break;
                 default:
                     System.out.println("Aucune potions n'a été bu");
             }
