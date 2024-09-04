@@ -32,7 +32,7 @@ public class EventsRandom {
         + " Je suis ici pour vous servir." + ENDLINE 
         + " Je vous laisse regarder ma cargaison."
         + " Ici vous pouvoir voir mes différents objets :"
-        + " 1 - " + shopList[0].toString() + "(150 golds) 2- " + shopList[1].toString() + "150 golds 3- " + shopList[2].toString() + "(100 golds)"+ ENDLINE
+        + " 1 - " + shopList[0].toString() + "(150 golds) 2 - " + shopList[1].toString() + "(150 golds) 3 - " + shopList[2].toString() + "(100 golds)"+ ENDLINE
         + "Choississez l'item que vous voulez (Tapez 4 pour sortir du marché et continuer votre route): ");
         while(!resp){
             int ans = Utils.readInt();
