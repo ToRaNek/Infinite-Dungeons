@@ -11,8 +11,8 @@ public class Mob extends Entity{
    
     private MobType type;
  
-    public Mob(String name, MobType type,int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold) {
-        super(name, hpMax, dmgA, dmgP, defA, defP, speed, gold);
+    public Mob(String name, MobType type, int hpMax, int dmgA, int dmgP, int defA, int defP,int penA, int penP, float speed, int gold) {
+        super(name, hpMax, dmgA, dmgP, penA, penP, defA, defP, speed, gold);
         this.type = type;
     }
 
@@ -30,17 +30,22 @@ public class Mob extends Entity{
         int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.25*difficulty);
         int dmgA;
         int dmgP;
+        int penA;
+        int penP;
         if(rdm.nextInt(2)==0){
-            dmgA =  (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
-            dmgP =  0;
-
+            dmgA = (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+            dmgP = 0;
+            penA = (int)((3*rdm.nextInt(101)/100 + 1) *0.25*difficulty);
+            penP = 0;
         }else{
-            dmgA =  0;
-            dmgP =  (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+            dmgA = 0;
+            dmgP = (int)((5*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+            penA = 0;
+            penP = (int)((3*rdm.nextInt(101)/100 + 1) *0.25*difficulty);
 
         }
         int gold =  (int)((10*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
-        Mob newMob = new Mob(listMob[num].toString(), listMob[num] , hp, dmgA, dmgP, defA, defP, 5, gold);
+        Mob newMob = new Mob(listMob[num].toString(), listMob[num] , hp, dmgA, dmgP,penA, penP, defA, defP, 5, gold);
 
         return newMob;
     }

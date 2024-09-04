@@ -10,17 +10,21 @@ public class Entity implements Serializable {
     private int hpMax;
     private int dmgA;
     private int dmgP;
+    private int penA;
+    private int penP;
     private int defA;
     private int defP;
     private float speed;
     private int gold;
 
-    public Entity(String name, int hpMax, int dmgA, int dmgP, int defA, int defP, float speed, int gold) {
+    public Entity(String name, int hpMax, int dmgA, int dmgP, int defA, int defP,int penA, int penP, float speed, int gold) {
         this.name = name;
         this.hpMax = hpMax;
         this.hp = hpMax;
         this.dmgA = dmgA;
         this.dmgP = dmgP;
+        this.penA = penA;
+        this.penP = penP;
         this.defA = defA;
         this.defP = defP;
         this.speed = speed;
