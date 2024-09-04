@@ -25,14 +25,36 @@ public class EventsRandom {
         return 0;
     }
 
-    public static void shop(int difficulty){
+    public static void shop(int difficulty, Player player){
         // Choix de 1 objets aléatoire parmis les armes et 1 parmis les équipement et 1 potion de soin
         Equipement[] shopList = choiceObject();
+        boolean resp = false;
         System.out.println("Marchand : Bonjour et bienvenue dans mon petit marché itinérant." + ENDLINE 
         + " Je suis ici pour vous servir." + ENDLINE 
         + " Je vous laisse regarder ma cargaison."
         + " Ici vous pouvoir voir mes différents objets :"
-        + " 1 - " + shopList[1].toString() + "2- " + shopList[2].toString() + "3- " + shopList[3].toString());
+        + " 1 - " + shopList[0].toString() + "(150 golds) 2- " + shopList[1].toString() + "150 golds 3- " + shopList[2].toString() + "(100 golds)"+ ENDLINE
+        + "Choississez l'item que vous voulez (Tapez 4 pour sortir du marché et continuer votre route): ");
+        while(!resp){
+            int ans = Utils.readInt();
+            if(ans == 1){
+                if(player.getGold() < 150){
+                    System.out.println("Vous n'avez pas assez d'argent ;)");
+                }
+            }else if(ans == 2){
+                if(player.getGold() < 150){
+                    System.out.println("Vous n'avez pas assez d'argent ;)");
+                }
+            }else if(ans == 3){
+                if(player.getGold() < 100){
+                    System.out.println("Vous n'avez pas assez d'argent ;)");
+                }
+            }else if(ans == 4){
+                resp = true;
+            }else{
+                System.out.println("Système: choix invalide");
+            }
+        }
     }
 
     public static int boss(int difficulty){
