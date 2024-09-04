@@ -2,8 +2,6 @@ package main.java;
 
 import java.io.Serializable;
 
-import java.io.Serializable;
-
 public class Entity implements Serializable {
     private String name;
     private int hp;
@@ -58,6 +56,16 @@ public class Entity implements Serializable {
     public void setGold(int gold) {
         this.gold = gold;
     }
+    public void setHpMax(int hpMax) {
+        this.hpMax = hpMax;
+    }
+    public void setPenA(int penA) {
+        this.penA = penA;
+    }
+
+    public void setPenP(int penP) {
+        this.penP = penP;
+    }
     public String getName() {
         return name;
     }
@@ -85,7 +93,13 @@ public class Entity implements Serializable {
     protected int getGold() {
         return gold;
     }
-    
+    public int getPenA() {
+        return penA;
+    }
+    public int getPenP() {
+        return penP;
+    }
+
     public void healTaken(int nbrHp){
         this.hp += nbrHp;
         if(this.hp>this.hpMax){this.hp=this.hpMax;}
@@ -103,6 +117,8 @@ public class Entity implements Serializable {
     public void addGold(int gold){
         this.gold += gold;
     }
+
+
 
     
 }
