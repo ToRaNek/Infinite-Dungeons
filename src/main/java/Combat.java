@@ -3,6 +3,7 @@ package main.java;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Random;
 
 /**
  * 
@@ -65,6 +66,18 @@ public class Combat implements Serializable {
             }
         }
         this.player.addGold(this.monster.getGold());
+        Random rand = new Random();
+        int nombreRandom = rand.nextInt(101);
+        if(nombreRandom>=0 && nombreRandom <=10){
+            this.player.getInventory().add(Potions.SOINPV);
+            System.out.println("Vous avez récupéré une potion du monstre.");
+        }else if(nombreRandom>=11 && nombreRandom <=15){
+            this.player.getInventory().add(Weapons.values()[rand.nextInt(Weapons.nbrOfWeapons+1)]);
+            System.out.println("Vous avez récupéré une arme du monstre.");
+        }else if(nombreRandom>=16 && nombreRandom <=20){
+            this.player.getInventory().add(Weapons.values()[rand.nextInt(Armors.nbrOfArmors+1)]);
+            System.out.println("Vous avez récupéré une armure du monstre.");
+        }
         return !(this.player.getHp() > 0);
     }
 
