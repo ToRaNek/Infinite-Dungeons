@@ -15,7 +15,7 @@ public class EventsRandom {
     public static int rdmEventChoice(int difficulty, Player player){
         int rdmNumber = RDM.nextInt(101);
         if(rdmNumber > 50 && rdmNumber <= 74){
-            shop(difficulty);
+            shop(difficulty,player);
         }else if(rdmNumber > 75 && rdmNumber <= 89){
             return boss(difficulty);
         }else if(rdmNumber > 90){
@@ -32,7 +32,6 @@ public class EventsRandom {
         + " Je suis ici pour vous servir." + ENDLINE 
         + " Je vous laisse regarder ma cargaison."
         + " Ici vous pouvoir voir mes différents objets :"
-<<<<<<< HEAD
         + " 1 - " + shopList[0].toString() + "(150 golds) 2- " + shopList[1].toString() + "150 golds 3- " + shopList[2].toString() + "(100 golds)"+ ENDLINE
         + "Choississez l'item que vous voulez (Tapez 4 pour sortir du marché et continuer votre route): ");
         while(!resp){
@@ -55,9 +54,6 @@ public class EventsRandom {
                 System.out.println("Système: choix invalide");
             }
         }
-=======
-        + " 1 - " + shopList[0].toString() + "2- " + shopList[1].toString() + "3- " + shopList[2].toString());
->>>>>>> fd22b9ef67c794c97f882afd8e78aeed24adac01
     }
 
     public static int boss(int difficulty){
