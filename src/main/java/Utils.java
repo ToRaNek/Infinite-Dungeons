@@ -13,8 +13,10 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Utils {
     
@@ -73,6 +75,21 @@ public class Utils {
         }
 
     }   
+
+    
+    
+    public static Set<String> loadPlayerNames() {
+        Set<String> playerNames = new HashSet<String>();
+        List<Combat> saveCombats = Utils.loadGames();
+        for(Combat c : saveCombats) {
+            playerNames.add(c.getPlayer().getName());
+        }
+        return playerNames;
+    } 
+
+
+
+
 
     public static List<Combat> loadGames() {
 

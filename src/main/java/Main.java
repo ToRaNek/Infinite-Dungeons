@@ -2,13 +2,15 @@ package main.java;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
     
     public static void main(String[] args) throws IOException, InterruptedException {
-        Player player = new Player("Joueur 1", 100, 10, 1, 10, 1, 1, 0);
+        Player player = new Player("Joueur 1", 100, 10, 1, 10, 1, 1, 0,1 ,1);
         
+        Set<String> playerNames = Utils.loadPlayerNames();
 
         Main.showStartMenu(player);
 
@@ -24,7 +26,12 @@ public class Main {
                                 System.out.println("Bonjour aventurier.ère, comment vous appellez vous ? (Max : 10 caractères)");
                                 name = Utils.readString();
                             }
-                            player.setName(name);
+                            if(playerNames.contains(name)){
+                                System.out.println("Erreur, nom d'utilisateur deja utilisé !");
+                                System.exit(0);
+                            }else {
+                                player.setName(name);
+                            }
                             gameLoop(player);                           
                             break;
                         case "2":
