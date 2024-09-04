@@ -72,7 +72,8 @@ public class Main {
         while(!deadPlayer){
             mob = Mob.randomNewMob(generalDifficulty);
             deadPlayer = combatTest.launchCombat();
-            generalDifficulty ++;        
+            generalDifficulty ++;
+            EventsRandom.rdmEventChoice(generalDifficulty, player);        
         }
     }
 
