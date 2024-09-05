@@ -64,6 +64,17 @@ public class StatutEffect<T extends Entity> implements Serializable{
             }if(effectsStatut.get(Statut.DRAIN) > 0 ){
                 this.drain(monster);
             }
+            if(effectsStatut.get(Statut.RESAD) > 0 ){
+                this.resAD();;
+            }
+            if(effectsStatut.get(Statut.RESAP) > 0 ){
+                this.resAP();;
+            }
+            if(effectsStatut.get(Statut.RAGE) > 0 ){
+                this.rage();;
+            }if(effectsStatut.get(Statut.SANCTUARY) > 0 ){
+                this.sanctuary();
+            }
             downEffectDurationAllTurnEffect();
     }
 
