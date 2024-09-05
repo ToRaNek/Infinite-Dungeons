@@ -107,13 +107,13 @@ public class Entity implements Serializable {
         if(this.hp>this.hpMax){this.hp=this.hpMax;}
     }
 
-    public int damageTaken(int dmgA, int dmgP){
+    public int damageTaken(int dmgA, int dmgP, Entity caster){
         int totalDamage = 0;
         int damA = 0;
         int damP = 0;
-        damA = (int)(dmgA-(this.defA*(1-(this.penA/100))));
+        damA = (int)(dmgA-(this.defA*(1-(caster.penA/100))));
         if(damA < 0){damA = 0;}
-        damP = (int)(dmgP - this.defP*(1-(this.penP/100)));
+        damP = (int)(dmgP -( this.defP*(1-(caster.penP/100))));
         if(damP < 0){damP = 0;}
         totalDamage = damA + damP;
         if(totalDamage < 0 ){totalDamage = 0;}

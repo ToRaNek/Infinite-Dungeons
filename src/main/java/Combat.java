@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 
@@ -22,10 +24,8 @@ public class Combat implements Serializable {
     int damagePlayer;
     int healPlayer;
     int healMonster;
-    PotionEffect<Player> effectPlayer;
-    PotionEffect<Entity> effectEntity;
     StatutEffect<Player> effectPlayer;
-    StatutEffect<Mob> effectMob;
+    StatutEffect<Entity> effectMob;
     
     public Combat(Entity monster, Player player) {
         this.monster = monster;
@@ -34,7 +34,7 @@ public class Combat implements Serializable {
         this.healMonster = 0;
         this.healPlayer = 0;
         effectPlayer = new StatutEffect<Player>(player);
-        effectMob = new StatutEffect<Mob>(monster);
+        effectMob = new StatutEffect<Entity>(monster);
     }
 
     public Entity getMonstre() {
@@ -58,27 +58,19 @@ public class Combat implements Serializable {
     public boolean launchCombat() throws IOException{
         boolean playerTurn = this.faster();
         boolean block = false;
-        int switche =0;
+        
         while(!this.endCombat){
-            if (switche == 0){
-                try{
-                    this.monster.monsterToImage();
-                }catch(IOException e ) {
-                    System.out.println(this.monster.getName());
-                } 
-            }
+    
             
             if (playerTurn) {
                 System.out.println(ENDLINE + "Tour du joueur :");
                 block = this.playerPlay();
                 playerTurn = false;
-                switche = 1;
             } else {
                 System.out.println(ENDLINE + "Tour de l'ennemie");
                 this.monsterPlay(block);
                 block = false;
                 playerTurn = true;
-                switche = 0;
             }
         }
         this.player.addGold(this.monster.getGold());
@@ -98,15 +90,27 @@ public class Combat implements Serializable {
     }
 
     private void monsterPlay(boolean block) {
-        int totalDamage = 0;  
+        int[] totalDamage = new int[]{0};  
         if(!block){
-            totalDamage = this.player.damageTaken(monster.getDmgA(), monster.getDmgP());
+            totalDamage[0] = this.player.damageTaken(monster.getDmgA(), monster.getDmgP());
             if(this.player.getHp() <= 0){
                 this.player.setHp(0);
                 this.endCombat = true;
                 System.out.println("Perdu");
             }else{
-                System.out.println("\n Vous avez reçu " + totalDamage + " dégats du monstre.");
+                try{
+                    this.monster.monsterToImage();
+                }catch(IOException e ) {
+                    System.out.println(this.monster.getName());
+                } 
+                Timer timer = new Timer();
+               // TimerTask test = new TimerTask() {
+                 //   public void run() {
+                        System.out.println("\n Vous avez reçu " + totalDamage[0] + " dégats du monstre.");
+                   // }
+                //};
+                //timer.schedule(test, 15L);
+                
             }
             
         }

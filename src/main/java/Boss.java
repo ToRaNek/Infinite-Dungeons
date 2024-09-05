@@ -46,14 +46,14 @@ public class Boss extends Entity{
     private static Boss createHarpy(int difficulty){
         Random rdm = new Random();
         BossType[] listBoss = BossType.values();
-        int hp = (int)((100*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA = (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int defP = (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int dmgA = (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int dmgP = (int)((20*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int gold = (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int penA = 5; //à changer
-        int penP = 5; //à changer
+        int hp = (int)((100*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
+        int defA = (int)((20*rdm.nextInt(101)/100 + 10) *(0.06*difficulty));
+        int defP = (int)((20*rdm.nextInt(101)/100 + 10) *(0.04*difficulty));
+        int dmgA = (int)((25*rdm.nextInt(101)/100 + 5) *(0.06*difficulty));
+        int dmgP = (int)((20*rdm.nextInt(101)/100 + 5) *(0.02*difficulty));
+        int gold = (int)((25*rdm.nextInt(101)/100 + 5) *(0.3*difficulty));
+        int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.05*difficulty));
+        int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
         BossType type = BossType.HARPY;
         Boss newBoss = new Boss("Harpie", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 15.0, gold, (float) 0.8, (float) 1.0);
         return newBoss;
@@ -61,14 +61,14 @@ public class Boss extends Entity{
     private static Boss createWerewolf(int difficulty){
         Random rdm = new Random();
         BossType[] listBoss = BossType.values();
-        int hp =  (int)((110*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int dmgA =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int dmgP =  (int)((20*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int penA = 5; //à changer
-        int penP = 5; //à changer
+        int hp =  (int)((110*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
+        int defA =  (int)((20*rdm.nextInt(101)/100 + 10) *(0.06*difficulty));
+        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *(0.04*difficulty));
+        int dmgA =  (int)((30*rdm.nextInt(101)/100 + 5) *(0.06*difficulty));
+        int dmgP =  (int)((20*rdm.nextInt(101)/100 + 5) *(0.02*difficulty));
+        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *(0.3*difficulty));
+        int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.05*difficulty));
+        int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
         BossType type = BossType.WEREWOLF;
         Boss newBoss = new Boss("Loup-Garou", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 20.0, gold, (float) 0.95, (float) 1.0);
         return newBoss;
@@ -76,14 +76,14 @@ public class Boss extends Entity{
     private static Boss createVampire(int difficulty){
         Random rdm = new Random();
         BossType[] listBoss = BossType.values();
-        int hp =  (int)((90*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA =  (int)((10*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int dmgA =  (int)((20*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int dmgP =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int penA = 5; //à changer
-        int penP = 5; //à changer
+        int hp =  (int)((90*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
+        int defA =  (int)((10*rdm.nextInt(101)/100 + 10) *(0.06*difficulty));
+        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *(0.04*difficulty));
+        int dmgA =  (int)((20*rdm.nextInt(101)/100 + 5) *(0.02*difficulty));
+        int dmgP =  (int)((25*rdm.nextInt(101)/100 + 5) *(0.06*difficulty));
+        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *(0.3*difficulty));
+        int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
+        int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.05*difficulty));
         BossType type = BossType.VAMPIRE;
         Boss newBoss = new Boss("Vampire", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 1.0, (float) 0.9);
         return newBoss;
@@ -91,14 +91,14 @@ public class Boss extends Entity{
     private static Boss createDragon(int difficulty){
         Random rdm = new Random();
         BossType[] listBoss = BossType.values();
-        int hp =  (int)((100*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA =  (int)((30*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int defP =  (int)((20*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int dmgA =  (int)((15*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int dmgP =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int penA = 5; //à changer
-        int penP = 5; //à changer
+        int hp = (int)((100*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
+        int defA = (int)((30*rdm.nextInt(101)/100 + 10) *(0.07*difficulty));
+        int defP = (int)((20*rdm.nextInt(101)/100 + 10) *(0.03*difficulty));
+        int dmgA = (int)((15*rdm.nextInt(101)/100 + 5) *(0.02*difficulty));
+        int dmgP = (int)((30*rdm.nextInt(101)/100 + 5) *(0.06*difficulty));
+        int gold = (int)((25*rdm.nextInt(101)/100 + 5) *(0.3*difficulty));
+        int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
+        int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.06*difficulty));
         BossType type = BossType.DRAGON;
         Boss newBoss = new Boss("Dragon", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.75, (float) 1.0);
         return newBoss;
@@ -106,19 +106,19 @@ public class Boss extends Entity{
     private static Boss createMinotaur(int difficulty){
         Random rdm = new Random();
         BossType[] listBoss = BossType.values();
-        int hp =  (int)((130*rdm.nextInt(101)/100 + 20) *difficulty);
-        int defA =  (int)((5*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *0.30*difficulty);
-        int dmgA =  (int)((35*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int dmgP =  (int)((0*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int gold =  (int)((30*rdm.nextInt(101)/100 + 5) *0.30*difficulty);
-        int penA = 5; //à changer
-        int penP = 5; //à changer
+        int hp =  (int)((130*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
+        int defA =  (int)((5*rdm.nextInt(101)/100 + 10) *(0.07*difficulty));
+        int defP =  0;
+        int dmgA =  (int)((35*rdm.nextInt(101)/100 + 5) *(0.06*difficulty));
+        int dmgP =  0;
+        int gold =  (int)((30*rdm.nextInt(101)/100 + 5) *(0.3*difficulty));
+        int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.06*difficulty));
+        int penP = 0;
         BossType type = BossType.MINOTAUR;
         Boss newBoss = new Boss("Minotaure", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.8, (float) 1.2);
         return newBoss;
     }
-
+    @Override
     public void monsterToImage() throws IOException{
         String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "mobs" + File.separator + "ansi" +  File.separator;
         Utils.printAnsi(new File(path + this.type.getPath()));
