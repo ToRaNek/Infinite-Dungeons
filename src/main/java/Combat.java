@@ -82,10 +82,13 @@ public class Combat implements Serializable {
             this.player.getInventory().add(Potions.SOINPV);
             System.out.println("Vous avez récupéré une potion du monstre.");
         }else if(nombreRandom>=11 && nombreRandom <=15){
-            this.player.getInventory().add(Weapons.values()[rand.nextInt(Weapons.nbrOfWeapons+1)]);
+            this.player.getInventory().add(Weapons.values()[rand.nextInt(Weapons.values().length+1)]);
             System.out.println("Vous avez récupéré une arme du monstre.");
         }else if(nombreRandom>=16 && nombreRandom <=20){
-            this.player.getInventory().add(Weapons.values()[rand.nextInt(Armors.nbrOfArmors+1)]);
+            this.player.getInventory().add(Armors.values()[rand.nextInt(Armors.values().length+1)]);
+            System.out.println("Vous avez récupéré une armure du monstre.");
+        }else if (nombreRandom >= 21 && nombreRandom <= 25) {
+            this.player.getInventory().add(Scepter.values()[rand.nextInt(Scepter.values().length+1)]);
             System.out.println("Vous avez récupéré une armure du monstre.");
         }
         return !(this.player.getHp() > 0);
