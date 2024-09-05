@@ -4,7 +4,7 @@
     
 ### Panification sprint suivant :
     - Ajout d'arme Magique
-    - Objet / Equipement
+    - Objet / fr.univlille.iut.infinited.equipement.Equipement
     - Charger la Save
     - Affichage des images
     

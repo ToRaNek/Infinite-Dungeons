@@ -1,12 +1,17 @@
+package fr.univlille.iut.infinited.combat;
+
+import fr.univlille.iut.infinited.statut.StatutEffect;
+import fr.univlille.iut.infinited.entity.Entity;
+import fr.univlille.iut.infinited.entity.Player;
+import fr.univlille.iut.infinited.equipement.*;
+import fr.univlille.iut.infinited.utils.Utils;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * 
@@ -128,7 +133,7 @@ public class Combat implements Serializable {
             +"\n ⚔️ : " + this.player.getDmgA()+ " (+ " +this.player.getPenA() + "%penArm)    🪄 : " + this.player.getDmgP()+ " (+ " + this.player.getPenP() +"%penMag)\t  ⚔️ : " + this.monster.getDmgA()+ " (+ " +this.monster.getPenA() + " %penArm)     🪄 : " + this.monster.getDmgP() + " (+" + this.monster.getPenP() + "%penMag)"
             +"\n 🛡️ : " + this.player.getDefA()+ "                   ⭐: " + this.player.getDefP()+"\t                  🛡️ : " + this.monster.getDefA()+ "                   ⭐: " + this.monster.getDefP()
             +"\n 🪙 : " + this.player.getGold());
-            System.out.print("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
+            System.out.print("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer fr.univlille.iut.infinited.equipement.Equipement       4 - fr.univlille.iut.infinited.equipement.Potions");
             if(player.getScepter() != null) {
                 System.out.print("    5 - Lancer un sort");
             }
@@ -232,7 +237,7 @@ public class Combat implements Serializable {
 
     /**
      * Ask player to enter a number to get a weapons in his inventory
-     * @param playerInventoryWeapons the Weapons in the player inventory
+     * @param playerInventoryWeapons the fr.univlille.iut.infinited.equipement.Weapons in the player inventory
      * @return  a boolean if the choice was correct
      */
     public boolean choiceWeapon(List<Equipement> playerInventoryWeapons) {

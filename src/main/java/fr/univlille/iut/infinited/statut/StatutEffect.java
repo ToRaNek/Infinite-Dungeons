@@ -1,3 +1,7 @@
+package fr.univlille.iut.infinited.statut;
+
+import fr.univlille.iut.infinited.entity.Entity;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;

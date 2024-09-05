@@ -1,5 +1,6 @@
+package fr.univlille.iut.infinited.entity;
+
 import java.io.Serializable;
-import java.io.File;
 import java.io.IOException;
 
 public class Entity implements Serializable {
@@ -90,7 +91,7 @@ public class Entity implements Serializable {
     public float getSpeed() {
         return speed;
     }
-    protected int getGold() {
+    public int getGold() {
         return gold;
     }
     public int getPenA() {

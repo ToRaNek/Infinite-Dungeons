@@ -4,14 +4,14 @@
     
 ### Panification sprint suivant :
     - Sauvegarder la partie
-    - Random Mob / Round
+    - Random fr.univlille.iut.infinited.entity.Mob / Round
     - convertir les images
     - Charger la Save
     - Affichage des images
     
 ### Fait durant le sprint :
     - Ajout d'arme Magique
-    - Objet / Equipement
+    - Objet / fr.univlille.iut.infinited.equipement.Equipement
 
 ## Rétrospective : 
 

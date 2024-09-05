@@ -8,7 +8,7 @@
     - Systeme de combat basique
     - Personnage utilisateur
     - Ajout des ennemies
-    - Objet / Equipement
+    - Objet / fr.univlille.iut.infinited.equipement.Equipement
     
 ### Fait durant le sprint :
     Rien, nous étions sur la recherche d'idées a implémenter

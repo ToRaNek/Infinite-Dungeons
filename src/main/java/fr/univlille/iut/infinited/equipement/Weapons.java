@@ -1,3 +1,8 @@
+package fr.univlille.iut.infinited.equipement;
+
+
+import fr.univlille.iut.infinited.InfiniteDungeons;
+
 import java.io.Serializable;
 
     public enum Weapons implements Equipement, Serializable {
@@ -41,10 +46,10 @@ import java.io.Serializable;
         }
 
         public int getAD() {
-            return (int) (AD*(0.08*Main.difficulty));
+            return (int) (AD*(0.08* InfiniteDungeons.difficulty));
         }
 
         public int getAP() {
-            return (int) (AP*(0.08*Main.difficulty));
+            return (int) (AP*(0.08*InfiniteDungeons.difficulty));
         }
 }

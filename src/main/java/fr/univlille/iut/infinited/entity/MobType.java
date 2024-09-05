@@ -1,3 +1,5 @@
+package fr.univlille.iut.infinited.entity;
+
 public enum MobType {
     LICH("LICH-art.utf.ans"),
     SKELETON("SKELETON-art.utf.ans"),

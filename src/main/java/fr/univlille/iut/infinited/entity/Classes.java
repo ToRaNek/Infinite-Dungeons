@@ -1,3 +1,5 @@
+package fr.univlille.iut.infinited.entity;
+
 import java.io.Serializable;
 
 public enum Classes implements Serializable{

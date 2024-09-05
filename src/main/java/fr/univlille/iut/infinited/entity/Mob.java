@@ -1,9 +1,13 @@
+package fr.univlille.iut.infinited.entity;
+
+import fr.univlille.iut.infinited.utils.Utils;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
 /**
- * Mob
+ * fr.univlille.iut.infinited.entity.Mob
  */
 public class Mob extends Entity{
    

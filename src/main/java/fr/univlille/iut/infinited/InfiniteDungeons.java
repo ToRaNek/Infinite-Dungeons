@@ -1,16 +1,26 @@
+package fr.univlille.iut.infinited;
+
+import fr.univlille.iut.infinited.combat.Combat;
+import fr.univlille.iut.infinited.combat.EventsRandom;
+import fr.univlille.iut.infinited.entity.Boss;
+import fr.univlille.iut.infinited.entity.Classes;
+import fr.univlille.iut.infinited.entity.Mob;
+import fr.univlille.iut.infinited.entity.Player;
+import fr.univlille.iut.infinited.utils.Utils;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class Main {
-    static int difficulty;
+public class InfiniteDungeons {
+    public static int difficulty;
     public static void main(String[] args) throws IOException, InterruptedException {
         
         Set<String> playerNames = Utils.loadPlayerNames();
 
-        Main.showStartMenu();
+        InfiniteDungeons.showStartMenu();
 
         boolean optionEntered = false;
         do{
@@ -64,9 +74,9 @@ public class Main {
                             optionEntered = true;
                             break;
                         case "3":
-                            Main.showHelpMenu();
+                            InfiniteDungeons.showHelpMenu();
                             TimeUnit.SECONDS.sleep(4);
-                            Main.showStartMenu();
+                            InfiniteDungeons.showStartMenu();
                             break;
                         case "4":
                             optionEntered = true;
@@ -92,7 +102,7 @@ public class Main {
         System.out.println("Partie sauvegardé: ");
        
         for(int i = 0; i<combats.size(); i++) {
-            System.out.println(" " + (i+1) + ". Combat de " + combats.get(i).getPlayer().getName());
+            System.out.println(" " + (i+1) + ". fr.univlille.iut.infinited.combat.Combat de " + combats.get(i).getPlayer().getName());
         }
     }
 
@@ -107,7 +117,7 @@ public class Main {
 
         System.out.println("Chargement de la partie sélectionnée... ");
         TimeUnit.SECONDS.sleep(4);
-        Main.gameLoop(combats.get(choice-1).getPlayer(), combats.get(choice-1));
+       InfiniteDungeons.gameLoop(combats.get(choice-1).getPlayer(), combats.get(choice-1));
    }
 
 
@@ -137,7 +147,7 @@ public class Main {
         boolean deadPlayer = false;
         Mob mob = Mob.randomNewMob(generalDifficulty);
         Combat combat = loadCombat;
-        //Combat combatTest = new Combat(mob, player);
+        //fr.univlille.iut.infinited.combat.Combat combatTest = new fr.univlille.iut.infinited.combat.Combat(mob, player);
         while(!deadPlayer){
             Combat c;
             if(combat == null) {
@@ -156,7 +166,7 @@ public class Main {
                 c = new Combat(Boss.randomNewBoss(generalDifficulty), player);
                 deadPlayer = c.launchCombat(); 
             }    
-            if(!Main.continueGame()) {
+            if(!InfiniteDungeons.continueGame()) {
                 deadPlayer = true;
                 Utils.saveGame(c);
                 System.out.println("Votre partie a été sauvegardé ! A bientôt");
@@ -166,7 +176,7 @@ public class Main {
     }
     
     public static void gameLoop(Player player) throws IOException {
-        Main.gameLoop(player, null);
+        InfiniteDungeons.gameLoop(player, null);
     }
 
     public static boolean continueGame() throws IOException{

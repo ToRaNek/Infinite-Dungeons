@@ -1,4 +1,8 @@
-import java.io.Serializable; 
+package fr.univlille.iut.infinited.equipement;
+
+import fr.univlille.iut.infinited.statut.Statut;
+
+import java.io.Serializable;
 
 public enum Scepter implements Equipement, Serializable{
 

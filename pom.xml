@@ -8,8 +8,8 @@
         <junit.version>5.7.0</junit.version>
     </properties>
 
-    <groupId>fr.univlille.iut.infinited</groupId>
-    <artifactId>Infinite Dungeons</artifactId>
+    <groupId>fr.univlille.iut</groupId>
+    <artifactId>InfiniteDungeons</artifactId>
     <version>1.0</version>
     <build>
         <plugins>

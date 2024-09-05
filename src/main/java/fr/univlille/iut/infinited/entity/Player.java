@@ -1,3 +1,7 @@
+package fr.univlille.iut.infinited.entity;
+
+import fr.univlille.iut.infinited.equipement.*;
+
 import java.util.ArrayList;
 
 public class Player extends Entity{

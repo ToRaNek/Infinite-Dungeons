@@ -3,13 +3,13 @@
 ## Démo + Panification du sprint suivant :
     
 ### Panification sprint suivant :
-    - Potions
+    - fr.univlille.iut.infinited.equipement.Potions
     - Pseudo Unique
     - Evenements Aléatoire
     
 ### Fait durant le sprint :
     - Sauvegarder la partie
-    - Random Mob / Round
+    - Random fr.univlille.iut.infinited.entity.Mob / Round
     - convertir les images
     - Charger la Save
     - Affichage des images

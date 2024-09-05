@@ -1,3 +1,5 @@
+package fr.univlille.iut.infinited.equipement;
+
 import java.io.Serializable;
 
 public enum Armors implements Equipement, Serializable {

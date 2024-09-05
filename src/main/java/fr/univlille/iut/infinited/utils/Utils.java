@@ -1,3 +1,7 @@
+package fr.univlille.iut.infinited.utils;
+
+import fr.univlille.iut.infinited.combat.Combat;
+
 import java.io.BufferedReader;
 import java.io.EOFException;
 import java.io.File;
@@ -12,7 +16,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 

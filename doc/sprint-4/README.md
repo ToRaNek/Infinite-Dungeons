@@ -8,9 +8,9 @@
     - Récompenses Aléatoire
     
 ### Fait durant le sprint :
-    - Potions
+    - fr.univlille.iut.infinited.equipement.Potions
     - Pseudo Unique
-    - Résoudre un problème sur le menu Potions
+    - Résoudre un problème sur le menu fr.univlille.iut.infinited.equipement.Potions
     
 ## Rétrospective : 
 

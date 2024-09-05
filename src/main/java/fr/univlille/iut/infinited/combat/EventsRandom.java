@@ -1,3 +1,12 @@
+package fr.univlille.iut.infinited.combat;
+
+import fr.univlille.iut.infinited.entity.Player;
+import fr.univlille.iut.infinited.equipement.Armors;
+import fr.univlille.iut.infinited.equipement.Equipement;
+import fr.univlille.iut.infinited.equipement.Potions;
+import fr.univlille.iut.infinited.equipement.Weapons;
+import fr.univlille.iut.infinited.utils.Utils;
+
 import java.util.Random;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +35,7 @@ public class EventsRandom {
                 }else if(rdmNumber >=34 && rdmNumber <= 66){
                     eventsChosen.add("Camp");
                 }else if(rdmNumber >=67){
-                    eventsChosen.add("Boss");
+                    eventsChosen.add("fr.univlille.iut.infinited.entity.Boss");
                 }
             }
             String rep = "";
@@ -39,7 +48,7 @@ public class EventsRandom {
                     shop(player);
                 } else if(eventsChosen.get(0).equals("Camp")){
                     camp(player);
-                } else if(eventsChosen.get(0).equals("Boss")){
+                } else if(eventsChosen.get(0).equals("fr.univlille.iut.infinited.entity.Boss")){
                     return boss();
                 }
             }else{
@@ -47,7 +56,7 @@ public class EventsRandom {
                     shop(player);
                 } else if(eventsChosen.get(1).equals("Camp")){
                     camp(player);
-                } else if(eventsChosen.get(1).equals("Boss")){
+                } else if(eventsChosen.get(1).equals("fr.univlille.iut.infinited.entity.Boss")){
                     return boss();
                 }
             }
