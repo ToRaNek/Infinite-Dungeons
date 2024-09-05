@@ -37,14 +37,16 @@ public class Mob extends Entity{
             dmgP = 0;
             penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.01*difficulty));
             penP = 0;
+            if(dmgA <5){dmgA = 5;}
         }else{
             dmgA = 0;
             dmgP = (int)((5*rdm.nextInt(101)/100 + 5) *(0.08*difficulty));
             penA = 0;
             penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.01*difficulty));
-
+            if(dmgP <5){dmgP = 5;}
         }
         int gold =  (int)((10*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
+        if(hp <25){hp = 25;}
         Mob newMob = new Mob(listMob[num].toString(), listMob[num] , hp, dmgA, dmgP,penA, penP, defA, defP, 5, gold);
 
         return newMob;

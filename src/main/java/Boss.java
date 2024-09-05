@@ -55,6 +55,9 @@ public class Boss extends Entity{
         int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.05*difficulty));
         int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
         BossType type = BossType.HARPY;
+        if(hp <40){hp = 40;}
+        if(dmgA <10){dmgA = 10;}
+        if(dmgP <10){dmgP = 7;}
         Boss newBoss = new Boss("Harpie", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 15.0, gold, (float) 0.8, (float) 1.0);
         return newBoss;
     }
@@ -70,6 +73,9 @@ public class Boss extends Entity{
         int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.05*difficulty));
         int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
         BossType type = BossType.WEREWOLF;
+        if(hp <40){hp = 40;}
+        if(dmgA <10){dmgA = 9;}
+        if(dmgP <10){dmgP = 8;}
         Boss newBoss = new Boss("Loup-Garou", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 20.0, gold, (float) 0.95, (float) 1.0);
         return newBoss;
     }
@@ -77,14 +83,16 @@ public class Boss extends Entity{
         Random rdm = new Random();
         BossType[] listBoss = BossType.values();
         int hp =  (int)((90*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
-        int defA =  (int)((10*rdm.nextInt(101)/100 + 10) *(0.06*difficulty));
+        int defA =  0;
         int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *(0.04*difficulty));
-        int dmgA =  (int)((20*rdm.nextInt(101)/100 + 5) *(0.02*difficulty));
+        int dmgA =  0;
         int dmgP =  (int)((25*rdm.nextInt(101)/100 + 5) *(0.06*difficulty));
         int gold =  (int)((25*rdm.nextInt(101)/100 + 5) *(0.3*difficulty));
-        int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
+        int penA = 0;
         int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.05*difficulty));
         BossType type = BossType.VAMPIRE;
+        if(hp <40){hp = 40;}
+        if(dmgP <15){dmgP = 15;}
         Boss newBoss = new Boss("Vampire", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 1.0, (float) 0.9);
         return newBoss;
     }
@@ -100,6 +108,9 @@ public class Boss extends Entity{
         int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.02*difficulty));
         int penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.06*difficulty));
         BossType type = BossType.DRAGON;
+        if(hp <50){hp = 50;}
+        if(dmgA <10){dmgA = 10;}
+        if(dmgP <15){dmgP = 15;}
         Boss newBoss = new Boss("Dragon", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.75, (float) 1.0);
         return newBoss;
     }
@@ -115,6 +126,8 @@ public class Boss extends Entity{
         int penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.06*difficulty));
         int penP = 0;
         BossType type = BossType.MINOTAUR;
+        if(hp <40){hp = 40;}
+        if(dmgA <15){dmgA = 15;}
         Boss newBoss = new Boss("Minotaure", type, hp, dmgA, dmgP,penA, penP, defA, defP, (float) 30.0, gold, (float) 0.8, (float) 1.2);
         return newBoss;
     }
