@@ -173,6 +173,7 @@ public class InfiniteDungeons {
                 System.exit(0);
             }   
         }
+        System.exit(0);
     }
     
     public static void gameLoop(Player player) throws IOException {
