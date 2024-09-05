@@ -81,18 +81,18 @@ public class StatutEffect<T extends Entity> implements Serializable{
         }
         changement = (int)0.05*caster.getDmgP();
         statChanges[listStatut.indexOf(Statut.POISON)] = changement;
-        int dmg = (int)0.5*caster.getDmgP();
+        int dmg = (int)(0.5*caster.getDmgP());
         this.entity.damageTaken(0, dmg, caster);
         System.out.println("Vous avez fait :" + dmg + " de poison");
     }
 
     private void burn(Entity caster){
-        int dmg = (int)0.5*caster.getDmgP();
+        int dmg = (int)(0.5*caster.getDmgP());
         this.entity.damageTaken(0, dmg, caster);
     }
 
     private void drain(Entity caster){
-        int dmg = (int)0.5*caster.getDmgP();
+        int dmg = (int)(0.5*caster.getDmgP());
         this.entity.damageTaken(0, dmg, caster);
         caster.healTaken(dmg);
     }
@@ -111,7 +111,7 @@ public class StatutEffect<T extends Entity> implements Serializable{
             this.entity.setDefA(entity.getDefA() - changement);
             statChanges[listStatut.indexOf(Statut.RESAD)] = 0;
         }
-        changement = (int)0.1*entity.getDefA();
+        changement = (int)(0.1*entity.getDefA());
         statChanges[listStatut.indexOf(Statut.RESAD)] = changement;
         this.entity.setDefA(this.entity.getDefA() + changement);
     }
@@ -122,7 +122,7 @@ public class StatutEffect<T extends Entity> implements Serializable{
             this.entity.setDefP(entity.getDefP() - changement);
             statChanges[listStatut.indexOf(Statut.RESAP)] = 0;
         }
-        changement = (int)0.1*entity.getDefP();
+        changement = (int)(0.1*entity.getDefP());
         statChanges[listStatut.indexOf(Statut.RESAP)] = changement;
         this.entity.setDefP(this.entity.getDefP() + changement);
     }
@@ -133,7 +133,7 @@ public class StatutEffect<T extends Entity> implements Serializable{
             this.entity.setDmgA(entity.getDmgA() - changement);
             statChanges[listStatut.indexOf(Statut.RAGE)] = 0;
         }
-        changement = (int)0.1*entity.getDmgA();
+        changement = (int)(0.1*entity.getDmgA());
         statChanges[listStatut.indexOf(Statut.RAGE)] = changement;
         this.entity.setDmgA(this.entity.getDmgA() + changement);
     }
