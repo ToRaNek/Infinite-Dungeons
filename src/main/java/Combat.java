@@ -2,6 +2,7 @@ package main.java;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class Combat implements Serializable {
     int healMonster;
     StatutEffect<Player> effectPlayer;
     StatutEffect<Entity> effectMob;
+    
     
     public Combat(Entity monster, Player player) {
         this.monster = monster;
@@ -125,10 +127,16 @@ public class Combat implements Serializable {
             +"\n ⚔️ : " + this.player.getDmgA()+ " (+ " +this.player.getPenA() + "%penArm)    🪄 : " + this.player.getDmgP()+ " (+ " + this.player.getPenP() +"%penMag)\t  ⚔️ : " + this.monster.getDmgA()+ " (+ " +this.monster.getPenA() + " %penArm)     🪄 : " + this.monster.getDmgP() + " (+" + this.monster.getPenP() + "%penMag)"
             +"\n 🛡️ : " + this.player.getDefA()+ "                   ⭐: " + this.player.getDefP()+"\t                  🛡️ : " + this.monster.getDefA()+ "                   ⭐: " + this.monster.getDefP()
             +"\n 🪙 : " + this.player.getGold());
-            System.out.println("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
+            System.out.print("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
+            if(player.getScepter() != null) {
+                System.out.print("    5 - Lancer un sort");
+            }
+            System.out.println();
             rep = Utils.readString();
+            
             if(rep.equals("1")){
-                totalDamage = this.monster.damageTaken(this.player.getDmgA(), this.player.getDmgP(),this.player);
+               
+                    totalDamage = this.monster.damageTaken(this.player.getDmgA(), this.player.getDmgP(),this.player);
                 if(this.monster.getHp() <= 0){
                     this.endCombat = true;
                     System.out.println("Gagné");
@@ -137,6 +145,8 @@ public class Combat implements Serializable {
                     System.out.println("Vous avez fait " + totalDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
                     resp = true;
                 }
+                
+                
                 
             }else if (rep.equals("2")) {
                 return true;
@@ -164,6 +174,15 @@ public class Combat implements Serializable {
                 }else{
                     System.out.println("Inventaire de potions VIDE");
                 }
+            }else if (rep.equals("5") && player.getScepter() != null) {
+                    
+                    Scepter scepter = player.getScepter();
+                    if(scepter.getStatut().getPositive()) {
+                        effectPlayer.applyEffect(scepter.getStatut());
+                    }else {
+                        effectMob.applyEffect(scepter.getStatut());
+                    }
+
             }else{
                 System.out.println("Choississez une option valide en notant le numéro correspondant.");
             }
@@ -176,7 +195,9 @@ public class Combat implements Serializable {
         if(choice.equals("1")){
             resp2 = true;
             System.out.println("Choisissez l'arme que vous souhaitez utiliser");
-            List<Weapons> playerInventoryWeapons = this.player.getInventory().stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList();
+            List<Equipement> playerInventoryWeapons = new ArrayList<>();
+            playerInventoryWeapons.addAll(this.player.getInventory().stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList());
+            playerInventoryWeapons.addAll(this.player.getInventory().stream().filter(equipement -> equipement instanceof Scepter).map(equipement -> (Scepter) equipement).toList());
             for (int i = 0; i < playerInventoryWeapons.size(); i++){
                 System.out.println("" + (i+1) + " " + playerInventoryWeapons.get(i));
             }
@@ -213,15 +234,22 @@ public class Combat implements Serializable {
      * @param playerInventoryWeapons the Weapons in the player inventory
      * @return  a boolean if the choice was correct
      */
-    public boolean choiceWeapon(List<Weapons> playerInventoryWeapons) {
+    public boolean choiceWeapon(List<Equipement> playerInventoryWeapons) {
         boolean resp3 = false;
         int choiceWeapon = Utils.readInt();
         if (choiceWeapon-1 <  0 || choiceWeapon-1 >  player.getInventory().size() ){
             System.out.println("Choississez une option valide en notant le numéro correspondant."); 
         }else{
-            this.player.setArmeActuelle(playerInventoryWeapons.get(choiceWeapon-1));
-            System.out.println("Vous avez selectionnez l'arme : " + this.player.getArme().name()); 
-            resp3= true;
+            if(playerInventoryWeapons.get(choiceWeapon-1) instanceof Weapons) {
+                this.player.setArmeActuelle((Weapons) playerInventoryWeapons.get(choiceWeapon-1));
+                System.out.println("Vous avez selectionnez l'arme : " + this.player.getArme().name()); 
+                resp3= true;
+            }else if(playerInventoryWeapons.get(choiceWeapon-1) instanceof Scepter) {
+                this.player.setScepter((Scepter) playerInventoryWeapons.get(choiceWeapon-1));
+                System.out.println("Vous avez selectionnez le scpetre : " + this.player.getScepter().name()); 
+                resp3= true;
+            }
+            
         }
 
         return resp3;

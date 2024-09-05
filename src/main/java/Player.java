@@ -20,6 +20,7 @@ public class Player extends Entity{
     private ArrayList<Equipement> inventory;
     private Weapons armeactuelle;
     private Armors armureactuelle;
+    private Scepter scepter;
     private Potions potionslastuse;
     private Classes classe;
     
@@ -67,9 +68,19 @@ public class Player extends Entity{
 
     public void setArmeActuelle(Weapons newArme) {
         this.armeactuelle = newArme;
+        this.scepter = null;
     }
     public void setArmureActuelle(Armors newArmure) {
         this.armureactuelle = newArmure;
+    }
+
+    public void setScepter(Scepter scepter) {
+        this.scepter = scepter;
+        this.armeactuelle = null;
+    }
+
+    public Scepter getScepter() {
+        return this.scepter;
     }
 
     public void setPotionsLastUse(Potions lastPotions) {
