@@ -1,5 +1,3 @@
-package main.java;
-
 public enum Potions implements Equipement {
     SOINPV("Potions de soin",15/*heal*/),
     FORCEPHYSIQUE("Potions de Force",10/*degatsAD*/),

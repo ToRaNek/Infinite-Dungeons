@@ -1,5 +1,3 @@
-package main.java;
-
 import java.io.Serializable; 
 
 public enum Scepter implements Equipement, Serializable{

@@ -1,5 +1,3 @@
-package main.java;
-
 public enum BossType {
     HARPY("HARPY-art.utf.ans"),
     WEREWOLF("WEREWOLF-art.utf.ans"),

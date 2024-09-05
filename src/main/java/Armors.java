@@ -1,5 +1,3 @@
-package main.java;
-
 import java.io.Serializable;
 
 public enum Armors implements Equipement, Serializable {

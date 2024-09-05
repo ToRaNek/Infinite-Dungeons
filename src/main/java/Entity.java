@@ -1,5 +1,3 @@
-package main.java;
-
 import java.io.Serializable;
 import java.io.File;
 import java.io.IOException;

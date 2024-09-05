@@ -1,5 +1,3 @@
-package main.java;
-
 import java.util.Random;
 import java.io.IOException;
 import java.util.ArrayList;
