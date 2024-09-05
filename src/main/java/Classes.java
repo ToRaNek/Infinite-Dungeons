@@ -1,6 +1,8 @@
 package main.java;
 
-public enum Classes {
+import java.io.Serializable;
+
+public enum Classes implements Serializable{
     VOLEUR("Voleur",11,4,0,0,0,0,10,25),
     BERSERKER("Berserker",15,0,10,0,0,0,1,15),
     MAGE("Mage",0,15,0,10,0,0,5,15),

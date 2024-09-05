@@ -64,10 +64,8 @@ public class Utils {
         List<Combat> combatsList = Utils.loadGames();
         combatsList.add(combat);
 
-           List<Combat> trajets = Utils.loadGames();
-        trajets.add(combat);
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(path+historyLocation)))) {
-            oos.writeObject(trajets);
+            oos.writeObject(combatsList);
         }
         catch (IOException e) {
             System.err.println("Erreur lors de la sauvegarde de la game !");
@@ -95,8 +93,8 @@ public class Utils {
 
         List<Combat> combats = new ArrayList<Combat>();
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(path+historyLocation)))) {
-            
-            combats = (ArrayList<Combat>) ois.readObject();
+           
+                combats = (List<Combat>) ois.readObject();
             
         }catch(FileNotFoundException e) {
             File f = new File(path+historyLocation);
@@ -110,7 +108,7 @@ public class Utils {
                 e1.printStackTrace();
             }
         }catch(EOFException e) {
-            System.err.println("Erreur lors du chargement de la sauvegarde de la game !");
+            
         }catch(Exception e) {
             System.err.println("Erreur lors du chargement de la sauvegarde de la game !");
         }
