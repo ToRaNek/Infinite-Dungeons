@@ -68,10 +68,12 @@ public class Combat implements Serializable {
     
             
             if (playerTurn) {
+                effectPlayer.runEffect(monster);
                 System.out.println(ENDLINE + "Tour du joueur :");
                 block = this.playerPlay();
                 playerTurn = false;
             } else {
+                effectMob.runEffect(player);
                 System.out.println(ENDLINE + "Tour de l'ennemie");
                 this.monsterPlay(block);
                 block = false;
@@ -153,7 +155,6 @@ public class Combat implements Serializable {
                 }
                 
                 
-                
             }else if (rep.equals("2")) {
                 System.out.println("Quelle quantité de dégat voulez vous bloquer ? (Plus le pourcentage est élevé, plus le risque est grand)");
                 int qutBlocked = Utils.readInt();
@@ -162,11 +163,12 @@ public class Combat implements Serializable {
                 if(rand.nextInt(101)<blockChance){
                     System.out.println("Bloquage réussi !");
                     this.monster.damageTaken(this.player.getDmgA()*((qutBlocked/100)+1), this.player.getDmgP()*((qutBlocked/100)+1), this.player);
+                    return true;
                 }else{
                     System.out.println("Bloquage raté !");
                     this.player.damageTaken(this.monster.getDmgA()*(qutBlocked/100), (int)(this.monster.getDmgP()*((float)qutBlocked/100)), this.monster);
+                    return false;
                 }
-                return false;
             }else if (rep.equals("3")) {
                 resp = true;
                 boolean resp2 = false;

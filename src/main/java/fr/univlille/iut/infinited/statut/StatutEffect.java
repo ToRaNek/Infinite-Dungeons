@@ -1,6 +1,8 @@
 package fr.univlille.iut.infinited.statut;
 
 import fr.univlille.iut.infinited.entity.Entity;
+import fr.univlille.iut.infinited.entity.Mob;
+import fr.univlille.iut.infinited.entity.Player;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -54,8 +56,15 @@ public class StatutEffect<T extends Entity> implements Serializable{
     }
 
 
-    public void runEffect(Statut statut){
-        // fonction qui servira à activer les effets
+    public void runEffect(Entity monster){
+            if(effectsStatut.get(Statut.POISON) > 0 ){
+                this.poison(monster);
+            }if(effectsStatut.get(Statut.BURN) > 0 ){
+                this.burn(monster);
+            }if(effectsStatut.get(Statut.DRAIN) > 0 ){
+                this.drain(monster);
+            }
+            downEffectDurationAllTurnEffect();
     }
 
 
@@ -72,8 +81,9 @@ public class StatutEffect<T extends Entity> implements Serializable{
         }
         changement = (int)0.05*caster.getDmgP();
         statChanges[listStatut.indexOf(Statut.POISON)] = changement;
-        int dmg = (int)0.1*caster.getDmgP();
+        int dmg = (int)0.5*caster.getDmgP();
         this.entity.damageTaken(0, dmg, caster);
+        System.out.println("Vous avez fait :" + dmg + " de poison");
     }
 
     private void burn(Entity caster){

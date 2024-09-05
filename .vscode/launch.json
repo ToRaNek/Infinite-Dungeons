@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "InfiniteDungeons",
+            "request": "launch",
+            "mainClass": "fr.univlille.iut.infinited.InfiniteDungeons",
+            "projectName": "groupe-13_803e7acd"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "groupe-13_803e7acd"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "main.java.Main",

@@ -17,6 +17,7 @@ public class Player extends Entity{
         this.armureactuelle = Armors.BRIGANDINE;
         this.inventory.add(Potions.SOINPV);
         this.inventory.add(Potions.FORCEPHYSIQUE);
+        this.inventory.add(Scepter.SCEPTER_POISON);
           
     }
 
