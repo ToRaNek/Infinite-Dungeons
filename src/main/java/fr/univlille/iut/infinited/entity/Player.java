@@ -1,6 +1,7 @@
 package fr.univlille.iut.infinited.entity;
 
 import fr.univlille.iut.infinited.equipement.*;
+import fr.univlille.iut.infinited.statut.StatutEffect;
 
 import java.util.ArrayList;
 
@@ -101,11 +102,11 @@ public class Player extends Entity{
         return this.getName();
     }
 
-    public void usePotion(){
+    public void usePotion(StatutEffect<Player> effetPlayer){
         if(this.potionslastuse!= null){
             switch (this.potionslastuse) {
                 case SOINPV:
-                    this.healTaken(this.potionslastuse.getStatsboost());
+                    effetPlayer.caut(this.potionslastuse.getStatsboost());
                     break;
                 case FORCEPHYSIQUE:
                     this.setDmgA(this.getDmgA() + this.potionslastuse.getStatsboost());
