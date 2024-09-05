@@ -31,7 +31,7 @@ public class InfiniteDungeons {
                             String name = "Robertineux";
                             while(name.length() > 10 || name.length() < 3){
                                 name = "Robert";
-                                System.out.println("Bonjour aventurier.ère, comment vous appellez vous ? (Max : 10 caractères)");
+                                System.out.println("Bonjour aventurier.e, comment vous appellez vous ? (Max : 10 caractères)");
                                 name = Utils.readString();
                             }
                             if(playerNames.contains(name)){
