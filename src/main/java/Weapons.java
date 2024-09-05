@@ -44,10 +44,10 @@ import java.io.Serializable;
         }
 
         public int getAD() {
-            return AD;
+            return (int) (AD*(0.08*Main.difficulty));
         }
 
         public int getAP() {
-            return AP;
+            return (int) (AP*(0.08*Main.difficulty));
         }
 }

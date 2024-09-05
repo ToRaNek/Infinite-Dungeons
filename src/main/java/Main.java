@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    
+    static int difficulty;
     public static void main(String[] args) throws IOException, InterruptedException {
         
         Set<String> playerNames = Utils.loadPlayerNames();
@@ -152,6 +152,7 @@ public class Main {
                 combat = null;
             }
             generalDifficulty ++;
+            difficulty = generalDifficulty;
             int boss = EventsRandom.rdmEventChoice(generalDifficulty, player);
             if(boss == 1){
                 c = new Combat(Boss.randomNewBoss(generalDifficulty), player);
@@ -161,10 +162,11 @@ public class Main {
                 deadPlayer = true;
                 Utils.saveGame(c);
                 System.out.println("Votre partie a été sauvegardé ! A bientôt");
+                System.exit(0);
             }   
         }
     }
-
+    
     public static void gameLoop(Player player) throws IOException {
         Main.gameLoop(player, null);
     }
