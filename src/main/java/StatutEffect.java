@@ -56,6 +56,12 @@ public class StatutEffect<T extends Entity> implements Serializable{
         // fonction qui servira à activer les effets
     }
 
+
+
+    public void applyEffect(Statut statut){
+        this.effectsStatut.put(statut, statut.getDuration());
+    }
+
     private void poison(Entity caster){
         int changement = statChanges[listStatut.indexOf(Statut.POISON)];
         if(changement != 0){
