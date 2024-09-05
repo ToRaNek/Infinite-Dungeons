@@ -109,6 +109,14 @@ public class Combat implements Serializable {
 
     private void monsterPlay(boolean block) {
         int[] totalDamage = new int[]{0};  
+        try{
+            for (int i = 0; i < 100; i++) {
+                System.out.println("\n");
+            }
+            this.monster.monsterToImage();
+        }catch(IOException e ) {
+            System.out.println(this.monster.getName());
+        }
         if(!block){
             totalDamage[0] = this.player.damageTaken(monster.getDmgA(), monster.getDmgP(),this.monster);
             if(this.player.getHp() < 1){
@@ -116,15 +124,6 @@ public class Combat implements Serializable {
                 this.endCombat = true;
                 System.out.println("Perdu");
             }else{
-                    try{
-                        for (int i = 0; i < 100; i++) {
-                            System.out.println("\n");
-                        }
-                        this.monster.monsterToImage();
-                    }catch(IOException e ) {
-                        System.out.println(this.monster.getName());
-                    }
-               
                 Timer timer = new Timer();
                // TimerTask test = new TimerTask() {
                  //   public void run() {
@@ -167,24 +166,34 @@ public class Combat implements Serializable {
                     }
                }else{
                 System.out.println("Vous avez fait 0 dégats à cause du sort sanctuary. Il vous reste : " + this.effectPlayer.getEffectDuration(Statut.SANCTUARY) + " tours !");
-               }
-                    
-                
-                
+               }  
+
             }else if (rep.equals("2")) {
-                System.out.println("Quelle quantité de dégat voulez vous bloquer ? (Plus le pourcentage est élevé, plus le risque est grand)");
-                int qutBlocked = Utils.readInt();
+                System.out.println("Quelle quantité de dégat voulez vous bloquer ? (Plus le pourcentage est élevé, plus le risque et les dégats renvoyé sont élevé)");
+                int qutBlocked =100;
+                do{
+                    if(qutBlocked<10){
+                        System.out.println("Le minimim est de 10%");
+                    }
+                    qutBlocked = Utils.readInt();
+                }while(qutBlocked<10);
                 int blockChance = (100-qutBlocked)+player.getDefA();
                 Random rand = new Random();
                 if(rand.nextInt(101)<blockChance){
                     System.out.println("Bloquage réussi !");
-                    this.monster.damageTaken(this.player.getDmgA()*((qutBlocked/100)), this.player.getDmgP()*((qutBlocked/100)), this.player);
-                    System.out.println("D1 : " + this.player.getDmgA()*((qutBlocked/100)) + " D2 : " + this.player.getDmgP()*((qutBlocked/100)));
+                    if(this.player.getDmgA()>this.player.getDmgP()){
+                        int dammages = this.monster.damageTaken((int)(this.player.getDmgA()*(((float)qutBlocked/100)+1)), 0, this.player);
+                        System.out.println("Le monstre à pris " + dammages + " dégats physique !");
+                    }else{
+                        int dammages = this.monster.damageTaken(0, (int)(this.player.getDmgP()*(((float)qutBlocked/100)+1)), this.player);
+                        System.out.println("Le monstre à pris " + dammages + " dégats magique !");
+                    }
                     return true;
                 }else{
                     System.out.println("Bloquage raté !");
-                    this.player.damageTaken(this.monster.getDmgA()*(qutBlocked/100), (int)(this.monster.getDmgP()*((float)qutBlocked/100)), this.monster);
-                    return false;
+                    int dammages = this.player.damageTaken((int)(this.monster.getDmgA()*(((float)qutBlocked/100)+1)), (int)(this.monster.getDmgP()*(((float)qutBlocked/100)+1)), this.monster);
+                    System.out.println("Le monstre vous à infligez " + dammages + " dégats !");
+                    return true;
                 }
             }else if (rep.equals("3")) {
                 resp = true;
