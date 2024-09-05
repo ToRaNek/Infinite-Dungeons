@@ -22,6 +22,7 @@ public class StatutEffect<T extends Entity> implements Serializable{
         for (int i = 0; i < statChanges.length; i++){
             statChanges[i] = 0;
             listStatut.add(Statut.values()[i]);
+            effectsStatut.put(Statut.values()[i], 0);
         }
         
     }
@@ -60,13 +61,52 @@ public class StatutEffect<T extends Entity> implements Serializable{
         if(changement != 0){
             this.entity.setDefA(entity.getDefA() + changement);
             statChanges[listStatut.indexOf(Statut.POISON)] = 0;
-        }else{
-            this.effectsStatut.put(Statut.POISON, Statut.POISON.getDuration());
         }
         changement = (int)0.05*caster.getDmgP();
         statChanges[listStatut.indexOf(Statut.POISON)] = changement;
         int dmg = (int)0.1*caster.getDmgP();
         this.entity.damageTaken(0, dmg, caster);
+    }
+
+    private void burn(Entity caster){
+        int dmg = (int)0.5*caster.getDmgP();
+        this.entity.damageTaken(0, dmg, caster);
+    }
+
+    private void drain(Entity caster){
+        int dmg = (int)0.5*caster.getDmgP();
+        this.entity.damageTaken(0, dmg, caster);
+        caster.healTaken(dmg);
+    }
+
+    private void caut(int healTaken){
+        if(this.effectsStatut.get(Statut.CAUT) > 0){
+            this.entity.healTaken((int)healTaken/2);
+        }else{
+            this.entity.healTaken(healTaken);
+        }
+    }
+
+    private void resAD(){
+        int changement = statChanges[listStatut.indexOf(Statut.RESAD)];
+        if(changement != 0){
+            this.entity.setDefA(entity.getDefA() - changement);
+            statChanges[listStatut.indexOf(Statut.RESAD)] = 0;
+        }
+        changement = (int)0.1*entity.getDefA();
+        statChanges[listStatut.indexOf(Statut.RESAD)] = changement;
+        this.entity.setDefA(this.entity.getDefA() + changement);
+    }
+
+    private void resAP(){
+        int changement = statChanges[listStatut.indexOf(Statut.RESAP)];
+        if(changement != 0){
+            this.entity.setDefP(entity.getDefP() - changement);
+            statChanges[listStatut.indexOf(Statut.RESAP)] = 0;
+        }
+        changement = (int)0.1*entity.getDefA();
+        statChanges[listStatut.indexOf(Statut.RESAP)] = changement;
+        this.entity.setDefA(this.entity.getDefP() + changement);
     }
 
 
