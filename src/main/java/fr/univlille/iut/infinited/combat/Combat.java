@@ -284,7 +284,7 @@ public class Combat implements Serializable {
         }else{
             this.player.setPotionsLastUse(playerInventoryPotions.get(chociePotions-1));
             System.out.println("Vous avez selectionnez la potions : " + this.player.getPotion().name());;
-            this.player.usePotion(); 
+            this.player.usePotion(effectPlayer); 
             resp4= true;
         }
 
