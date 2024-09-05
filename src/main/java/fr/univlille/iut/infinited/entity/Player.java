@@ -30,14 +30,15 @@ public class Player extends Entity{
     public Classes getClasse() {
         return classe;
     }
+    // ((city.getName() == null) ? "N/A" : city.getName());
     public int getDmgA() {
-        return super.getDmgA() + armeactuelle.getAD();
+        return super.getDmgA() + ((armeactuelle == null) ? scepter.getAD() : armeactuelle.getAD());
     }
     public int getDefA() {
-        return super.getDefA() + armureactuelle.getResPhy();
+        return super.getDefA() +  armureactuelle.getResPhy();
     }
     public int getDmgP() {
-        return super.getDmgP() + armeactuelle.getAP();
+        return super.getDmgP() + ((armeactuelle == null) ? scepter.getAP() : armeactuelle.getAP());
     }
     public int getDefP() {
         return super.getDefP() + armureactuelle.getResMag();
@@ -53,11 +54,11 @@ public class Player extends Entity{
     }
     @Override
     public int getPenA() {
-        return super.getPenA() + armeactuelle.getPenA();
+        return super.getPenA() + ((armeactuelle == null) ? scepter.getPenA() : armeactuelle.getPenA());
     }
     @Override
     public int getPenP() {
-        return super.getPenP() + armeactuelle.getPenP();
+        return super.getPenP() + ((armeactuelle == null) ? scepter.getPenP() : armeactuelle.getPenP());
     }
 
     

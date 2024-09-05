@@ -1,5 +1,6 @@
 package fr.univlille.iut.infinited.equipement;
 
+import fr.univlille.iut.infinited.InfiniteDungeons;
 import fr.univlille.iut.infinited.statut.Statut;
 
 import java.io.Serializable;
@@ -31,6 +32,25 @@ public enum Scepter implements Equipement, Serializable{
         return this.name;
     }
 
+
+    public int getPenA() {
+        return penA;
+    }
+    public int getPenP() {
+        return penP;
+    }
+    public String toString(){
+        return name;
+    }
+
+
+    public int getAD() {
+        return (int) (AD*(0.08* InfiniteDungeons.difficulty));
+    }
+
+    public int getAP() {
+        return (int) (AP*(0.08*InfiniteDungeons.difficulty));
+    }
 
     public Statut getStatut() {
         return this.statut;
