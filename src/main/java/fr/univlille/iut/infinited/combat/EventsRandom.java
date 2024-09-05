@@ -35,7 +35,7 @@ public class EventsRandom {
                 }else if(rdmNumber >=34 && rdmNumber <= 66){
                     eventsChosen.add("Camp");
                 }else if(rdmNumber >=67){
-                    eventsChosen.add("fr.univlille.iut.infinited.entity.Boss");
+                    eventsChosen.add("Boss");
                 }
             }
             String rep = "";
@@ -48,7 +48,7 @@ public class EventsRandom {
                     shop(player);
                 } else if(eventsChosen.get(0).equals("Camp")){
                     camp(player);
-                } else if(eventsChosen.get(0).equals("fr.univlille.iut.infinited.entity.Boss")){
+                } else if(eventsChosen.get(0).equals("Boss")){
                     return boss();
                 }
             }else{
@@ -56,7 +56,7 @@ public class EventsRandom {
                     shop(player);
                 } else if(eventsChosen.get(1).equals("Camp")){
                     camp(player);
-                } else if(eventsChosen.get(1).equals("fr.univlille.iut.infinited.entity.Boss")){
+                } else if(eventsChosen.get(1).equals("Boss")){
                     return boss();
                 }
             }
