@@ -1,11 +1,12 @@
 package main.java;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class StatutEffect<T extends Entity> {
+public class StatutEffect<T extends Entity> implements Serializable{
     
 
     private T entity;
