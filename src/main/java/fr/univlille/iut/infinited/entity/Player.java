@@ -37,6 +37,7 @@ public class Player extends Entity{
     public int getDmgA() {
         return super.getDmgA() + ((armeactuelle == null) ? scepter.getAD() : armeactuelle.getAD());
     }
+
     public int getDefA() {
         return super.getDefA() +  armureactuelle.getResPhy();
     }
@@ -133,4 +134,5 @@ public class Player extends Entity{
             this.inventory.remove(this.potionslastuse);
         }
     }
+
 }

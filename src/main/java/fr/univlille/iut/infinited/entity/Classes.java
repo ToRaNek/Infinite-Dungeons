@@ -3,10 +3,10 @@ package fr.univlille.iut.infinited.entity;
 import java.io.Serializable;
 
 public enum Classes implements Serializable{
-    VOLEUR("Voleur",11,4,0,0,0,0,10,25),
-    BERSERKER("Berserker",15,0,10,0,0,0,1,15),
-    MAGE("Mage",0,15,0,10,0,0,5,15),
-    PALADIN("Paladin",7,8,5,5,0,0,2,15);
+    VOLEUR("Voleur",6,4,0,0,0,0,10,25),
+    BERSERKER("Berserker",8,0,4,0,0,0,1,15),
+    MAGE("Mage",0,8,0,4,0,0,5,15),
+    PALADIN("Paladin",4,8,2,2,0,0,2,15);
 
     private String name; 
     private int degatPhy;
