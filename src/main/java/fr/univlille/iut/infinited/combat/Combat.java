@@ -85,14 +85,14 @@ public class Combat implements Serializable {
             this.player.getInventory().add(Potions.SOINPV);
             System.out.println("Vous avez récupéré une potion du monstre.");
         }else if(nombreRandom>=11 && nombreRandom <=15){
-            this.player.getInventory().add(Weapons.values()[rand.nextInt(Weapons.values().length+1)]);
+            this.player.getInventory().add(Weapons.values()[rand.nextInt(Weapons.values().length)]);
             System.out.println("Vous avez récupéré une arme du monstre.");
         }else if(nombreRandom>=16 && nombreRandom <=20){
-            this.player.getInventory().add(Armors.values()[rand.nextInt(Armors.values().length+1)]);
+            this.player.getInventory().add(Armors.values()[rand.nextInt(Armors.values().length)]);
             System.out.println("Vous avez récupéré une armure du monstre.");
         }else if (nombreRandom >= 21 && nombreRandom <= 25) {
-            this.player.getInventory().add(Scepter.values()[rand.nextInt(Scepter.values().length+1)]);
-            System.out.println("Vous avez récupéré une armure du monstre.");
+            this.player.getInventory().add(Scepter.values()[rand.nextInt(Scepter.values().length)]);
+            System.out.println("Vous avez récupéré une sceptre du monstre.");
         }
         return !(this.player.getHp() > 0);
     }
@@ -133,7 +133,7 @@ public class Combat implements Serializable {
             +"\n ⚔️ : " + this.player.getDmgA()+ " (+ " +this.player.getPenA() + "%penArm)    🪄 : " + this.player.getDmgP()+ " (+ " + this.player.getPenP() +"%penMag)\t  ⚔️ : " + this.monster.getDmgA()+ " (+ " +this.monster.getPenA() + " %penArm)     🪄 : " + this.monster.getDmgP() + " (+" + this.monster.getPenP() + "%penMag)"
             +"\n 🛡️ : " + this.player.getDefA()+ "                   ⭐: " + this.player.getDefP()+"\t                  🛡️ : " + this.monster.getDefA()+ "                   ⭐: " + this.monster.getDefP()
             +"\n 🪙 : " + this.player.getGold());
-            System.out.print("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer fr.univlille.iut.infinited.equipement.Equipement       4 - fr.univlille.iut.infinited.equipement.Potions");
+            System.out.print("\nQue voulez vous faire ?" + ENDLINE + "1 - Attaque        2 - Bloquer        3 - Changer Equipement       4 - Potions");
             if(player.getScepter() != null) {
                 System.out.print("    5 - Lancer un sort");
             }
@@ -155,6 +155,17 @@ public class Combat implements Serializable {
                 
                 
             }else if (rep.equals("2")) {
+                System.out.println("Quelle quantité de dégat voulez vous bloquer ? (Plus le pourcentage est élevé, plus le risque est grand)");
+                int qutBlocked = Utils.readInt();
+                int blockChance = (100-qutBlocked)+player.getDefA();
+                Random rand = new Random();
+                if(rand.nextInt(101)<blockChance){
+                    System.out.println("Bloquage réussi !");
+                    this.monster.damageTaken(this.player.getDmgA()*((qutBlocked/100)+1), this.player.getDmgP()*((qutBlocked/100)+1), this.player);
+                }else{
+                    System.out.println("Bloquage raté !");
+                    this.player.damageTaken(this.monster.getDmgA()*(qutBlocked/100), this.monster.getDmgP()*(qutBlocked/100), this.monster);
+                }
                 return true;
             }else if (rep.equals("3")) {
                 resp = true;
