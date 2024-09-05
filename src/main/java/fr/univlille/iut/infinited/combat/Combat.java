@@ -101,7 +101,7 @@ public class Combat implements Serializable {
         int[] totalDamage = new int[]{0};  
         if(!block){
             totalDamage[0] = this.player.damageTaken(monster.getDmgA(), monster.getDmgP(),this.monster);
-            if(this.player.getHp() <= 0){
+            if(this.player.getHp() < 1){
                 this.player.setHp(0);
                 this.endCombat = true;
                 System.out.println("Perdu");
@@ -143,7 +143,7 @@ public class Combat implements Serializable {
             if(rep.equals("1")){
                
                     totalDamage = this.monster.damageTaken(this.player.getDmgA(), this.player.getDmgP(),this.player);
-                if(this.monster.getHp() <= 0){
+                if(this.monster.getHp() < 1){
                     this.endCombat = true;
                     System.out.println("Gagné");
                     resp= true;
@@ -164,9 +164,9 @@ public class Combat implements Serializable {
                     this.monster.damageTaken(this.player.getDmgA()*((qutBlocked/100)+1), this.player.getDmgP()*((qutBlocked/100)+1), this.player);
                 }else{
                     System.out.println("Bloquage raté !");
-                    this.player.damageTaken(this.monster.getDmgA()*(qutBlocked/100), this.monster.getDmgP()*(qutBlocked/100), this.monster);
+                    this.player.damageTaken(this.monster.getDmgA()*(qutBlocked/100), (int)(this.monster.getDmgP()*((float)qutBlocked/100)), this.monster);
                 }
-                return true;
+                return false;
             }else if (rep.equals("3")) {
                 resp = true;
                 boolean resp2 = false;
