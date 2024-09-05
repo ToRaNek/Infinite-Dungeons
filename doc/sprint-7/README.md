@@ -29,7 +29,7 @@ on a proposé plusieurs solutions pour améliorer la communication :
     - D'utiliser une messagerie
 
    
-On pourrais savoir si la communication s'améliore si on on se sent écouté 
+On pourrais savoir si la communication s'améliore si on se sent écouté 
 et non ignoré
 
 On a essayé : D'utiliser une messagerie
