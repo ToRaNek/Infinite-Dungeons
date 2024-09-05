@@ -3,7 +3,9 @@
 ## Démo + Panification du sprint suivant :
     
 ### Panification sprint suivant :
-
+    - Mise en place des status
+    - Mise en place des sceptre
+    - Résolution de bug
     
 ### Fait durant le sprint :
     - Ajout des status
