@@ -7,6 +7,7 @@
     - Ajout des sceptres par status
     - Equilibrage des boss
     - Résoudre des bugs
+    - Amélioration des armes
     
 ### Fait durant le sprint :
     - Pénétration de l'armure
