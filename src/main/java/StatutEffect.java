@@ -85,7 +85,7 @@ public class StatutEffect<T extends Entity> implements Serializable{
         caster.healTaken(dmg);
     }
 
-    private void caut(int healTaken){
+    public void caut(int healTaken){
         if(this.effectsStatut.get(Statut.CAUT) > 0){
             this.entity.healTaken((int)healTaken/2);
         }else{
