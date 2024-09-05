@@ -172,7 +172,8 @@ public class Combat implements Serializable {
                 Random rand = new Random();
                 if(rand.nextInt(101)<blockChance){
                     System.out.println("Bloquage réussi !");
-                    this.monster.damageTaken(this.player.getDmgA()*((qutBlocked/100)+1), this.player.getDmgP()*((qutBlocked/100)+1), this.player);
+                    this.monster.damageTaken(this.player.getDmgA()*((qutBlocked/100)), this.player.getDmgP()*((qutBlocked/100)), this.player);
+                    System.out.println("D1 : " + this.player.getDmgA()*((qutBlocked/100)) + " D2 : " + this.player.getDmgP()*((qutBlocked/100)));
                     return true;
                 }else{
                     System.out.println("Bloquage raté !");

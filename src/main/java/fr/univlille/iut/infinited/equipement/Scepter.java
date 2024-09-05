@@ -8,7 +8,7 @@ import java.io.Serializable;
 public enum Scepter implements Equipement, Serializable{
 
 
-    SCEPTER_POISON("Sceptre de Poison", 50, 50,0,0, Statut.POISON),
+    SCEPTER_POISON("Sceptre de Poison", 5, 10,0,0, Statut.POISON),
     SCEPTER_FIRE("Sceptre de feu", 5,0 ,0 ,0, Statut.BURN);
 
     private String name;

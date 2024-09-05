@@ -81,7 +81,7 @@ public class StatutEffect<T extends Entity> implements Serializable{
         }
         changement = (int)0.05*caster.getDmgP();
         statChanges[listStatut.indexOf(Statut.POISON)] = changement;
-        int dmg = (int)(0.5*caster.getDmgP());
+        int dmg = (int)(0.1*caster.getDmgP());
         this.entity.damageTaken(0, dmg, caster);
         System.out.println("Vous avez fait :" + dmg + " de poison");
     }
