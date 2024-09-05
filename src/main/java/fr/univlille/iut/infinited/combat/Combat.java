@@ -75,7 +75,7 @@ public class Combat implements Serializable {
                 playerTurn = false;
             } else {
                 effectMob.runEffect(player);
-                System.out.println(ENDLINE + "Tour de l'ennemie");
+                System.out.println(ENDLINE + "Tour de l'ennemi");
                 this.monsterPlay(block);
                 block = false;
                 playerTurn = true;
@@ -120,7 +120,7 @@ public class Combat implements Serializable {
                 Timer timer = new Timer();
                // TimerTask test = new TimerTask() {
                  //   public void run() {
-                        System.out.println("\n Vous avez reçu " + totalDamage[0] + " dégats du monstre.");
+                        System.out.println("\n Vous avez reçu " + totalDamage[0] + " dégat(s) du monstre.");
                    // }
                 //};
                 //timer.schedule(test, 15L);
