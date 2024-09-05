@@ -51,11 +51,11 @@ public enum Scepter implements Equipement, Serializable{
 
 
     public int getAD() {
-        return (int) (AD*(0.08* InfiniteDungeons.difficulty));
+        return (int) (AD*(0.8* InfiniteDungeons.difficulty)) + this.AD;
     }
 
     public int getAP() {
-        return (int) (AP*(0.08*InfiniteDungeons.difficulty));
+        return (int) (AP*(0.8*InfiniteDungeons.difficulty)) + this.AD;
     }
 
     public Statut getStatut() {
