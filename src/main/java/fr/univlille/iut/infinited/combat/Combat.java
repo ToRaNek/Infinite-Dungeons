@@ -1,5 +1,6 @@
 package fr.univlille.iut.infinited.combat;
 
+import fr.univlille.iut.infinited.statut.Statut;
 import fr.univlille.iut.infinited.statut.StatutEffect;
 import fr.univlille.iut.infinited.entity.Entity;
 import fr.univlille.iut.infinited.entity.Player;
@@ -153,16 +154,20 @@ public class Combat implements Serializable {
             rep = Utils.readString();
             
             if(rep.equals("1")){
-               
+               if(this.effectPlayer.getDurationEffect(Statut.SANCTUARY) <= 0){
                     totalDamage = this.monster.damageTaken(this.player.getDmgA(), this.player.getDmgP(),this.player);
-                if(this.monster.getHp() < 1){
-                    this.endCombat = true;
-                    System.out.println("Gagné");
-                    resp= true;
-                }else{
-                    System.out.println("Vous avez fait " + totalDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
-                    resp = true;
-                }
+                    if(this.monster.getHp() < 1){
+                        this.endCombat = true;
+                        System.out.println("Gagné");
+                        resp= true;
+                    }else{
+                        System.out.println("Vous avez fait " + totalDamage + " dégats au monstre. Il a " + this.monster.getHp() + "hp");
+                        resp = true;
+                    }
+               }else{
+                System.out.println("Vous avez fait 0 dégats à cause du sort sanctuary. Il vous reste : " + this.effectPlayer.getEffectDuration(Statut.SANCTUARY) + " tours !");
+               }
+                    
                 
                 
             }else if (rep.equals("2")) {

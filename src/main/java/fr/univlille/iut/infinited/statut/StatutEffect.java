@@ -18,6 +18,11 @@ public class StatutEffect<T extends Entity> implements Serializable{
     private int[] statChanges;
     private ArrayList<Statut> listStatut;
 
+
+    public int getDurationEffect(Statut statut){
+        return this.effectsStatut.get(statut);
+    }
+
     public StatutEffect(T entity) {
         this.entity = entity;
         this.effectsStatut = new HashMap<Statut, Integer>();
