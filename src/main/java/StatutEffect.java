@@ -110,11 +110,27 @@ public class StatutEffect<T extends Entity> implements Serializable{
             this.entity.setDefP(entity.getDefP() - changement);
             statChanges[listStatut.indexOf(Statut.RESAP)] = 0;
         }
-        changement = (int)0.1*entity.getDefA();
+        changement = (int)0.1*entity.getDefP();
         statChanges[listStatut.indexOf(Statut.RESAP)] = changement;
-        this.entity.setDefA(this.entity.getDefP() + changement);
+        this.entity.setDefP(this.entity.getDefP() + changement);
     }
 
+    private void rage(){
+        int changement = statChanges[listStatut.indexOf(Statut.RAGE)];
+        if(changement != 0){
+            this.entity.setDmgA(entity.getDmgA() - changement);
+            statChanges[listStatut.indexOf(Statut.RAGE)] = 0;
+        }
+        changement = (int)0.1*entity.getDmgA();
+        statChanges[listStatut.indexOf(Statut.RAGE)] = changement;
+        this.entity.setDmgA(this.entity.getDmgA() + changement);
+    }
+
+    private void sanctuary(){
+        int heal = (int)(this.entity.getDmgP()*1.5);
+        this.caut(heal);
+    }
+    
 
 
 }
