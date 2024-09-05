@@ -102,7 +102,7 @@ public class InfiniteDungeons {
         System.out.println("Partie sauvegardé: ");
        
         for(int i = 0; i<combats.size(); i++) {
-            System.out.println(" " + (i+1) + ". fr.univlille.iut.infinited.combat.Combat de " + combats.get(i).getPlayer().getName());
+            System.out.println(" " + (i+1) + "Combat de " + combats.get(i).getPlayer().getName());
         }
     }
 
