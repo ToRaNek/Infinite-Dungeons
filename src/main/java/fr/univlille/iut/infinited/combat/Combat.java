@@ -235,7 +235,11 @@ public class Combat implements Serializable {
             playerInventoryWeapons.addAll(this.player.getInventory().stream().filter(equipement -> equipement instanceof Weapons).map(equipement -> (Weapons) equipement).toList());
             playerInventoryWeapons.addAll(this.player.getInventory().stream().filter(equipement -> equipement instanceof Scepter).map(equipement -> (Scepter) equipement).toList());
             for (int i = 0; i < playerInventoryWeapons.size(); i++){
-                System.out.println("" + (i+1) + " " + playerInventoryWeapons.get(i));
+                if(playerInventoryWeapons.get(i) instanceof Weapons){
+                    Weapons w = (Weapons) playerInventoryWeapons.get(i);
+                    System.out.println("" + (i+1) + " " + w + " AD : " + w.getAD() + " AP : " + w.getAP());
+                }
+                
             }
             boolean resp3 = false;
             while(!resp3){
@@ -248,7 +252,10 @@ public class Combat implements Serializable {
             System.out.println("Choisissez l'armure que vous souhaitez utiliser");
             List<Armors> playerInventoryArmors = this.player.getInventory().stream().filter(equipement -> equipement instanceof Armors).map(equipement -> (Armors) equipement).toList();
             for (int i = 0; i < playerInventoryArmors.size(); i++){
-                System.out.println("" + (i+1) + " " +  playerInventoryArmors.get(i));
+                if(playerInventoryArmors.get(i) instanceof Armors){
+                    Armors a = (Armors) playerInventoryArmors.get(i);
+                    System.out.println("" + (i+1) + " " +  a + " resAD : " + a.getResPhy() + " resAP : " + a.getResMag());
+                }
             }
             boolean resp4 = false;
             while(!resp4){
