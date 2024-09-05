@@ -64,7 +64,14 @@ public class Combat implements Serializable {
     public boolean launchCombat() throws IOException{
         boolean playerTurn = this.faster();
         boolean block = false;
-        
+        try{
+            for (int i = 0; i < 100; i++) {
+                System.out.println("\n");
+            }
+            this.monster.monsterToImage();
+        }catch(IOException e ) {
+            System.out.println(this.monster.getName());
+        }
         while(!this.endCombat){
     
             
@@ -109,13 +116,14 @@ public class Combat implements Serializable {
                 this.endCombat = true;
                 System.out.println("Perdu");
             }else{
-                if(player.getSpeed() <= monster.getSpeed()) {
                     try{
+                        for (int i = 0; i < 100; i++) {
+                            System.out.println("\n");
+                        }
                         this.monster.monsterToImage();
                     }catch(IOException e ) {
                         System.out.println(this.monster.getName());
-                    } 
-                }
+                    }
                
                 Timer timer = new Timer();
                // TimerTask test = new TimerTask() {
@@ -134,13 +142,6 @@ public class Combat implements Serializable {
         int totalDamage = 0;
         boolean resp = false;
         String rep;
-        if(player.getSpeed() > monster.getSpeed()) {
-            try{
-                this.monster.monsterToImage();
-            }catch(IOException e ) {
-                System.out.println(this.monster.getName());
-            } 
-        }
         while(!resp){
             System.out.println("\nVos Statistiques\t                         Statistiques du monstre\n 🪶 : "+ this.player.getSpeed()+ "                 ❤️ : "+ this.player.getHp() +"                  🪶 : "+ this.monster.getSpeed()+ "                 ❤️ : "+ this.monster.getHp()
             +"\n ⚔️ : " + this.player.getDmgA()+ " (+ " +this.player.getPenA() + "%penArm)    🪄 : " + this.player.getDmgP()+ " (+ " + this.player.getPenP() +"%penMag)\t  ⚔️ : " + this.monster.getDmgA()+ " (+ " +this.monster.getPenA() + " %penArm)     🪄 : " + this.monster.getDmgP() + " (+" + this.monster.getPenP() + "%penMag)"

@@ -46,10 +46,10 @@ import java.io.Serializable;
         }
 
         public int getAD() {
-            return (int) (AD*(0.08* InfiniteDungeons.difficulty)) + this.AD;
+            return (int) (AD*(0.05* InfiniteDungeons.difficulty)) + this.AD;
         }
 
         public int getAP() {
-            return (int) (AP*(0.08*InfiniteDungeons.difficulty)) +this.AD;
+            return (int) (AP*(0.05*InfiniteDungeons.difficulty)) +this.AD;
         }
 }
