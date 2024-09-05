@@ -9,6 +9,13 @@
             "name": "InfiniteDungeons",
             "request": "launch",
             "mainClass": "fr.univlille.iut.infinited.InfiniteDungeons",
+            "projectName": "InfiniteDungeons"
+        },
+        {
+            "type": "java",
+            "name": "InfiniteDungeons",
+            "request": "launch",
+            "mainClass": "fr.univlille.iut.infinited.InfiniteDungeons",
             "projectName": "groupe-13_803e7acd"
         },
         {
