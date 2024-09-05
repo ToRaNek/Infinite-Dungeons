@@ -26,22 +26,22 @@ public class Mob extends Entity{
         int longueur = listMob.length;
         int num = rdm.nextInt(longueur);
         int hp =  (int)((80*rdm.nextInt(101)/100 + 20) *(0.05*difficulty));
-        int defA =  (int)((0*rdm.nextInt(101)/100 + 10) *0.03*difficulty);
-        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *0.03*difficulty);
+        int defA =  (int)((0*rdm.nextInt(101)/100 + 10) *(0.03*difficulty));
+        int defP =  (int)((0*rdm.nextInt(101)/100 + 10) *(0.03*difficulty));
         int dmgA;
         int dmgP;
         int penA;
         int penP;
         if(rdm.nextInt(2)==0){
-            dmgA = (int)((5*rdm.nextInt(101)/100 + 5) *0.08*difficulty);
+            dmgA = (int)((5*rdm.nextInt(101)/100 + 5) *(0.08*difficulty));
             dmgP = 0;
-            penA = (int)((3*rdm.nextInt(101)/100 + 1) *0.08*difficulty);
+            penA = (int)((3*rdm.nextInt(101)/100 + 1) *(0.01*difficulty));
             penP = 0;
         }else{
             dmgA = 0;
-            dmgP = (int)((5*rdm.nextInt(101)/100 + 5) *0.08*difficulty);
+            dmgP = (int)((5*rdm.nextInt(101)/100 + 5) *(0.08*difficulty));
             penA = 0;
-            penP = (int)((3*rdm.nextInt(101)/100 + 1) *0.08*difficulty);
+            penP = (int)((3*rdm.nextInt(101)/100 + 1) *(0.01*difficulty));
 
         }
         int gold =  (int)((10*rdm.nextInt(101)/100 + 5) *0.25*difficulty);
@@ -49,7 +49,7 @@ public class Mob extends Entity{
 
         return newMob;
     }
-
+    @Override
     public void monsterToImage() throws IOException{
         String path = System.getProperty("user.dir") + File.separator + "res" + File.separator + "mobs" + File.separator + "ansi" +  File.separator;
         Utils.printAnsi(new File(path + this.type.getPath()));
