@@ -272,7 +272,7 @@ public class Combat implements Serializable {
     public boolean choiceWeapon(List<Equipement> playerInventoryWeapons) {
         boolean resp3 = false;
         int choiceWeapon = Utils.readInt();
-        if (choiceWeapon-1 <  0 || choiceWeapon-1 >  player.getInventory().size() ){
+        if (choiceWeapon-1 <  0 || choiceWeapon-1 > playerInventoryWeapons.size() ){
             System.out.println("Choississez une option valide en notant le numéro correspondant."); 
         }else{
             if(playerInventoryWeapons.get(choiceWeapon-1) instanceof Weapons) {
@@ -294,7 +294,7 @@ public class Combat implements Serializable {
     public boolean choiceArmor(List<Armors> playerInventoryArmors) {
         boolean resp4 = false;
         int chocieArmor = Utils.readInt();
-        if (chocieArmor-1 <  0 || chocieArmor-1 >  player.getInventory().size() ){
+        if (chocieArmor-1 <  0 || chocieArmor > playerInventoryArmors.size() ){
             System.out.println("Choississez une option valide en notant le numéro correspondant."); 
         }else{
             this.player.setArmureActuelle(playerInventoryArmors.get(chocieArmor-1));
@@ -308,7 +308,8 @@ public class Combat implements Serializable {
     public boolean choicePotions(List<Potions> playerInventoryPotions) {
         boolean resp4 = false;
         int chociePotions = Utils.readInt();
-        if (chociePotions-1 <  0 || chociePotions-1 >  player.getInventory().size() ){
+        
+        if (chociePotions-1 <  0 || chociePotions > playerInventoryPotions.size() ){
             System.out.println("Choississez une option valide en notant le numéro correspondant."); 
         }else{
             this.player.setPotionsLastUse(playerInventoryPotions.get(chociePotions-1));
