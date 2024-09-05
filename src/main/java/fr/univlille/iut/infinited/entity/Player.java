@@ -5,7 +5,16 @@ import fr.univlille.iut.infinited.statut.StatutEffect;
 
 import java.util.ArrayList;
 
+
 public class Player extends Entity{
+
+    private ArrayList<Equipement> inventory;
+    private Weapons armeactuelle;
+    private Armors armureactuelle;
+    private Scepter scepter;
+    private Potions potionslastuse;
+    private Classes classe;
+
     public Player(String name, int hpMax, Classes classe) {
         super(name, hpMax, classe.getDegatPhy(), classe.getDegatMag(), classe.getResPhy(), classe.getResMag(), classe.getPenPhy(), classe.getPenMag(), classe.getSpeed(), classe.getGold());
         this.inventory = new ArrayList<Equipement>();
@@ -21,13 +30,6 @@ public class Player extends Entity{
           
     }
 
-    private ArrayList<Equipement> inventory;
-    private Weapons armeactuelle;
-    private Armors armureactuelle;
-    private Scepter scepter;
-    private Potions potionslastuse;
-    private Classes classe;
-    
     public Classes getClasse() {
         return classe;
     }

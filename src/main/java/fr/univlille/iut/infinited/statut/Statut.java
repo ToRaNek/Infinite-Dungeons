@@ -8,9 +8,7 @@ public enum Statut {
     RESAD("Boost résistance physique", 3, true, true,true, "Boost la résitance physique de 10% de la cible"),
     RESAP("Boost résistance magique", 3, true, true,true, "Boost la résitance magique de 10% de la cible"),
     RAGE("Furie", 3, true, true,true, "La cible rentre en furie et augmente son AttP de 10%"),
-    SANCTUARY("Sanctuaire", 2, true, true,true, "La cible ne peut plus attaquer mais ce soigne de 150% de son attM"),
-    SWIFT("Rapidité", 1, true, true, false,"La cible à 50% de chance d'éviter la prochaine attaque"),
-    CRITIC("Critique", 1, true, true,false, "La cible à 50% de chance d'avoir une attaque faisant 150% de dégats la prochaine fois");
+    SANCTUARY("Sanctuaire", 2, true, true,true, "La cible ne peut plus attaquer mais ce soigne de 150% de son attM");
 
         private String name;
         private int duration;

@@ -8,8 +8,14 @@ import java.io.Serializable;
 public enum Scepter implements Equipement, Serializable{
 
 
-    SCEPTER_POISON("Sceptre de Poison", 5, 10,0,0, Statut.POISON),
-    SCEPTER_FIRE("Sceptre de feu", 5,0 ,0 ,0, Statut.BURN);
+    SCEPTER_POISON("Sceptre de Poison", 5, 10,0,10, Statut.POISON),
+    SCEPTER_FIRE("Sceptre de feu", 5, 10,0,10, Statut.BURN),
+    SCEPTER_DRAIN("Sceptre de Drain", 5, 10,0,10, Statut.DRAIN),
+    SCEPTER_CAUT("Sceptre de cautérisation", 5, 10,0,10, Statut.CAUT),
+    SCEPTER_RESAD("Sceptre de resistance physique", 5, 10,0,10, Statut.RESAD),
+    SCEPTER_RESAP("Sceptre de resistance magique", 5, 10,0,10, Statut.RESAP),
+    SCEPTER_RAGE("Sceptre de furie", 5, 10,0,10, Statut.RAGE),
+    SCEPTER_SANCTUARY("Sceptre de sanctuaire", 5, 10,0,10, Statut.SANCTUARY);
 
     private String name;
     private int AD;
